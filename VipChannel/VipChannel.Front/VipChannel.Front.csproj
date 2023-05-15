@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8F0015A-DDB8-4B77-B6B7-453ECF95C4AE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VipChannel.Front</RootNamespace>
+    <AssemblyName>VipChannel.Front</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Controles Standar">
+      <HintPath>..\Controles Standar\obj\Debug\Controles Standar.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants\FormCreateNames.cs" />
+    <Compile Include="Constants\FormListNames.cs" />
+    <Compile Include="Definitions\FrmTechnical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\FrmTechnical.Designer.cs">
+      <DependentUpon>FrmTechnical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\FrmGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\FrmGeneral.Designer.cs">
+      <DependentUpon>FrmGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\FrmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\FrmEmployee.Designer.cs">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\FrmRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\FrmRole.Designer.cs">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\HashByte.cs" />
+    <Compile Include="Maintenance\FrmAvenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\FrmAvenue.Designer.cs">
+      <DependentUpon>FrmAvenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\Sucursal\FrmSaleBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\Sucursal\FrmSaleBox.Designer.cs">
+      <DependentUpon>FrmSaleBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\Sucursal\FrmSucursalList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\Sucursal\FrmSucursalList.Designer.cs">
+      <DependentUpon>FrmSucursalList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\Voucher\FrmSaleBoxList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\Voucher\FrmSaleBoxList.Designer.cs">
+      <DependentUpon>FrmSaleBoxList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\Voucher\FrmVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\Voucher\FrmVoucher.Designer.cs">
+      <DependentUpon>FrmVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan\FrmPlanPersonalizado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\FrmPlanPersonalizado.Designer.cs">
+      <DependentUpon>FrmPlanPersonalizado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan\FrmPlanCable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\FrmPlanCable.Designer.cs">
+      <DependentUpon>FrmPlanCable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan\FrmPlanPersonalizadoList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\FrmPlanPersonalizadoList.Designer.cs">
+      <DependentUpon>FrmPlanPersonalizadoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan\FrmPlanInternet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\FrmPlanInternet.Designer.cs">
+      <DependentUpon>FrmPlanInternet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan\FrmPlanCableList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\FrmPlanCableList.Designer.cs">
+      <DependentUpon>FrmPlanCableList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan\FrmPlanInternetList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan\FrmPlanInternetList.Designer.cs">
+      <DependentUpon>FrmPlanInternetList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Maintenance\FrmZone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\FrmZone.Designer.cs">
+      <DependentUpon>FrmZone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Service\FrmService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Service\FrmService.Designer.cs">
+      <DependentUpon>FrmService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\Service\FrmServiceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\Service\FrmServiceList.Designer.cs">
+      <DependentUpon>FrmServiceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\FrmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FrmCustomer.Designer.cs">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\FrmCustomerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FrmCustomerList.Designer.cs">
+      <DependentUpon>FrmCustomerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\FrmCustomerCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\FrmCustomerCompany.Designer.cs">
+      <DependentUpon>FrmCustomerCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\Scheduling\FrmCustomerScheduling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\Scheduling\FrmCustomerScheduling.Designer.cs">
+      <DependentUpon>FrmCustomerScheduling.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Definitions\FrmTechnical.resx">
+      <DependentUpon>FrmTechnical.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\FrmGeneral.resx">
+      <DependentUpon>FrmGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\FrmEmployee.resx">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\FrmRole.resx">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\FrmAvenue.resx">
+      <DependentUpon>FrmAvenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\Sucursal\FrmSaleBox.resx">
+      <DependentUpon>FrmSaleBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\Sucursal\FrmSucursalList.resx">
+      <DependentUpon>FrmSucursalList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\Voucher\FrmSaleBoxList.resx">
+      <DependentUpon>FrmSaleBoxList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\Voucher\FrmVoucher.resx">
+      <DependentUpon>FrmVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\FrmPlanPersonalizado.resx">
+      <DependentUpon>FrmPlanPersonalizado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\FrmPlanCable.resx">
+      <DependentUpon>FrmPlanCable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\FrmPlanPersonalizadoList.resx">
+      <DependentUpon>FrmPlanPersonalizadoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\FrmPlanInternet.resx">
+      <DependentUpon>FrmPlanInternet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\FrmPlanCableList.resx">
+      <DependentUpon>FrmPlanCableList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\FrmPlanInternetList.resx">
+      <DependentUpon>FrmPlanInternetList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Maintenance\FrmZone.resx">
+      <DependentUpon>FrmZone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Service\FrmService.resx">
+      <DependentUpon>FrmService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\Service\FrmServiceList.resx">
+      <DependentUpon>FrmServiceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FrmCustomer.resx">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FrmCustomerList.resx">
+      <DependentUpon>FrmCustomerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\FrmCustomerCompany.resx">
+      <DependentUpon>FrmCustomerCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\Scheduling\FrmCustomerScheduling.resx">
+      <DependentUpon>FrmCustomerScheduling.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.Avenue.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.Role.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.SaleBox.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.SelectResponse.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.Service.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.Sucursal.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vCliente.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vEmpleado.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.Voucher.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanCable.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanesVenta.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanInternet.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanPersonalizado.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vSucursalPorCaja.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vTecnico.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vTipoComprobantePorCaja.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.Zone.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\VipChannel.Application\VipChannel.Application.csproj">
+      <Project>{07fca613-6c1f-400b-8fbc-503f9d5ca63d}</Project>
+      <Name>VipChannel.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VipChannel.Data\VipChannel.Data.csproj">
+      <Project>{5a066d3c-35a3-4bdf-a6d7-b19ee8c8485d}</Project>
+      <Name>VipChannel.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VipChannel.Domain\VipChannel.Domain.csproj">
+      <Project>{e4caff11-e21e-4d3b-9d65-c861f06f722b}</Project>
+      <Name>VipChannel.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VipChannel.Enums\VipChannel.Enums.csproj">
+      <Project>{767F1B92-5EB0-4FF0-A6C7-5FDCD67D631A}</Project>
+      <Name>VipChannel.Enums</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Foto.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
