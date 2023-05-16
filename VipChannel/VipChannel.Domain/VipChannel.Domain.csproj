@@ -150,6 +150,9 @@
     <Compile Include="Entity\vPlanPersonalizado.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\vServiciosVenta.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\vSucursalPorCaja.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>

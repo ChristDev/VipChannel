@@ -303,6 +303,7 @@
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanesVenta.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanInternet.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanPersonalizado.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vServiciosVenta.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vSucursalPorCaja.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vTecnico.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vTipoComprobantePorCaja.datasource" />

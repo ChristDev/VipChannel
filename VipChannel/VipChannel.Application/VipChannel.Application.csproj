@@ -72,9 +72,10 @@
     <Compile Include="View\ClienteView.cs" />
     <Compile Include="View\EmpleadoView.cs" />
     <Compile Include="View\PlanCableView.cs" />
-    <Compile Include="View\PlanesView.cs" />
+    <Compile Include="View\PlanesVentaView.cs" />
     <Compile Include="View\PlanInternetView.cs" />
     <Compile Include="View\PlanPersonalizadoView.cs" />
+    <Compile Include="View\ServiciosVentaView.cs" />
     <Compile Include="View\SucursalPorCajaView.cs" />
     <Compile Include="View\TecnicoView.cs" />
     <Compile Include="View\TipoComprobantePorCajaView.cs" />

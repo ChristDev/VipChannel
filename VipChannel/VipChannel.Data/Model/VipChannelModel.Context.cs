@@ -64,5 +64,6 @@ namespace VipChannel.Data.Model
         public virtual DbSet<vTipoComprobantePorCaja> vTipoComprobantePorCajas { get; set; }
         public virtual DbSet<vCliente> vClientes { get; set; }
         public virtual DbSet<vPlanesVenta> vPlanesVentas { get; set; }
+        public virtual DbSet<vServiciosVenta> vServiciosVentas { get; set; }
     }
 }

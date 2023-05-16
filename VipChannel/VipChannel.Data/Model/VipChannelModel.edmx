@@ -590,6 +590,18 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vPlanPersonalizado' does
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'VipChannel_Collection.dbo.vServiciosVenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vServiciosVenta">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ServiceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'VipChannel_Collection.dbo.vSucursalPorCaja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vSucursalPorCaja">
           <Key>
@@ -1045,6 +1057,13 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
     [vPlanPersonalizado].[Cost] AS [Cost]
     FROM [dbo].[vPlanPersonalizado] AS [vPlanPersonalizado]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vServiciosVenta" EntityType="Self.vServiciosVenta" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vServiciosVenta].[ServiceId] AS [ServiceId], 
+    [vServiciosVenta].[Description] AS [Description], 
+    [vServiciosVenta].[Cost] AS [Cost]
+    FROM [dbo].[vServiciosVenta] AS [vServiciosVenta]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vSucursalPorCaja" EntityType="Self.vSucursalPorCaja" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vSucursalPorCaja].[SaleBoxId] AS [SaleBoxId], 
@@ -1327,6 +1346,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           </AssociationSet>
           <EntitySet Name="vClientes" EntityType="VipChannel_CollectionModel.vCliente" />
           <EntitySet Name="vPlanesVentas" EntityType="VipChannel_CollectionModel.vPlanesVenta" />
+          <EntitySet Name="vServiciosVentas" EntityType="VipChannel_CollectionModel.vServiciosVenta" />
         </EntityContainer>
         <EntityType Name="Avenue">
           <Key>
@@ -2306,6 +2326,16 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="Descripcion" Type="String" MaxLength="546" FixedLength="false" Unicode="false" />
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
         </EntityType>
+        <EntityType Name="vServiciosVenta">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ServiceId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2930,6 +2960,15 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="PlanTypeDescription" ColumnName="PlanTypeDescription" />
                 <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
                 <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vServiciosVentas">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vServiciosVenta">
+              <MappingFragment StoreEntitySet="vServiciosVenta">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Application.View;
@@ -23,11 +25,13 @@ namespace VipChannel.Front.Sales
         private ZoneApplication _zoneApplication;
         private AvenueApplication _avenueApplication;
 
-        private PlanesView _planesView;
+        private PlanesVentaView _planesView;
         private List<vPlanesVenta> _dtPlanes = new List<vPlanesVenta>();
 
-        private ServiceApplication _serviceApplication;
-        private List<Service> _dtServices = new List<Service>();
+        private ServiciosVentaView _servicesView;
+        private List<vServiciosVenta> _dtServices = new List<vServiciosVenta>();
+
+        private TecnicoView _tecnicoView;
 
 
         private string _userRecordCreation;
@@ -120,39 +124,50 @@ namespace VipChannel.Front.Sales
             cboServiceStatus.DataSource = dtCargarEstadoDeServicio;
             cboServiceStatus.DisplayMember = "Descripcion";
             cboServiceStatus.ValueMember = "Id";
+            cboServiceStatus.SelectedIndex = -1;
 
             var dtCargarDiaDePago = CargarDiaDePago();
             cboPayDay.DataSource = dtCargarDiaDePago;
             cboPayDay.DisplayMember = "Descripcion";
             cboPayDay.ValueMember = "Id";
+            cboPayDay.SelectedIndex = -1;
 
             var dtCargarCrearFactura = CargarCrearFactura();
             cboCreateInvoices.DataSource = dtCargarCrearFactura;
             cboCreateInvoices.DisplayMember = "Descripcion";
             cboCreateInvoices.ValueMember = "Id";
+            cboCreateInvoices.SelectedIndex = -1;
 
             var dtCargarDiasDeGracia = CargarDiasDeGracia();
             cboDaysOfGrace.DataSource = dtCargarDiasDeGracia;
             cboDaysOfGrace.DisplayMember = "Descripcion";
             cboDaysOfGrace.ValueMember = "Id";
+            cboDaysOfGrace.SelectedIndex = -1;
 
             var dtCargarMesesDeDescuento = CargarMesesDeDescuento();
             cboDiscountMonths.DataSource = dtCargarMesesDeDescuento;
             cboDiscountMonths.DisplayMember = "Descripcion";
             cboDiscountMonths.ValueMember = "Id";
+            cboDiscountMonths.SelectedIndex = -1;
 
 
-            _planesView = new PlanesView();
+            _planesView = new PlanesVentaView();
             _dtPlanes = _planesView.SelectListView();
-            cboPlanes.DataSource = _dtPlanes;
-            cboPlanes.DisplayMember = "Descripcion";
-            cboPlanes.ValueMember = "PlanId";
+            vPlanesVentaBindingSource.DataSource = _dtPlanes;
+            cboPlanes.SelectedIndex = -1;
 
-            _serviceApplication = new ServiceApplication();
-            _dtServices = _serviceApplication.SelectList(x => x.RecordStatus == ConstantBase.Active);
-            cboServicios.DataSource = _dtServices;
-            cboServicios.DisplayMember = "Description";
-            cboServicios.ValueMember = "ServiceId";
+
+            _servicesView = new ServiciosVentaView();
+            _dtServices = _servicesView.SelectListView();
+            vServiciosVentaBindingSource.DataSource = _dtServices;
+            cboServicios.SelectedIndex = -1;
+
+
+
+            _tecnicoView = new TecnicoView();
+            vTecnicoBindingSource.DataSource = _tecnicoView.SelectListView();
+            cboTechnicalId.SelectedIndex = -1;
+
         }
 
         private DataTable CargarEstadoDeServicio()
@@ -277,21 +292,6 @@ namespace VipChannel.Front.Sales
              this.Close();
         }
 
-        private void cboDocumentType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var idSelected = Guid.Parse(cboZoneId.SelectedValue.ToString());
-                _avenueApplication = new AvenueApplication();
-                avenueBindingSource.DataSource = _avenueApplication
-                    .SelectList(x => x.RecordStatus == ConstantBase.Active && x.ZoneId == idSelected);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
 
         private void chkApplyDiscount_CheckedChanged(object sender, EventArgs e)
         {
@@ -310,6 +310,60 @@ namespace VipChannel.Front.Sales
 
                 fLabelMedium12.Visible = false;
                 cboDiscountMonths.Visible = false;
+            }
+        }
+
+        private void cboZoneId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var idSelected = Guid.Parse(cboZoneId.SelectedValue.ToString());
+                _avenueApplication = new AvenueApplication();
+                avenueBindingSource.DataSource = _avenueApplication
+                    .SelectList(x => x.RecordStatus == ConstantBase.Active && x.ZoneId == idSelected);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void cboPlanes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if(cboPlanes.SelectedValue != null)
+                {
+                    var idSelected = Guid.Parse(cboPlanes.SelectedValue.ToString());
+                    var selected = _dtPlanes.FirstOrDefault(x => x.PlanId == idSelected);
+                    txtPlanPaquete.Text = selected.Descripcion;
+                    txtMontoPlanPaquete.Text = selected.Cost.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void cboServicios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboServicios.SelectedValue != null)
+                {
+                    var idSelected = Guid.Parse(cboServicios.SelectedValue.ToString());
+                    var selected = _dtServices.FirstOrDefault(x => x.ServiceId == idSelected);
+                    txtServicio.Text = selected.Description;
+                    txtMontoServicio.Text = selected.Cost.ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

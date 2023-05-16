@@ -30,16 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomerScheduling));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTituloFormulario = new Controles_Standar.FLabelBig();
             this.fGroupBox1 = new Controles_Standar.FGroupBox();
-            this.btnGuardar = new Controles_Standar.FButtonGuardar();
-            this.btnCancelar = new Controles_Standar.FButtonCancelar();
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
             this.zoneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.avenueBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -67,6 +65,7 @@
             this.dtpDateAttention = new Controles_Standar.FDateTimePicker();
             this.fLabelMedium17 = new Controles_Standar.FLabelMedium();
             this.cboTechnicalId = new Controles_Standar.FComboBox();
+            this.vTecnicoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fLabelMedium18 = new Controles_Standar.FLabelMedium();
             this.fLabelMedium19 = new Controles_Standar.FLabelMedium();
             this.fGroupBox3 = new Controles_Standar.FGroupBox();
@@ -84,7 +83,13 @@
             this.cboServiceStatus = new Controles_Standar.FComboBox();
             this.fLabelMedium5 = new Controles_Standar.FLabelMedium();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnCancelar = new Controles_Standar.FButtonCancelar();
+            this.btnGuardar = new Controles_Standar.FButtonGuardar();
             this.fGroupBox6 = new Controles_Standar.FGroupBox();
+            this.fGroupBox8 = new Controles_Standar.FGroupBox();
+            this.dgvDatosServicio = new Controles_Standar.FDataGridView();
+            this.btnEliminarServicio = new Controles_Standar.FButtonEliminar();
+            this.btnAgregarServicio = new Controles_Standar.FButtonNuevo();
             this.txtServicio = new Controles_Standar.FTextBoxRequerido();
             this.fLabelMedium16 = new Controles_Standar.FLabelMedium();
             this.txtMontoServicio = new Controles_Standar.FTextBoxRequerido();
@@ -92,34 +97,35 @@
             this.cboServicios = new Controles_Standar.FComboBox();
             this.fLabelMedium22 = new Controles_Standar.FLabelMedium();
             this.fGroupBox5 = new Controles_Standar.FGroupBox();
+            this.fGroupBox7 = new Controles_Standar.FGroupBox();
+            this.dgvDatosPlanPaquete = new Controles_Standar.FDataGridView();
+            this.btnQuitarPlanPaquete = new Controles_Standar.FButtonEliminar();
+            this.btnAgregarPlanPaquete = new Controles_Standar.FButtonNuevo();
             this.txtPlanPaquete = new Controles_Standar.FTextBoxRequerido();
             this.fLabelMedium15 = new Controles_Standar.FLabelMedium();
             this.txtMontoPlanPaquete = new Controles_Standar.FTextBoxRequerido();
             this.fLabelMedium14 = new Controles_Standar.FLabelMedium();
             this.cboPlanes = new Controles_Standar.FComboBox();
             this.fLabelMedium23 = new Controles_Standar.FLabelMedium();
-            this.btnAgregarPlanPaquete = new Controles_Standar.FButtonNuevo();
-            this.btnQuitarPlanPaquete = new Controles_Standar.FButtonEliminar();
-            this.btnEliminarServicio = new Controles_Standar.FButtonEliminar();
-            this.btnAgregarServicio = new Controles_Standar.FButtonNuevo();
-            this.fGroupBox7 = new Controles_Standar.FGroupBox();
-            this.dgvDatosPlanPaquete = new Controles_Standar.FDataGridView();
-            this.fGroupBox8 = new Controles_Standar.FGroupBox();
-            this.dgvDatosServicio = new Controles_Standar.FDataGridView();
+            this.vPlanesVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vServiciosVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.zoneBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avenueBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.fGroupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vTecnicoBindingSource)).BeginInit();
             this.fGroupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.fGroupBox6.SuspendLayout();
+            this.fGroupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosServicio)).BeginInit();
             this.fGroupBox5.SuspendLayout();
             this.fGroupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosPlanPaquete)).BeginInit();
-            this.fGroupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosServicio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vPlanesVentaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vServiciosVentaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTituloFormulario
@@ -143,40 +149,11 @@
             this.fGroupBox1.TabIndex = 1;
             this.fGroupBox1.TabStop = false;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(682, 617);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(139, 34);
-            this.btnGuardar.TabIndex = 19;
-            this.btnGuardar.Text = "Guardar Registro";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(838, 617);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(139, 34);
-            this.btnCancelar.TabIndex = 20;
-            this.btnCancelar.Text = "Cancelar Registro";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // fGroupBox2
             // 
             this.fGroupBox2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fGroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fGroupBox2.Location = new System.Drawing.Point(12, 595);
+            this.fGroupBox2.Location = new System.Drawing.Point(12, 637);
             this.fGroupBox2.Name = "fGroupBox2";
             this.fGroupBox2.Size = new System.Drawing.Size(965, 15);
             this.fGroupBox2.TabIndex = 16;
@@ -193,12 +170,12 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 69);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(965, 520);
+            this.tabControl1.Size = new System.Drawing.Size(965, 562);
             this.tabControl1.TabIndex = 21;
             // 
             // tabPage1
@@ -220,7 +197,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(957, 494);
+            this.tabPage1.Size = new System.Drawing.Size(957, 536);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lugar de Instalación";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -323,6 +300,7 @@
             this.cboZoneId.Size = new System.Drawing.Size(251, 23);
             this.cboZoneId.TabIndex = 26;
             this.cboZoneId.ValueMember = "ZoneId";
+            this.cboZoneId.SelectedIndexChanged += new System.EventHandler(this.cboZoneId_SelectedIndexChanged);
             // 
             // fLabelMedium4
             // 
@@ -388,7 +366,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(957, 494);
+            this.tabPage2.Size = new System.Drawing.Size(957, 536);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Datos de Facturación";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -407,7 +385,7 @@
             this.fGroupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.fGroupBox4.Location = new System.Drawing.Point(395, 20);
             this.fGroupBox4.Name = "fGroupBox4";
-            this.fGroupBox4.Size = new System.Drawing.Size(552, 458);
+            this.fGroupBox4.Size = new System.Drawing.Size(552, 510);
             this.fGroupBox4.TabIndex = 1;
             this.fGroupBox4.TabStop = false;
             this.fGroupBox4.Text = "Datos de la Instalación";
@@ -441,9 +419,9 @@
             this.fLabelMedium20.ForeColor = System.Drawing.Color.Black;
             this.fLabelMedium20.Location = new System.Drawing.Point(275, 19);
             this.fLabelMedium20.Name = "fLabelMedium20";
-            this.fLabelMedium20.Size = new System.Drawing.Size(118, 21);
+            this.fLabelMedium20.Size = new System.Drawing.Size(128, 21);
             this.fLabelMedium20.TabIndex = 49;
-            this.fLabelMedium20.Text = "Hora Instalación";
+            this.fLabelMedium20.Text = "Hora de Atención";
             // 
             // dtpDateAttention
             // 
@@ -467,8 +445,8 @@
             // 
             // cboTechnicalId
             // 
-            this.cboTechnicalId.DataSource = this.zoneBindingSource;
-            this.cboTechnicalId.DisplayMember = "Description";
+            this.cboTechnicalId.DataSource = this.vTecnicoBindingSource;
+            this.cboTechnicalId.DisplayMember = "EmployeeName";
             this.cboTechnicalId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTechnicalId.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTechnicalId.FormattingEnabled = true;
@@ -476,7 +454,11 @@
             this.cboTechnicalId.Name = "cboTechnicalId";
             this.cboTechnicalId.Size = new System.Drawing.Size(520, 23);
             this.cboTechnicalId.TabIndex = 38;
-            this.cboTechnicalId.ValueMember = "ZoneId";
+            this.cboTechnicalId.ValueMember = "TechnicalId";
+            // 
+            // vTecnicoBindingSource
+            // 
+            this.vTecnicoBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vTecnico);
             // 
             // fLabelMedium18
             // 
@@ -496,9 +478,9 @@
             this.fLabelMedium19.ForeColor = System.Drawing.Color.Black;
             this.fLabelMedium19.Location = new System.Drawing.Point(12, 19);
             this.fLabelMedium19.Name = "fLabelMedium19";
-            this.fLabelMedium19.Size = new System.Drawing.Size(124, 21);
+            this.fLabelMedium19.Size = new System.Drawing.Size(134, 21);
             this.fLabelMedium19.TabIndex = 35;
-            this.fLabelMedium19.Text = "Fecha Instalación";
+            this.fLabelMedium19.Text = "Fecha de Atención";
             // 
             // fGroupBox3
             // 
@@ -519,7 +501,7 @@
             this.fGroupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.fGroupBox3.Location = new System.Drawing.Point(14, 17);
             this.fGroupBox3.Name = "fGroupBox3";
-            this.fGroupBox3.Size = new System.Drawing.Size(345, 461);
+            this.fGroupBox3.Size = new System.Drawing.Size(345, 513);
             this.fGroupBox3.TabIndex = 0;
             this.fGroupBox3.TabStop = false;
             this.fGroupBox3.Text = "Facturación";
@@ -688,15 +670,44 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnCancelar);
+            this.tabPage3.Controls.Add(this.btnGuardar);
             this.tabPage3.Controls.Add(this.fGroupBox6);
             this.tabPage3.Controls.Add(this.fGroupBox5);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(957, 494);
+            this.tabPage3.Size = new System.Drawing.Size(957, 536);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Detalle de los Servicios Contratados";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(803, 484);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(139, 34);
+            this.btnCancelar.TabIndex = 22;
+            this.btnCancelar.Text = "Cancelar Registro";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.Location = new System.Drawing.Point(647, 484);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(139, 34);
+            this.btnGuardar.TabIndex = 21;
+            this.btnGuardar.Text = "Guardar Registro";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // fGroupBox6
             // 
@@ -718,10 +729,79 @@
             this.fGroupBox6.TabStop = false;
             this.fGroupBox6.Text = "Facturación";
             // 
+            // fGroupBox8
+            // 
+            this.fGroupBox8.Controls.Add(this.dgvDatosServicio);
+            this.fGroupBox8.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fGroupBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.fGroupBox8.Location = new System.Drawing.Point(6, 208);
+            this.fGroupBox8.Name = "fGroupBox8";
+            this.fGroupBox8.Size = new System.Drawing.Size(446, 247);
+            this.fGroupBox8.TabIndex = 58;
+            this.fGroupBox8.TabStop = false;
+            this.fGroupBox8.Text = "Datos de los Servicios Solicitados";
+            // 
+            // dgvDatosServicio
+            // 
+            this.dgvDatosServicio.AllowUserToAddRows = false;
+            this.dgvDatosServicio.AllowUserToDeleteRows = false;
+            this.dgvDatosServicio.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosServicio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvDatosServicio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDatosServicio.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvDatosServicio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            this.dgvDatosServicio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvDatosServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosServicio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDatosServicio.EnableHeadersVisualStyles = false;
+            this.dgvDatosServicio.Location = new System.Drawing.Point(3, 19);
+            this.dgvDatosServicio.MultiSelect = false;
+            this.dgvDatosServicio.Name = "dgvDatosServicio";
+            this.dgvDatosServicio.ReadOnly = true;
+            this.dgvDatosServicio.RowHeadersVisible = false;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosServicio.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvDatosServicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatosServicio.Size = new System.Drawing.Size(440, 225);
+            this.dgvDatosServicio.TabIndex = 1;
+            // 
+            // btnEliminarServicio
+            // 
+            this.btnEliminarServicio.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarServicio.Image")));
+            this.btnEliminarServicio.Location = new System.Drawing.Point(362, 168);
+            this.btnEliminarServicio.Name = "btnEliminarServicio";
+            this.btnEliminarServicio.Size = new System.Drawing.Size(90, 34);
+            this.btnEliminarServicio.TabIndex = 57;
+            this.btnEliminarServicio.Text = "Quitar";
+            this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarServicio.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEliminarServicio.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarServicio
+            // 
+            this.btnAgregarServicio.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarServicio.Image")));
+            this.btnAgregarServicio.Location = new System.Drawing.Point(266, 168);
+            this.btnAgregarServicio.Name = "btnAgregarServicio";
+            this.btnAgregarServicio.Size = new System.Drawing.Size(90, 34);
+            this.btnAgregarServicio.TabIndex = 56;
+            this.btnAgregarServicio.Text = "Agregar";
+            this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarServicio.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAgregarServicio.UseVisualStyleBackColor = true;
+            // 
             // txtServicio
             // 
             this.txtServicio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtServicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtServicio.Enabled = false;
             this.txtServicio.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServicio.Location = new System.Drawing.Point(6, 93);
             this.txtServicio.Multiline = true;
@@ -744,6 +824,7 @@
             // 
             this.txtMontoServicio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMontoServicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMontoServicio.Enabled = false;
             this.txtMontoServicio.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMontoServicio.Location = new System.Drawing.Point(370, 122);
             this.txtMontoServicio.Name = "txtMontoServicio";
@@ -764,13 +845,17 @@
             // 
             // cboServicios
             // 
+            this.cboServicios.DataSource = this.vServiciosVentaBindingSource;
+            this.cboServicios.DisplayMember = "Description";
             this.cboServicios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboServicios.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboServicios.FormattingEnabled = true;
             this.cboServicios.Location = new System.Drawing.Point(6, 43);
             this.cboServicios.Name = "cboServicios";
-            this.cboServicios.Size = new System.Drawing.Size(325, 23);
+            this.cboServicios.Size = new System.Drawing.Size(446, 23);
             this.cboServicios.TabIndex = 36;
+            this.cboServicios.ValueMember = "ServiceId";
+            this.cboServicios.SelectedIndexChanged += new System.EventHandler(this.cboServicios_SelectedIndexChanged);
             // 
             // fLabelMedium22
             // 
@@ -803,10 +888,79 @@
             this.fGroupBox5.TabStop = false;
             this.fGroupBox5.Text = "Facturación";
             // 
+            // fGroupBox7
+            // 
+            this.fGroupBox7.Controls.Add(this.dgvDatosPlanPaquete);
+            this.fGroupBox7.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fGroupBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.fGroupBox7.Location = new System.Drawing.Point(6, 208);
+            this.fGroupBox7.Name = "fGroupBox7";
+            this.fGroupBox7.Size = new System.Drawing.Size(446, 247);
+            this.fGroupBox7.TabIndex = 54;
+            this.fGroupBox7.TabStop = false;
+            this.fGroupBox7.Text = "Datos de los Planes Solicitados";
+            // 
+            // dgvDatosPlanPaquete
+            // 
+            this.dgvDatosPlanPaquete.AllowUserToAddRows = false;
+            this.dgvDatosPlanPaquete.AllowUserToDeleteRows = false;
+            this.dgvDatosPlanPaquete.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosPlanPaquete.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvDatosPlanPaquete.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDatosPlanPaquete.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvDatosPlanPaquete.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            this.dgvDatosPlanPaquete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvDatosPlanPaquete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosPlanPaquete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDatosPlanPaquete.EnableHeadersVisualStyles = false;
+            this.dgvDatosPlanPaquete.Location = new System.Drawing.Point(3, 19);
+            this.dgvDatosPlanPaquete.MultiSelect = false;
+            this.dgvDatosPlanPaquete.Name = "dgvDatosPlanPaquete";
+            this.dgvDatosPlanPaquete.ReadOnly = true;
+            this.dgvDatosPlanPaquete.RowHeadersVisible = false;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosPlanPaquete.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvDatosPlanPaquete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatosPlanPaquete.Size = new System.Drawing.Size(440, 225);
+            this.dgvDatosPlanPaquete.TabIndex = 1;
+            // 
+            // btnQuitarPlanPaquete
+            // 
+            this.btnQuitarPlanPaquete.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarPlanPaquete.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarPlanPaquete.Image")));
+            this.btnQuitarPlanPaquete.Location = new System.Drawing.Point(362, 168);
+            this.btnQuitarPlanPaquete.Name = "btnQuitarPlanPaquete";
+            this.btnQuitarPlanPaquete.Size = new System.Drawing.Size(90, 34);
+            this.btnQuitarPlanPaquete.TabIndex = 53;
+            this.btnQuitarPlanPaquete.Text = "Quitar";
+            this.btnQuitarPlanPaquete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnQuitarPlanPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnQuitarPlanPaquete.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarPlanPaquete
+            // 
+            this.btnAgregarPlanPaquete.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarPlanPaquete.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarPlanPaquete.Image")));
+            this.btnAgregarPlanPaquete.Location = new System.Drawing.Point(266, 168);
+            this.btnAgregarPlanPaquete.Name = "btnAgregarPlanPaquete";
+            this.btnAgregarPlanPaquete.Size = new System.Drawing.Size(90, 34);
+            this.btnAgregarPlanPaquete.TabIndex = 52;
+            this.btnAgregarPlanPaquete.Text = "Agregar";
+            this.btnAgregarPlanPaquete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarPlanPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAgregarPlanPaquete.UseVisualStyleBackColor = true;
+            // 
             // txtPlanPaquete
             // 
             this.txtPlanPaquete.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPlanPaquete.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPlanPaquete.Enabled = false;
             this.txtPlanPaquete.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlanPaquete.Location = new System.Drawing.Point(6, 93);
             this.txtPlanPaquete.Multiline = true;
@@ -829,6 +983,7 @@
             // 
             this.txtMontoPlanPaquete.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMontoPlanPaquete.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMontoPlanPaquete.Enabled = false;
             this.txtMontoPlanPaquete.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMontoPlanPaquete.Location = new System.Drawing.Point(370, 122);
             this.txtMontoPlanPaquete.Name = "txtMontoPlanPaquete";
@@ -849,13 +1004,17 @@
             // 
             // cboPlanes
             // 
+            this.cboPlanes.DataSource = this.vPlanesVentaBindingSource;
+            this.cboPlanes.DisplayMember = "Descripcion";
             this.cboPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlanes.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboPlanes.FormattingEnabled = true;
             this.cboPlanes.Location = new System.Drawing.Point(6, 43);
             this.cboPlanes.Name = "cboPlanes";
-            this.cboPlanes.Size = new System.Drawing.Size(325, 23);
+            this.cboPlanes.Size = new System.Drawing.Size(446, 23);
             this.cboPlanes.TabIndex = 36;
+            this.cboPlanes.ValueMember = "PlanId";
+            this.cboPlanes.SelectedIndexChanged += new System.EventHandler(this.cboPlanes_SelectedIndexChanged);
             // 
             // fLabelMedium23
             // 
@@ -868,141 +1027,13 @@
             this.fLabelMedium23.TabIndex = 35;
             this.fLabelMedium23.Text = "Seleccionar Plan";
             // 
-            // btnAgregarPlanPaquete
+            // vPlanesVentaBindingSource
             // 
-            this.btnAgregarPlanPaquete.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarPlanPaquete.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarPlanPaquete.Image")));
-            this.btnAgregarPlanPaquete.Location = new System.Drawing.Point(266, 168);
-            this.btnAgregarPlanPaquete.Name = "btnAgregarPlanPaquete";
-            this.btnAgregarPlanPaquete.Size = new System.Drawing.Size(90, 34);
-            this.btnAgregarPlanPaquete.TabIndex = 52;
-            this.btnAgregarPlanPaquete.Text = "Nuevo";
-            this.btnAgregarPlanPaquete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarPlanPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAgregarPlanPaquete.UseVisualStyleBackColor = true;
+            this.vPlanesVentaBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vPlanesVenta);
             // 
-            // btnQuitarPlanPaquete
+            // vServiciosVentaBindingSource
             // 
-            this.btnQuitarPlanPaquete.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarPlanPaquete.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarPlanPaquete.Image")));
-            this.btnQuitarPlanPaquete.Location = new System.Drawing.Point(362, 168);
-            this.btnQuitarPlanPaquete.Name = "btnQuitarPlanPaquete";
-            this.btnQuitarPlanPaquete.Size = new System.Drawing.Size(90, 34);
-            this.btnQuitarPlanPaquete.TabIndex = 53;
-            this.btnQuitarPlanPaquete.Text = "Quitar";
-            this.btnQuitarPlanPaquete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnQuitarPlanPaquete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnQuitarPlanPaquete.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminarServicio
-            // 
-            this.btnEliminarServicio.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarServicio.Image")));
-            this.btnEliminarServicio.Location = new System.Drawing.Point(362, 168);
-            this.btnEliminarServicio.Name = "btnEliminarServicio";
-            this.btnEliminarServicio.Size = new System.Drawing.Size(90, 34);
-            this.btnEliminarServicio.TabIndex = 57;
-            this.btnEliminarServicio.Text = "Quitar";
-            this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarServicio.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEliminarServicio.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarServicio
-            // 
-            this.btnAgregarServicio.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarServicio.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarServicio.Image")));
-            this.btnAgregarServicio.Location = new System.Drawing.Point(266, 168);
-            this.btnAgregarServicio.Name = "btnAgregarServicio";
-            this.btnAgregarServicio.Size = new System.Drawing.Size(90, 34);
-            this.btnAgregarServicio.TabIndex = 56;
-            this.btnAgregarServicio.Text = "Nuevo";
-            this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarServicio.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAgregarServicio.UseVisualStyleBackColor = true;
-            // 
-            // fGroupBox7
-            // 
-            this.fGroupBox7.Controls.Add(this.dgvDatosPlanPaquete);
-            this.fGroupBox7.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fGroupBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fGroupBox7.Location = new System.Drawing.Point(6, 208);
-            this.fGroupBox7.Name = "fGroupBox7";
-            this.fGroupBox7.Size = new System.Drawing.Size(446, 247);
-            this.fGroupBox7.TabIndex = 54;
-            this.fGroupBox7.TabStop = false;
-            this.fGroupBox7.Text = "Datos de los Planes Solicitados";
-            // 
-            // dgvDatosPlanPaquete
-            // 
-            this.dgvDatosPlanPaquete.AllowUserToAddRows = false;
-            this.dgvDatosPlanPaquete.AllowUserToDeleteRows = false;
-            this.dgvDatosPlanPaquete.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosPlanPaquete.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDatosPlanPaquete.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvDatosPlanPaquete.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvDatosPlanPaquete.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            this.dgvDatosPlanPaquete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvDatosPlanPaquete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatosPlanPaquete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDatosPlanPaquete.EnableHeadersVisualStyles = false;
-            this.dgvDatosPlanPaquete.Location = new System.Drawing.Point(3, 19);
-            this.dgvDatosPlanPaquete.MultiSelect = false;
-            this.dgvDatosPlanPaquete.Name = "dgvDatosPlanPaquete";
-            this.dgvDatosPlanPaquete.ReadOnly = true;
-            this.dgvDatosPlanPaquete.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosPlanPaquete.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvDatosPlanPaquete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosPlanPaquete.Size = new System.Drawing.Size(440, 225);
-            this.dgvDatosPlanPaquete.TabIndex = 1;
-            // 
-            // fGroupBox8
-            // 
-            this.fGroupBox8.Controls.Add(this.dgvDatosServicio);
-            this.fGroupBox8.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fGroupBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fGroupBox8.Location = new System.Drawing.Point(6, 208);
-            this.fGroupBox8.Name = "fGroupBox8";
-            this.fGroupBox8.Size = new System.Drawing.Size(446, 247);
-            this.fGroupBox8.TabIndex = 58;
-            this.fGroupBox8.TabStop = false;
-            this.fGroupBox8.Text = "Datos de los Servicios Solicitados";
-            // 
-            // dgvDatosServicio
-            // 
-            this.dgvDatosServicio.AllowUserToAddRows = false;
-            this.dgvDatosServicio.AllowUserToDeleteRows = false;
-            this.dgvDatosServicio.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosServicio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDatosServicio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvDatosServicio.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvDatosServicio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            this.dgvDatosServicio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDatosServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatosServicio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDatosServicio.EnableHeadersVisualStyles = false;
-            this.dgvDatosServicio.Location = new System.Drawing.Point(3, 19);
-            this.dgvDatosServicio.MultiSelect = false;
-            this.dgvDatosServicio.Name = "dgvDatosServicio";
-            this.dgvDatosServicio.ReadOnly = true;
-            this.dgvDatosServicio.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosServicio.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDatosServicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosServicio.Size = new System.Drawing.Size(440, 225);
-            this.dgvDatosServicio.TabIndex = 1;
+            this.vServiciosVentaBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vServiciosVenta);
             // 
             // FrmCustomerScheduling
             // 
@@ -1012,8 +1043,6 @@
             this.ClientSize = new System.Drawing.Size(991, 663);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.fGroupBox2);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.fGroupBox1);
             this.Controls.Add(this.lblTituloFormulario);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1031,17 +1060,20 @@
             this.tabPage2.ResumeLayout(false);
             this.fGroupBox4.ResumeLayout(false);
             this.fGroupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vTecnicoBindingSource)).EndInit();
             this.fGroupBox3.ResumeLayout(false);
             this.fGroupBox3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.fGroupBox6.ResumeLayout(false);
             this.fGroupBox6.PerformLayout();
+            this.fGroupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosServicio)).EndInit();
             this.fGroupBox5.ResumeLayout(false);
             this.fGroupBox5.PerformLayout();
             this.fGroupBox7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosPlanPaquete)).EndInit();
-            this.fGroupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosServicio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vPlanesVentaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vServiciosVentaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1051,8 +1083,6 @@
 
         private Controles_Standar.FLabelBig lblTituloFormulario;
         private Controles_Standar.FGroupBox fGroupBox1;
-        private Controles_Standar.FButtonGuardar btnGuardar;
-        private Controles_Standar.FButtonCancelar btnCancelar;
         private Controles_Standar.FGroupBox fGroupBox2;
         private System.Windows.Forms.BindingSource zoneBindingSource;
         private System.Windows.Forms.BindingSource avenueBindingSource;
@@ -1119,5 +1149,10 @@
         private Controles_Standar.FDataGridView dgvDatosServicio;
         private Controles_Standar.FGroupBox fGroupBox7;
         private Controles_Standar.FDataGridView dgvDatosPlanPaquete;
+        private Controles_Standar.FButtonCancelar btnCancelar;
+        private Controles_Standar.FButtonGuardar btnGuardar;
+        private System.Windows.Forms.BindingSource vTecnicoBindingSource;
+        private System.Windows.Forms.BindingSource vServiciosVentaBindingSource;
+        private System.Windows.Forms.BindingSource vPlanesVentaBindingSource;
     }
 }
