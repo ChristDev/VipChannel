@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
-
+using VipChannel.Front.Principal;
 
 namespace VipChannel.Front.Definitions.Sucursal
 {
@@ -19,6 +19,7 @@ namespace VipChannel.Front.Definitions.Sucursal
         private SucursalApplication _sucursalApplication;
         bool flag;
 
+        private string _userActive = FrmMenu.IdUserActive;
         public FrmSucursalList()
         {
             InitializeComponent();
@@ -98,7 +99,7 @@ namespace VipChannel.Front.Definitions.Sucursal
                 CompanyId = _idCompany,
                 Name = txtName.Text.Trim(),
                 AddressSucursal = txtAddressSucursal.Text,
-                UserRecordCreation = "LOAD",
+                UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
@@ -112,7 +113,7 @@ namespace VipChannel.Front.Definitions.Sucursal
 
                 entity.Name = txtName.Text.Trim();
                 entity.AddressSucursal = txtAddressSucursal.Text;
-                entity.UserEditRecord = "LOAD";
+                entity.UserEditRecord = _userActive;
                 entity.RecordEditDate = DateTime.Now;
 
                 return entity;

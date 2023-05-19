@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Enums.MasterTables;
+using VipChannel.Front.Principal;
 
 namespace VipChannel.Front.Maintenance
 {
@@ -11,11 +12,14 @@ namespace VipChannel.Front.Maintenance
         private ZoneApplication _zoneApplication;
         bool flag;
 
+        private string _userActive = FrmMenu.IdUserActive;
+
         public FrmZone()
         {
             InitializeComponent();
             CargarDatos();
         }
+
 
         #region Abrir formulario solo una vez
         private static FrmZone _mFormDefInstance;
@@ -74,7 +78,7 @@ namespace VipChannel.Front.Maintenance
                 ZoneId = Guid.NewGuid(),
                 Code = txtCode.Text.Trim(),
                 Description = txtDescription.Text.Trim(),
-                UserRecordCreation = "LOAD",
+                UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
@@ -87,7 +91,7 @@ namespace VipChannel.Front.Maintenance
                 var entity = _zoneApplication.SelectSingle(x=>x.ZoneId == id, true);
                 entity.Code = txtCode.Text.Trim();
                 entity.Description = txtDescription.Text.Trim();
-                entity.UserEditRecord = "LOAD";
+                entity.UserEditRecord = _userActive;
                 entity.RecordEditDate = DateTime.Now;
 
                 return entity;

@@ -1,43 +1,56 @@
 ﻿using System;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Application.View;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
+using VipChannel.Front.Functions;
 using VipChannel.Front.Principal;
 
-namespace VipChannel.Front.Definitions.Voucher
+namespace VipChannel.Front.Definitions
 {
-    public partial class FrmVoucher : Form
+    public partial class FrmManager : Form
     {
-        private Domain.Entity.Voucher _voucherEntity;
-        private VoucherApplication _voucherApplication;
+        private Manager _managerEntity;
+        private ManagerApplication _managerApplication;
+
         private MasterTableApplication _masterTableApplication;
-        private TipoComprobantePorCajaView _tipoComprobantePorCajaView;
-
         bool flag;
-
-        private Guid _idSaleBox;
-        private string _nameSucursal;
-        private string _nameSaleBox;
 
         private string _userActive = FrmMenu.IdUserActive;
 
-        public FrmVoucher(Guid idSaleBox, string nameSucursal, string nameSaleBox)
+        public FrmManager()
         {
             InitializeComponent();
             LoadData();
-            _idSaleBox = idSaleBox;
-            _nameSucursal = nameSucursal;
-            _nameSaleBox = nameSaleBox;
         }
 
+        #region Abrir formulario solo una vez
+        private static FrmManager _mFormDefInstance;
+        public static FrmManager DefInstance
+        {
+            get
+            {
+                if (_mFormDefInstance == null || _mFormDefInstance.IsDisposed)
+                    _mFormDefInstance = new FrmManager();
+                return _mFormDefInstance;
+            }
+            set
+            {
+                _mFormDefInstance = value;
+            }
+        }
+        #endregion
 
         #region Control de las acciones del formulario
         private void ControlesFormulario(bool act)
-        {
-            cboVoucherType.Enabled = !act;
-            txtSerie.Enabled = !act;
+        {            
+            cboTypeDocument.Enabled = !act;
+            txtDocumentNumber.Enabled = !act;
+            txtLastName.Enabled = !act;
+            txtNames.Enabled = !act;
 
             btnNuevo.Enabled = act;
             btnEditar.Enabled = act;
@@ -46,57 +59,60 @@ namespace VipChannel.Front.Definitions.Voucher
             btnCancelar.Enabled = !act;
             if (act)
             {
-                vTipoComprobantePorCajaBindingSource.ResumeBinding();
+                managerBindingSource.ResumeBinding();
                 LoadData();
             }
             else
             {
                 if (flag)
                 {
-                    vTipoComprobantePorCajaBindingSource.SuspendBinding();
+                    managerBindingSource.SuspendBinding();
                 }
-                cboVoucherType.Focus();
+                cboTypeDocument.Focus();
             }
         }
         #endregion
 
-        private void CargarCombo()
-        {
-            _masterTableApplication = new MasterTableApplication();
-            cboVoucherType.DataSource = _masterTableApplication.SelectList(x => x.IdMasterTableParent == ConstantMasterTable.MasterTable.VoucherType);
-            cboVoucherType.DisplayMember = "Name";
-            cboVoucherType.ValueMember = "IdMasterTable";
-        }
-
         private void LoadData()
         {
-            _tipoComprobantePorCajaView = new TipoComprobantePorCajaView();
-            vTipoComprobantePorCajaBindingSource.DataSource = _tipoComprobantePorCajaView.SelectListView(x=>x.SaleBoxId == _idSaleBox);
+            _managerApplication = new ManagerApplication();
+            managerBindingSource.DataSource = _managerApplication.SelectList(x=>x.RecordStatus == ConstantBase.Active);
         }
 
-        private Domain.Entity.Voucher SetFormData()
+        public void CargarCombos()
         {
-            _voucherEntity = new Domain.Entity.Voucher()
+            _masterTableApplication = new MasterTableApplication();
+            cboTypeDocument.DataSource = _masterTableApplication.SelectList(x => x.IdMasterTableParent == ConstantMasterTable.MasterTable.TypeDocument);            
+            cboTypeDocument.DisplayMember = "Name";
+            cboTypeDocument.ValueMember = "IdMasterTable";
+        }
+
+        private Manager SetFormData()
+        {
+            _managerEntity = new Manager()
             {
-                VoucherId = Guid.NewGuid(),
-                SaleBoxId = _idSaleBox,
-                VoucherType = cboVoucherType.SelectedValue.ToString(),
-                Serie = txtSerie.Text.Trim(),
-                Number = int.Parse(txtNumber.Text.Trim()),
+                ManagerId = Guid.NewGuid(),
+                TypeDocument = cboTypeDocument.SelectedValue.ToString(),
+                DocumentNumber = txtDocumentNumber.Text.Trim(),
+                LastName = txtLastName.Text.Trim(),
+                Names = txtNames.Text.Trim(),
                 UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
-            if (flag) return _voucherEntity;
+            if (flag) return _managerEntity;
 
             if (dgvDatosRegistrados.CurrentRow != null)
             {
-                _voucherApplication = new VoucherApplication();
+                _managerApplication = new ManagerApplication();
                 var id = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
-                var entity = _voucherApplication.SelectSingle(x => x.SaleBoxId == id, true);
-                entity.VoucherType = cboVoucherType.SelectedValue.ToString();
-                entity.Serie = txtSerie.Text.Trim();
-                entity.Number = int.Parse(txtNumber.Text.Trim());
+                var entity = _managerApplication.SelectSingle(x => x.ManagerId == id, true);
+                          
+                entity.TypeDocument = cboTypeDocument.SelectedValue.ToString();
+                entity.DocumentNumber = txtDocumentNumber.Text.Trim();
+                entity.LastName = txtLastName.Text.Trim();
+                entity.Names = txtNames.Text.Trim();
+
                 entity.UserEditRecord = _userActive;
                 entity.RecordEditDate = DateTime.Now;
 
@@ -106,11 +122,11 @@ namespace VipChannel.Front.Definitions.Voucher
             return null;
         }
 
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             flag = true;
             ControlesFormulario(false);
-            txtNumber.Text = "0";
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -126,7 +142,7 @@ namespace VipChannel.Front.Definitions.Voucher
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            _voucherApplication = new VoucherApplication();
+            _managerApplication = new ManagerApplication();
 
             flag = false;
             if (dgvDatosRegistrados.RowCount == 0)
@@ -138,18 +154,18 @@ namespace VipChannel.Front.Definitions.Voucher
             if (MessageBox.Show("¿Está seguro que desea eliminar el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
 
-            _voucherApplication.Delete(SetFormData());
+            _managerApplication.Delete(SetFormData());
             MessageBox.Show("Registro eliminado correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadData();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            _voucherApplication = new VoucherApplication();
+            _managerApplication = new ManagerApplication();
 
             var result = flag
-                ? _voucherApplication.Insert(SetFormData())
-                : _voucherApplication.Update(SetFormData());
+                ? _managerApplication.Insert(SetFormData())
+                : _managerApplication.Update(SetFormData());
 
             MessageBox.Show("Se guardo correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -163,16 +179,14 @@ namespace VipChannel.Front.Definitions.Voucher
             dgvDatosRegistrados.Select();
             ControlesFormulario(true);
             LoadData();
-            txtSucursalName.Text = _nameSucursal;
         }
 
         private void FrmCajas_Load(object sender, EventArgs e)
-        {
-            CargarCombo();
+        {            
+            this.dgvDatosRegistrados.Columns[0].Visible = false;
             LoadData();
+            CargarCombos();
             ControlesFormulario(true);
-            txtSucursalName.Text = _nameSucursal;
-            txtSaleBoxName.Text = _nameSaleBox;
         }
     }
 }

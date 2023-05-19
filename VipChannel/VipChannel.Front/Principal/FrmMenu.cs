@@ -1,31 +1,37 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using VipChannel.Enums.MasterTables;
+using VipChannel.Application;
 using VipChannel.Front.Definitions;
 using VipChannel.Front.Definitions.Sucursal;
 using VipChannel.Front.Definitions.Voucher;
 using VipChannel.Front.Maintenance;
 using VipChannel.Front.Maintenance.Service;
 using VipChannel.Front.Requests;
-using VipChannel.Front.Requests.Serve;
 using VipChannel.Front.Sales;
 
 namespace VipChannel.Front.Principal
 {
     public partial class FrmMenu : Form
     {
-        public string IdUserActive { get; set; }
-        public string UserActive { get; set; }
+        private QueryServerApplication _serverN;
 
-        internal static string variableCompartida;
+        internal static string IdUserActive;
+        internal static string UserActive;
 
         public FrmMenu(string idUserActive, string userActive)
         {
             InitializeComponent();
             IdUserActive = idUserActive;
             UserActive = userActive;
-            variableCompartida = idUserActive;
+        }
+
+        private void CargarParametros(string usuarioActivo)
+        {
+            _serverN = new QueryServerApplication();
+            lblFecha.Text = _serverN.GetTimeServer().ToLongDateString().ToUpper();
+            lblHora.Text = _serverN.GetTimeServer().ToLongTimeString().ToUpper();
+            lblUsuario.Text = usuarioActivo.ToUpper();
+
         }
 
         private void internetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,6 +110,27 @@ namespace VipChannel.Front.Principal
         {
             FrmRequestList.DefInstance.MdiParent = this;
             FrmRequestList.DefInstance.Show();
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            CargarParametros(UserActive);
+        }
+
+        private void TickSecond_Tick(object sender, EventArgs e)
+        {
+            CargarParametros(UserActive);
+        }
+
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void gestoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManager.DefInstance.MdiParent = this;
+            FrmManager.DefInstance.Show();
         }
     }
 }

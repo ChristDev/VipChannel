@@ -11,6 +11,7 @@ using VipChannel.Application.Entity;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
 using VipChannel.Front.Plan;
+using VipChannel.Front.Principal;
 using static VipChannel.Enums.MasterTables.ConstantOperation;
 
 namespace VipChannel.Front.Definitions
@@ -25,6 +26,9 @@ namespace VipChannel.Front.Definitions
 
         private string _userRecordCreation;
         private DateTime _recordCreationDate;
+
+        private string _userActive = FrmMenu.IdUserActive;
+
         public FrmGeneral()
         {
             InitializeComponent();
@@ -103,14 +107,14 @@ namespace VipChannel.Front.Definitions
 
             if (_operation == Convert.ToInt32(Operation.Create))
             {
-                _companyEntity.UserRecordCreation = "LOAD";
+                _companyEntity.UserRecordCreation = _userActive;
                 _companyEntity.RecordCreationDate = DateTime.Now;
             }
             else if (_operation == (int)Operation.Update)
             {
                 _companyEntity.UserRecordCreation = _userRecordCreation;
                 _companyEntity.RecordCreationDate = _recordCreationDate;
-                _companyEntity.UserEditRecord = "LOAD";
+                _companyEntity.UserEditRecord = _userActive;
                 _companyEntity.RecordEditDate = DateTime.Now;
             }
 

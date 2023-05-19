@@ -63,6 +63,7 @@
         <AssociationConnector Association="VipChannel_CollectionModel.FK_Voucher_SaleBox" />
         <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestAttended" Width="1.5" PointX="7.5" PointY="15.75" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestAttended_InstallationRequest" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Manager" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

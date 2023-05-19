@@ -13,6 +13,7 @@ using VipChannel.Enums.MasterTables;
 using VipChannel.Application.Entity;
 using VipChannel.Domain.Entity;
 using VipChannel.Application.View;
+using VipChannel.Front.Principal;
 
 namespace VipChannel.Front.Requests.Serve
 {
@@ -32,6 +33,8 @@ namespace VipChannel.Front.Requests.Serve
         private Guid _customerId;
         private Guid _customerAddressId;
         private Guid _installationRequestId;
+
+        private string _userActive = FrmMenu.IdUserActive;
 
         public FrmTechnicalServe(int operation, Guid customerId, Guid customerAddressId, Guid installationRequestId)
         {
@@ -191,7 +194,7 @@ namespace VipChannel.Front.Requests.Serve
                 Longitude = txtLongitude.Text,
                 TerminalCapacityFirst = txtTerminalCapacityFirst.Text,
                 TerminalCapacitySecond = txtTerminalCapacitySecond.Text,
-                UserRecordCreation = "LOAD",
+                UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };

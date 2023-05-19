@@ -65,6 +65,7 @@ namespace VipChannel.Data.Model
         public virtual DbSet<vTecnico> vTecnicoes { get; set; }
         public virtual DbSet<vTipoComprobantePorCaja> vTipoComprobantePorCajas { get; set; }
         public virtual DbSet<InstallationRequestAttended> InstallationRequestAttendeds { get; set; }
+        public virtual DbSet<Manager> Managers { get; set; }
     
         public virtual ObjectResult<usp_ListarDireccionPorClienteSolicitud_Result> usp_ListarDireccionPorClienteSolicitud(Nullable<System.Guid> customerId)
         {

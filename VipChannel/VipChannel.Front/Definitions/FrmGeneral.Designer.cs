@@ -150,7 +150,7 @@
             this.fGroupBox5.Size = new System.Drawing.Size(821, 234);
             this.fGroupBox5.TabIndex = 2;
             this.fGroupBox5.TabStop = false;
-            this.fGroupBox5.Text = "Reniec";
+            this.fGroupBox5.Text = "Correo";
             // 
             // txtPortMailShipping
             // 
@@ -642,6 +642,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(841, 462);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.Visible = false;
             // 
             // btnCancelar
             // 

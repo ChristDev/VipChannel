@@ -8,6 +8,7 @@ using VipChannel.Application.Entity;
 using VipChannel.Application.View;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
+using VipChannel.Front.Principal;
 using static VipChannel.Enums.MasterTables.ConstantOperation;
 
 namespace VipChannel.Front.Sales
@@ -48,6 +49,9 @@ namespace VipChannel.Front.Sales
         private DateTime _recordCreationDate;
 
         private string _personType;
+
+        private string _userActive = FrmMenu.IdUserActive;
+
         public FrmCustomerScheduling(int operation, Guid id)
         {
             InitializeComponent();
@@ -88,7 +92,7 @@ namespace VipChannel.Front.Sales
                 InstallationRequestId = installationRequestId,                
                 CustomerAddressId = _customerAddress.CustomerAddressId,
                 ServiceStatus = cboServiceStatus.SelectedValue.ToString(),
-                EmployeeId = Guid.Parse("E5E5B878-7181-4CDD-83CD-F4B616E48DAB"), //TODO: Aqui va el codigo del empleado
+                EmployeeId = Guid.Parse(_userActive),
                 PayDay = int.Parse(cboPayDay.SelectedValue.ToString()),
                 CreateInvoices = int.Parse(cboCreateInvoices.SelectedValue.ToString()),
                 DaysOfGrace = int.Parse(cboDaysOfGrace.SelectedValue.ToString()),
@@ -101,7 +105,7 @@ namespace VipChannel.Front.Sales
                 TechnicalId = Guid.Parse(cboTechnicalId.SelectedValue.ToString()),
                 Comment = txtComment.Text,
 
-                UserRecordCreation = "LOAD",
+                UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
@@ -116,7 +120,7 @@ namespace VipChannel.Front.Sales
                     PlanId = item.PlanId,
                     PlanName = item.PlanName,
                     PlanCost = item.PlanCost,
-                    UserRecordCreation = "LOAD",
+                    UserRecordCreation = _userActive,
                     RecordCreationDate = DateTime.Now,
                     RecordStatus = ConstantBase.Active
                 };
@@ -133,7 +137,7 @@ namespace VipChannel.Front.Sales
                     ServiceId = item.ServiceId,
                     ServiceName = item.ServiceName,
                     ServiceCost = item.ServiceCost,
-                    UserRecordCreation = "LOAD",
+                    UserRecordCreation = _userActive,
                     RecordCreationDate = DateTime.Now,
                     RecordStatus = ConstantBase.Active
                 };

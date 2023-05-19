@@ -60,8 +60,10 @@
     <Compile Include="Entity\InstallationRequestAttendedApplication.cs" />
     <Compile Include="Entity\InstallationRequestCostApplication.cs" />
     <Compile Include="Entity\InstallationRequestPlanApplication.cs" />
+    <Compile Include="Entity\ManagerApplication.cs" />
     <Compile Include="Entity\MasterTableApplication.cs" />
     <Compile Include="Entity\PlanApplication.cs" />
+    <Compile Include="Entity\QueryServerApplication.cs" />
     <Compile Include="Entity\RoleApplication.cs" />
     <Compile Include="Entity\SaleBoxApplication.cs" />
     <Compile Include="Entity\ServiceApplication.cs" />

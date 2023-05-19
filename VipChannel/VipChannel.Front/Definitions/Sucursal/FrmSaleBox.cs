@@ -15,6 +15,7 @@ namespace VipChannel.Front.Definitions.Sucursal
 
         private Guid _idSucursal;
         private string _nameSucursal;
+        private string _userActive = FrmMenu.IdUserActive;
 
         public FrmSaleBox(Guid idSucursal, string nameSucursal)
         {
@@ -22,7 +23,6 @@ namespace VipChannel.Front.Definitions.Sucursal
             LoadData();
             _idSucursal = idSucursal;
             _nameSucursal = nameSucursal;
-            var aaa = FrmMenu.variableCompartida;
         }
 
 
@@ -65,7 +65,7 @@ namespace VipChannel.Front.Definitions.Sucursal
                 SaleBoxId = Guid.NewGuid(),
                 SucursalId = _idSucursal,
                 Name = txtName.Text.Trim(),
-                UserRecordCreation = "LOAD",
+                UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
@@ -77,7 +77,7 @@ namespace VipChannel.Front.Definitions.Sucursal
                 var id = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
                 var entity = _saleBoxApplication.SelectSingle(x => x.SaleBoxId == id, true);
                 entity.Name = txtName.Text.Trim();
-                entity.UserEditRecord = "LOAD";
+                entity.UserEditRecord = _userActive;
                 entity.RecordEditDate = DateTime.Now;
 
                 return entity;

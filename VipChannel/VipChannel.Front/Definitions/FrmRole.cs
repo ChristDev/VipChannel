@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
+using VipChannel.Front.Principal;
 
 namespace VipChannel.Front.Definitions
 {
@@ -11,6 +12,8 @@ namespace VipChannel.Front.Definitions
         private Role _rolEntity;
         private RoleApplication _rolApplication;
         bool flag;
+
+        private string _userActive = FrmMenu.IdUserActive;
 
         public FrmRole()
         {
@@ -139,7 +142,7 @@ namespace VipChannel.Front.Definitions
                 Description = txtDescription.Text.Trim(),
                 IsEmployeeRole = rbtIsEmployeeRole.Checked,
                 IsTechnicalRole = rbtIsTechnicalRole.Checked,
-                UserRecordCreation = "LOAD",
+                UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
@@ -154,7 +157,7 @@ namespace VipChannel.Front.Definitions
                 entity.Description = txtDescription.Text.Trim();
                 entity.IsEmployeeRole = rbtIsEmployeeRole.Checked;
                 entity.IsTechnicalRole = rbtIsTechnicalRole.Checked;
-                entity.UserEditRecord = "LOAD";
+                entity.UserEditRecord = _userActive;
                 entity.RecordEditDate = DateTime.Now;
 
                 return entity;

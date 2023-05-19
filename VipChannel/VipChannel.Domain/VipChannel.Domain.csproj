@@ -75,6 +75,9 @@
     <Compile Include="Entity\InstallationRequestPlan.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Manager.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\MasterTable.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>

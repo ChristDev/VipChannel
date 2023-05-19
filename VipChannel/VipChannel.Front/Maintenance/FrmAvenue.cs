@@ -5,6 +5,7 @@ using VipChannel.Application.Entity;
 using VipChannel.Application.View;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
+using VipChannel.Front.Principal;
 
 namespace VipChannel.Front.Maintenance
 {
@@ -16,6 +17,8 @@ namespace VipChannel.Front.Maintenance
         private Guid _idZone;
         private string _descriptionZone;
         bool flag;
+
+        private string _userActive = FrmMenu.IdUserActive;
 
         public FrmAvenue(Guid id, string zone)
         {
@@ -66,7 +69,7 @@ namespace VipChannel.Front.Maintenance
                 ZoneId = _idZone,
                 Code = txtCode.Text,
                 Description = txtDescription.Text.Trim(),
-                UserRecordCreation = "LOAD",
+                UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
@@ -79,7 +82,7 @@ namespace VipChannel.Front.Maintenance
                 var entity = _avenueApplication.SelectSingle(x=>x.AvenueId == id, true);
                 entity.Code = txtCode.Text;
                 entity.Description = txtDescription.Text.Trim();
-                entity.UserEditRecord = "LOAD";
+                entity.UserEditRecord = _userActive;
                 entity.RecordEditDate = DateTime.Now;
 
                 return entity;

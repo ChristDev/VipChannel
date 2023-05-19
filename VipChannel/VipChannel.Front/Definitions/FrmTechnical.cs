@@ -7,6 +7,7 @@ using VipChannel.Application.View;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
 using VipChannel.Front.Functions;
+using VipChannel.Front.Principal;
 
 namespace VipChannel.Front.Definitions
 {
@@ -20,6 +21,8 @@ namespace VipChannel.Front.Definitions
         private MasterTableApplication _masterTableApplication;
         private RoleApplication _roleApplication;
         bool flag;
+
+        private string _userActive = FrmMenu.IdUserActive;
 
         public FrmTechnical()
         {
@@ -105,7 +108,7 @@ namespace VipChannel.Front.Definitions
                 Names = txtNames.Text.Trim(),
                 RoleId = Guid.Parse(cboRole.SelectedValue.ToString()),
                 Password = _md5.ConvertStringToMd5(txtPassword.Text.Trim()),
-                UserRecordCreation = "LOAD",
+                UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
@@ -144,7 +147,7 @@ namespace VipChannel.Front.Definitions
                 entity.RoleId = Guid.Parse(cboRole.SelectedValue.ToString());
 
 
-                entity.UserEditRecord = "LOAD";
+                entity.UserEditRecord = _userActive;
                 entity.RecordEditDate = DateTime.Now;
 
                 return entity;
