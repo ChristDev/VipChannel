@@ -53,8 +53,13 @@
   <ItemGroup>
     <Compile Include="Entity\AvenueApplication.cs" />
     <Compile Include="Entity\CompanyApplication.cs" />
+    <Compile Include="Entity\CustomerAddressApplication.cs" />
     <Compile Include="Entity\CustomerApplication.cs" />
     <Compile Include="Entity\EmployeeApplication.cs" />
+    <Compile Include="Entity\InstallationRequestApplication.cs" />
+    <Compile Include="Entity\InstallationRequestAttendedApplication.cs" />
+    <Compile Include="Entity\InstallationRequestCostApplication.cs" />
+    <Compile Include="Entity\InstallationRequestPlanApplication.cs" />
     <Compile Include="Entity\MasterTableApplication.cs" />
     <Compile Include="Entity\PlanApplication.cs" />
     <Compile Include="Entity\RoleApplication.cs" />
@@ -76,6 +81,7 @@
     <Compile Include="View\PlanInternetView.cs" />
     <Compile Include="View\PlanPersonalizadoView.cs" />
     <Compile Include="View\ServiciosVentaView.cs" />
+    <Compile Include="View\SolicitudesInstalacionView.cs" />
     <Compile Include="View\SucursalPorCajaView.cs" />
     <Compile Include="View\TecnicoView.cs" />
     <Compile Include="View\TipoComprobantePorCajaView.cs" />

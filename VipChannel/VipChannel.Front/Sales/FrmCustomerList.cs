@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Application.View;
@@ -12,6 +13,7 @@ namespace VipChannel.Front.Sales
     public partial class FrmCustomerList : Form
     {
         private ClienteView _clienteView;
+        private CustomerAddressApplication _customerAddressApplication;
         public FrmCustomerList()
         {
             InitializeComponent();
@@ -137,9 +139,21 @@ namespace VipChannel.Front.Sales
 
         private void generarSolicitudInstalacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new FrmCustomerScheduling();
-            frm.ShowDialog();
+            Guid id = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
+            var frm = new FrmCustomerScheduling(Convert.ToInt32(Operation.Create), id);
+            if(frm.ShowDialog() == DialogResult.OK)
+            {
+                dgvDatosRegistrados_SelectionChanged(sender, e);
+            }
+        }
 
+        private void dgvDatosRegistrados_SelectionChanged(object sender, EventArgs e)
+        {
+            _customerAddressApplication = new CustomerAddressApplication();
+            Guid id = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
+            var details = _customerAddressApplication.ListarDireccionPorClienteSolicitud(id).ToList();
+
+            uspListarDireccionPorClienteSolicitudResultBindingSource.DataSource = details.Count == 0 ? null : details;
         }
     }
 }

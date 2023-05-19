@@ -21,6 +21,8 @@ namespace VipChannel.Enums.MasterTables
             public const string ResponseType = "00900";
             public const string WayPay = "01000";
             public const string VoucherType = "01100";
+            public const string EmployeeType = "01200";
+            public const string RequestStatus = "01300";
         }
     }
 }

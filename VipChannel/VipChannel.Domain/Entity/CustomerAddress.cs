@@ -29,6 +29,7 @@ namespace VipChannel.Domain.Entity
         public string Latitude { get; set; }
         public string Longitude { get; set; }
         public string Reference { get; set; }
+        public string CustomerAddressStatus { get; set; }
         public string UserRecordCreation { get; set; }
         public System.DateTime RecordCreationDate { get; set; }
         public string UserEditRecord { get; set; }

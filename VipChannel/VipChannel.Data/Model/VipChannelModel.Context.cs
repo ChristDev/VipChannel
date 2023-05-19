@@ -13,6 +13,8 @@ namespace VipChannel.Data.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using VipChannel.Domain.Entity;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class VipChannel_CollectionEntities : DbContext
     {
@@ -36,10 +38,6 @@ namespace VipChannel.Data.Model
         public virtual DbSet<InstallationRequest> InstallationRequests { get; set; }
         public virtual DbSet<InstallationRequestCost> InstallationRequestCosts { get; set; }
         public virtual DbSet<InstallationRequestPlan> InstallationRequestPlans { get; set; }
-        public virtual DbSet<InstallationRequestProgramming> InstallationRequestProgrammings { get; set; }
-        public virtual DbSet<InstallationRequestProgrammingLog> InstallationRequestProgrammingLogs { get; set; }
-        public virtual DbSet<InstallationRequestProgrammingLogImage> InstallationRequestProgrammingLogImages { get; set; }
-        public virtual DbSet<InstallationRequestProgrammingMaterial> InstallationRequestProgrammingMaterials { get; set; }
         public virtual DbSet<MasterTable> MasterTables { get; set; }
         public virtual DbSet<Material> Materials { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
@@ -55,15 +53,43 @@ namespace VipChannel.Data.Model
         public virtual DbSet<Technical> Technicals { get; set; }
         public virtual DbSet<Voucher> Vouchers { get; set; }
         public virtual DbSet<Zone> Zones { get; set; }
+        public virtual DbSet<vCliente> vClientes { get; set; }
         public virtual DbSet<vEmpleado> vEmpleadoes { get; set; }
         public virtual DbSet<vPlanCable> vPlanCables { get; set; }
+        public virtual DbSet<vPlanesVenta> vPlanesVentas { get; set; }
         public virtual DbSet<vPlanInternet> vPlanInternets { get; set; }
         public virtual DbSet<vPlanPersonalizado> vPlanPersonalizadoes { get; set; }
+        public virtual DbSet<vServiciosVenta> vServiciosVentas { get; set; }
+        public virtual DbSet<vSolicitudesInstalacion> vSolicitudesInstalacions { get; set; }
         public virtual DbSet<vSucursalPorCaja> vSucursalPorCajas { get; set; }
         public virtual DbSet<vTecnico> vTecnicoes { get; set; }
         public virtual DbSet<vTipoComprobantePorCaja> vTipoComprobantePorCajas { get; set; }
-        public virtual DbSet<vCliente> vClientes { get; set; }
-        public virtual DbSet<vPlanesVenta> vPlanesVentas { get; set; }
-        public virtual DbSet<vServiciosVenta> vServiciosVentas { get; set; }
+        public virtual DbSet<InstallationRequestAttended> InstallationRequestAttendeds { get; set; }
+    
+        public virtual ObjectResult<usp_ListarDireccionPorClienteSolicitud_Result> usp_ListarDireccionPorClienteSolicitud(Nullable<System.Guid> customerId)
+        {
+            var customerIdParameter = customerId.HasValue ?
+                new ObjectParameter("CustomerId", customerId) :
+                new ObjectParameter("CustomerId", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarDireccionPorClienteSolicitud_Result>("usp_ListarDireccionPorClienteSolicitud", customerIdParameter);
+        }
+    
+        public virtual int usp_ActualizarCoordenadasCliente(Nullable<System.Guid> customerAddressId, string latitude, string longitude)
+        {
+            var customerAddressIdParameter = customerAddressId.HasValue ?
+                new ObjectParameter("CustomerAddressId", customerAddressId) :
+                new ObjectParameter("CustomerAddressId", typeof(System.Guid));
+    
+            var latitudeParameter = latitude != null ?
+                new ObjectParameter("Latitude", latitude) :
+                new ObjectParameter("Latitude", typeof(string));
+    
+            var longitudeParameter = longitude != null ?
+                new ObjectParameter("Longitude", longitude) :
+                new ObjectParameter("Longitude", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarCoordenadasCliente", customerAddressIdParameter, latitudeParameter, longitudeParameter);
+        }
     }
 }

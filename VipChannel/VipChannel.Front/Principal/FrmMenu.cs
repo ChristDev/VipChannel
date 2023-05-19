@@ -7,6 +7,8 @@ using VipChannel.Front.Definitions.Sucursal;
 using VipChannel.Front.Definitions.Voucher;
 using VipChannel.Front.Maintenance;
 using VipChannel.Front.Maintenance.Service;
+using VipChannel.Front.Requests;
+using VipChannel.Front.Requests.Serve;
 using VipChannel.Front.Sales;
 
 namespace VipChannel.Front.Principal
@@ -88,6 +90,12 @@ namespace VipChannel.Front.Principal
         {
             FrmCustomerList.DefInstance.MdiParent = this;
             FrmCustomerList.DefInstance.Show();
+        }
+
+        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRequestList.DefInstance.MdiParent = this;
+            FrmRequestList.DefInstance.Show();
         }
     }
 }

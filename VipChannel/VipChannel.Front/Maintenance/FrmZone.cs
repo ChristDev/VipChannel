@@ -37,7 +37,9 @@ namespace VipChannel.Front.Maintenance
         #region Control de las acciones del formulario
         private void ControlesFormulario(bool act)
         {
+            txtCode.Enabled = !act;
             txtDescription.Enabled = !act;
+
             btnNuevo.Enabled = act;
             btnEditar.Enabled = act;
             btnEliminar.Enabled = act;
@@ -54,7 +56,7 @@ namespace VipChannel.Front.Maintenance
                 {
                     zoneBindingSource.SuspendBinding();
                 }
-                txtDescription.Focus();
+                txtCode.Focus();
             }
         }
         #endregion
@@ -70,6 +72,7 @@ namespace VipChannel.Front.Maintenance
             _zoneEntity = new Domain.Entity.Zone()
             {
                 ZoneId = Guid.NewGuid(),
+                Code = txtCode.Text.Trim(),
                 Description = txtDescription.Text.Trim(),
                 UserRecordCreation = "LOAD",
                 RecordCreationDate = DateTime.Now,
@@ -82,6 +85,7 @@ namespace VipChannel.Front.Maintenance
                 _zoneApplication = new ZoneApplication();
                 var id = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
                 var entity = _zoneApplication.SelectSingle(x=>x.ZoneId == id, true);
+                entity.Code = txtCode.Text.Trim();
                 entity.Description = txtDescription.Text.Trim();
                 entity.UserEditRecord = "LOAD";
                 entity.RecordEditDate = DateTime.Now;

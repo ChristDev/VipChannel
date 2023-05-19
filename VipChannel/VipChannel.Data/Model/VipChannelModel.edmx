@@ -11,6 +11,7 @@
           </Key>
           <Property Name="AvenueId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ZoneId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="3" />
           <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
@@ -107,6 +108,7 @@
           <Property Name="Latitude" Type="varchar" MaxLength="50" />
           <Property Name="Longitude" Type="varchar" MaxLength="50" />
           <Property Name="Reference" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CustomerAddressStatus" Type="varchar" MaxLength="5" />
           <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
           <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
@@ -137,12 +139,50 @@
           <Property Name="InstallationRequestId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CustomerAddressId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="EmployeeId" Type="uniqueidentifier" />
+          <Property Name="ServiceStatus" Type="varchar" MaxLength="50" />
           <Property Name="PayDay" Type="int" Nullable="false" />
           <Property Name="CreateInvoices" Type="int" Nullable="false" />
           <Property Name="DaysOfGrace" Type="int" Nullable="false" />
           <Property Name="ApplyDiscount" Type="bit" Nullable="false" />
           <Property Name="DiscountAmount" Type="decimal" Precision="10" Scale="2" />
           <Property Name="DiscountMonths" Type="int" />
+          <Property Name="DateAttention" Type="date" />
+          <Property Name="HourAttention" Type="nvarchar" MaxLength="30" />
+          <Property Name="TechnicalId" Type="uniqueidentifier" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
+          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
+          <Property Name="RecordEditDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstallationRequestAttended">
+          <Key>
+            <PropertyRef Name="InstallationRequestAttendedId" />
+          </Key>
+          <Property Name="InstallationRequestAttendedId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InstallationRequestId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateAttended" Type="date" />
+          <Property Name="HourAttended" Type="nvarchar" MaxLength="30" />
+          <Property Name="TechnicalAttendedId" Type="uniqueidentifier" />
+          <Property Name="RequestStatus" Type="char" MaxLength="5" />
+          <Property Name="Comment" Type="varchar" MaxLength="300" />
+          <Property Name="Equipment" Type="varchar" MaxLength="300" />
+          <Property Name="Brand" Type="varchar" MaxLength="300" />
+          <Property Name="Model" Type="varchar" MaxLength="300" />
+          <Property Name="Serie" Type="varchar" MaxLength="300" />
+          <Property Name="OltPower" Type="varchar" MaxLength="30" />
+          <Property Name="CatvPower" Type="varchar" MaxLength="30" />
+          <Property Name="Nap" Type="varchar" MaxLength="30" />
+          <Property Name="Thread" Type="varchar" MaxLength="30" />
+          <Property Name="Route" Type="varchar" MaxLength="30" />
+          <Property Name="Trunk" Type="varchar" MaxLength="30" />
+          <Property Name="Sector" Type="varchar" MaxLength="30" />
+          <Property Name="District" Type="varchar" MaxLength="300" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" />
+          <Property Name="TerminalCapacityFirst" Type="nchar" MaxLength="10" />
+          <Property Name="TerminalCapacitySecond" Type="nchar" MaxLength="10" />
           <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
           <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
@@ -156,6 +196,8 @@
           <Property Name="InstallationRequestCostId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="InstallationRequestId" Type="uniqueidentifier" />
           <Property Name="ServiceId" Type="uniqueidentifier" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="300" />
+          <Property Name="ServiceCost" Type="decimal" Precision="10" Scale="2" />
           <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
           <Property Name="RecordCreationDate" Type="datetime" />
           <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
@@ -169,66 +211,8 @@
           <Property Name="InstallationRequestPlanId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="InstallationRequestId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PlanId" Type="uniqueidentifier" />
-          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
-          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
-          <Property Name="RecordEditDate" Type="datetime" />
-          <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
-        </EntityType>
-        <EntityType Name="InstallationRequestProgramming">
-          <Key>
-            <PropertyRef Name="InstallationRequestProgrammingId" />
-          </Key>
-          <Property Name="InstallationRequestProgrammingId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="InstallationRequestId" Type="uniqueidentifier" />
-          <Property Name="DateAttention" Type="date" />
-          <Property Name="HourAttention" Type="time" Precision="7" />
-          <Property Name="TechnicalId" Type="uniqueidentifier" />
-          <Property Name="Comment" Type="text" />
-          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
-          <Property Name="RecordCreationDate" Type="datetime" />
-          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
-          <Property Name="RecordEditDate" Type="datetime" />
-          <Property Name="RecordStatus" Type="char" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="InstallationRequestProgrammingLog">
-          <Key>
-            <PropertyRef Name="InstallationRequestProgrammingLogId" />
-          </Key>
-          <Property Name="InstallationRequestProgrammingLogId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="InstallationRequestProgrammingId" Type="uniqueidentifier" />
-          <Property Name="InstallationRequestType" Type="char" MaxLength="5" />
-          <Property Name="Comment" Type="text" />
-          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
-          <Property Name="RecordCreationDate" Type="datetime" />
-          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
-          <Property Name="RecordEditDate" Type="datetime" />
-          <Property Name="RecordStatus" Type="char" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="InstallationRequestProgrammingLogImage">
-          <Key>
-            <PropertyRef Name="InstallationRequestProgrammingLogImageId" />
-          </Key>
-          <Property Name="InstallationRequestProgrammingLogImageId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="InstallationRequestProgrammingLogId" Type="uniqueidentifier" />
-          <Property Name="ImageEvidence" Type="image" />
-          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
-          <Property Name="RecordCreationDate" Type="datetime" />
-          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
-          <Property Name="RecordEditDate" Type="datetime" />
-          <Property Name="RecordStatus" Type="char" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="InstallationRequestProgrammingMaterial">
-          <Key>
-            <PropertyRef Name="InstallationRequestProgrammingMaterialId" />
-          </Key>
-          <Property Name="InstallationRequestProgrammingMaterialId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="InstallationRequestProgrammingId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="MaterialId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ConditionType" Type="char" MaxLength="5" Nullable="false" />
-          <Property Name="Quantity" Type="int" />
-          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Total" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PlanName" Type="varchar" MaxLength="300" />
+          <Property Name="PlanCost" Type="decimal" Precision="10" Scale="2" />
           <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
           <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
@@ -476,6 +460,7 @@
             <PropertyRef Name="ZoneId" />
           </Key>
           <Property Name="ZoneId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="3" />
           <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
@@ -602,6 +587,33 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vServiciosVenta' does no
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'VipChannel_Collection.dbo.vSolicitudesInstalacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vSolicitudesInstalacion">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="CustomerAddressId" />
+            <PropertyRef Name="InstallationRequestId" />
+            <PropertyRef Name="DocumentNumber" />
+            <PropertyRef Name="BusinessName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Names" />
+            <PropertyRef Name="ZoneAvenue" />
+            <PropertyRef Name="AdressDetail" />
+          </Key>
+          <Property Name="CustomerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerAddressId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InstallationRequestId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DocumentNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="BusinessName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Names" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CellPhones" Type="varchar" MaxLength="33" />
+          <Property Name="ZoneAvenue" Type="varchar" MaxLength="303" Nullable="false" />
+          <Property Name="AdressDetail" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DateAttention" Type="nvarchar" MaxLength="41" />
+          <Property Name="CustomerAddressStatus" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'VipChannel_Collection.dbo.vSucursalPorCaja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vSucursalPorCaja">
           <Key>
@@ -721,6 +733,18 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_InstallationRequestAttended_InstallationRequest">
+          <End Role="InstallationRequest" Type="Self.InstallationRequest" Multiplicity="1" />
+          <End Role="InstallationRequestAttended" Type="Self.InstallationRequestAttended" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstallationRequest">
+              <PropertyRef Name="InstallationRequestId" />
+            </Principal>
+            <Dependent Role="InstallationRequestAttended">
+              <PropertyRef Name="InstallationRequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_InstallationRequestCost_InstallationRequest">
           <End Role="InstallationRequest" Type="Self.InstallationRequest" Multiplicity="0..1" />
           <End Role="InstallationRequestCost" Type="Self.InstallationRequestCost" Multiplicity="*" />
@@ -766,78 +790,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Principal>
             <Dependent Role="InstallationRequestPlan">
               <PropertyRef Name="PlanId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgramming_InstallationRequest">
-          <End Role="InstallationRequest" Type="Self.InstallationRequest" Multiplicity="0..1" />
-          <End Role="InstallationRequestProgramming" Type="Self.InstallationRequestProgramming" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequest">
-              <PropertyRef Name="InstallationRequestId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgramming">
-              <PropertyRef Name="InstallationRequestId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgramming_Technical">
-          <End Role="Technical" Type="Self.Technical" Multiplicity="0..1" />
-          <End Role="InstallationRequestProgramming" Type="Self.InstallationRequestProgramming" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Technical">
-              <PropertyRef Name="TechnicalId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgramming">
-              <PropertyRef Name="TechnicalId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgrammingLog_InstallationRequestProgramming">
-          <End Role="InstallationRequestProgramming" Type="Self.InstallationRequestProgramming" Multiplicity="0..1" />
-          <End Role="InstallationRequestProgrammingLog" Type="Self.InstallationRequestProgrammingLog" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequestProgramming">
-              <PropertyRef Name="InstallationRequestProgrammingId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgrammingLog">
-              <PropertyRef Name="InstallationRequestProgrammingId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog">
-          <End Role="InstallationRequestProgrammingLog" Type="Self.InstallationRequestProgrammingLog" Multiplicity="0..1" />
-          <End Role="InstallationRequestProgrammingLogImage" Type="Self.InstallationRequestProgrammingLogImage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequestProgrammingLog">
-              <PropertyRef Name="InstallationRequestProgrammingLogId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgrammingLogImage">
-              <PropertyRef Name="InstallationRequestProgrammingLogId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming">
-          <End Role="InstallationRequestProgramming" Type="Self.InstallationRequestProgramming" Multiplicity="1" />
-          <End Role="InstallationRequestProgrammingMaterial" Type="Self.InstallationRequestProgrammingMaterial" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequestProgramming">
-              <PropertyRef Name="InstallationRequestProgrammingId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgrammingMaterial">
-              <PropertyRef Name="InstallationRequestProgrammingId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgrammingMaterial_Material">
-          <End Role="Material" Type="Self.Material" Multiplicity="1" />
-          <End Role="InstallationRequestProgrammingMaterial" Type="Self.InstallationRequestProgrammingMaterial" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Material">
-              <PropertyRef Name="MaterialId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgrammingMaterial">
-              <PropertyRef Name="MaterialId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -961,6 +913,14 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="usp_ActualizarCoordenadasCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerAddressId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="Latitude" Type="varchar" Mode="In" />
+          <Parameter Name="Longitude" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarDireccionPorClienteSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerId" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <EntityContainer Name="VipChannel_CollectionModelStoreContainer">
           <EntitySet Name="Avenue" EntityType="Self.Avenue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
@@ -970,12 +930,9 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InstallationRequest" EntityType="Self.InstallationRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstallationRequestAttended" EntityType="Self.InstallationRequestAttended" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InstallationRequestCost" EntityType="Self.InstallationRequestCost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InstallationRequestPlan" EntityType="Self.InstallationRequestPlan" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InstallationRequestProgramming" EntityType="Self.InstallationRequestProgramming" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InstallationRequestProgrammingLog" EntityType="Self.InstallationRequestProgrammingLog" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InstallationRequestProgrammingLogImage" EntityType="Self.InstallationRequestProgrammingLogImage" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InstallationRequestProgrammingMaterial" EntityType="Self.InstallationRequestProgrammingMaterial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterTable" EntityType="Self.MasterTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
@@ -1064,6 +1021,22 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
     [vServiciosVenta].[Cost] AS [Cost]
     FROM [dbo].[vServiciosVenta] AS [vServiciosVenta]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vSolicitudesInstalacion" EntityType="Self.vSolicitudesInstalacion" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vSolicitudesInstalacion].[CustomerId] AS [CustomerId], 
+    [vSolicitudesInstalacion].[CustomerAddressId] AS [CustomerAddressId], 
+    [vSolicitudesInstalacion].[InstallationRequestId] AS [InstallationRequestId], 
+    [vSolicitudesInstalacion].[DocumentNumber] AS [DocumentNumber], 
+    [vSolicitudesInstalacion].[BusinessName] AS [BusinessName], 
+    [vSolicitudesInstalacion].[LastName] AS [LastName], 
+    [vSolicitudesInstalacion].[Names] AS [Names], 
+    [vSolicitudesInstalacion].[CellPhones] AS [CellPhones], 
+    [vSolicitudesInstalacion].[ZoneAvenue] AS [ZoneAvenue], 
+    [vSolicitudesInstalacion].[AdressDetail] AS [AdressDetail], 
+    [vSolicitudesInstalacion].[DateAttention] AS [DateAttention], 
+    [vSolicitudesInstalacion].[CustomerAddressStatus] AS [CustomerAddressStatus]
+    FROM [dbo].[vSolicitudesInstalacion] AS [vSolicitudesInstalacion]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vSucursalPorCaja" EntityType="Self.vSucursalPorCaja" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vSucursalPorCaja].[SaleBoxId] AS [SaleBoxId], 
@@ -1118,6 +1091,10 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="Employee" EntitySet="Employee" />
             <End Role="InstallationRequest" EntitySet="InstallationRequest" />
           </AssociationSet>
+          <AssociationSet Name="FK_InstallationRequestAttended_InstallationRequest" Association="Self.FK_InstallationRequestAttended_InstallationRequest">
+            <End Role="InstallationRequest" EntitySet="InstallationRequest" />
+            <End Role="InstallationRequestAttended" EntitySet="InstallationRequestAttended" />
+          </AssociationSet>
           <AssociationSet Name="FK_InstallationRequestCost_InstallationRequest" Association="Self.FK_InstallationRequestCost_InstallationRequest">
             <End Role="InstallationRequest" EntitySet="InstallationRequest" />
             <End Role="InstallationRequestCost" EntitySet="InstallationRequestCost" />
@@ -1133,30 +1110,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <AssociationSet Name="FK_InstallationRequestPlan_Plan" Association="Self.FK_InstallationRequestPlan_Plan">
             <End Role="Plan" EntitySet="Plan" />
             <End Role="InstallationRequestPlan" EntitySet="InstallationRequestPlan" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgramming_InstallationRequest" Association="Self.FK_InstallationRequestProgramming_InstallationRequest">
-            <End Role="InstallationRequest" EntitySet="InstallationRequest" />
-            <End Role="InstallationRequestProgramming" EntitySet="InstallationRequestProgramming" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgramming_Technical" Association="Self.FK_InstallationRequestProgramming_Technical">
-            <End Role="Technical" EntitySet="Technical" />
-            <End Role="InstallationRequestProgramming" EntitySet="InstallationRequestProgramming" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgrammingLog_InstallationRequestProgramming" Association="Self.FK_InstallationRequestProgrammingLog_InstallationRequestProgramming">
-            <End Role="InstallationRequestProgramming" EntitySet="InstallationRequestProgramming" />
-            <End Role="InstallationRequestProgrammingLog" EntitySet="InstallationRequestProgrammingLog" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog" Association="Self.FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog">
-            <End Role="InstallationRequestProgrammingLog" EntitySet="InstallationRequestProgrammingLog" />
-            <End Role="InstallationRequestProgrammingLogImage" EntitySet="InstallationRequestProgrammingLogImage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming" Association="Self.FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming">
-            <End Role="InstallationRequestProgramming" EntitySet="InstallationRequestProgramming" />
-            <End Role="InstallationRequestProgrammingMaterial" EntitySet="InstallationRequestProgrammingMaterial" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgrammingMaterial_Material" Association="Self.FK_InstallationRequestProgrammingMaterial_Material">
-            <End Role="Material" EntitySet="Material" />
-            <End Role="InstallationRequestProgrammingMaterial" EntitySet="InstallationRequestProgrammingMaterial" />
           </AssociationSet>
           <AssociationSet Name="FK_Material_Brand" Association="Self.FK_Material_Brand">
             <End Role="Brand" EntitySet="Brand" />
@@ -1204,6 +1157,14 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
     <edmx:ConceptualModels>
       <Schema Namespace="VipChannel_CollectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="VipChannel_CollectionEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="usp_ListarDireccionPorClienteSolicitud" ReturnType="Collection(VipChannel_CollectionModel.usp_ListarDireccionPorClienteSolicitud_Result)">
+          <Parameter Name="CustomerId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ActualizarCoordenadasCliente">
+            <Parameter Name="CustomerAddressId" Mode="In" Type="Guid" />
+            <Parameter Name="Latitude" Mode="In" Type="String" />
+            <Parameter Name="Longitude" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="Avenues" EntityType="VipChannel_CollectionModel.Avenue" />
           <EntitySet Name="Brands" EntityType="VipChannel_CollectionModel.Brand" />
           <EntitySet Name="Categories" EntityType="VipChannel_CollectionModel.Category" />
@@ -1214,10 +1175,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySet Name="InstallationRequests" EntityType="VipChannel_CollectionModel.InstallationRequest" />
           <EntitySet Name="InstallationRequestCosts" EntityType="VipChannel_CollectionModel.InstallationRequestCost" />
           <EntitySet Name="InstallationRequestPlans" EntityType="VipChannel_CollectionModel.InstallationRequestPlan" />
-          <EntitySet Name="InstallationRequestProgrammings" EntityType="VipChannel_CollectionModel.InstallationRequestProgramming" />
-          <EntitySet Name="InstallationRequestProgrammingLogs" EntityType="VipChannel_CollectionModel.InstallationRequestProgrammingLog" />
-          <EntitySet Name="InstallationRequestProgrammingLogImages" EntityType="VipChannel_CollectionModel.InstallationRequestProgrammingLogImage" />
-          <EntitySet Name="InstallationRequestProgrammingMaterials" EntityType="VipChannel_CollectionModel.InstallationRequestProgrammingMaterial" />
           <EntitySet Name="MasterTables" EntityType="VipChannel_CollectionModel.MasterTable" />
           <EntitySet Name="Materials" EntityType="VipChannel_CollectionModel.Material" />
           <EntitySet Name="Payments" EntityType="VipChannel_CollectionModel.Payment" />
@@ -1233,10 +1190,14 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySet Name="Technicals" EntityType="VipChannel_CollectionModel.Technical" />
           <EntitySet Name="Vouchers" EntityType="VipChannel_CollectionModel.Voucher" />
           <EntitySet Name="Zones" EntityType="VipChannel_CollectionModel.Zone" />
+          <EntitySet Name="vClientes" EntityType="VipChannel_CollectionModel.vCliente" />
           <EntitySet Name="vEmpleadoes" EntityType="VipChannel_CollectionModel.vEmpleado" />
           <EntitySet Name="vPlanCables" EntityType="VipChannel_CollectionModel.vPlanCable" />
+          <EntitySet Name="vPlanesVentas" EntityType="VipChannel_CollectionModel.vPlanesVenta" />
           <EntitySet Name="vPlanInternets" EntityType="VipChannel_CollectionModel.vPlanInternet" />
           <EntitySet Name="vPlanPersonalizadoes" EntityType="VipChannel_CollectionModel.vPlanPersonalizado" />
+          <EntitySet Name="vServiciosVentas" EntityType="VipChannel_CollectionModel.vServiciosVenta" />
+          <EntitySet Name="vSolicitudesInstalacions" EntityType="VipChannel_CollectionModel.vSolicitudesInstalacion" />
           <EntitySet Name="vSucursalPorCajas" EntityType="VipChannel_CollectionModel.vSucursalPorCaja" />
           <EntitySet Name="vTecnicoes" EntityType="VipChannel_CollectionModel.vTecnico" />
           <EntitySet Name="vTipoComprobantePorCajas" EntityType="VipChannel_CollectionModel.vTipoComprobantePorCaja" />
@@ -1284,10 +1245,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="InstallationRequest" EntitySet="InstallationRequests" />
             <End Role="InstallationRequestPlan" EntitySet="InstallationRequestPlans" />
           </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgramming_InstallationRequest" Association="VipChannel_CollectionModel.FK_InstallationRequestProgramming_InstallationRequest">
-            <End Role="InstallationRequest" EntitySet="InstallationRequests" />
-            <End Role="InstallationRequestProgramming" EntitySet="InstallationRequestProgrammings" />
-          </AssociationSet>
           <AssociationSet Name="FK_PaymentSchedule_InstallationRequest" Association="VipChannel_CollectionModel.FK_PaymentSchedule_InstallationRequest">
             <End Role="InstallationRequest" EntitySet="InstallationRequests" />
             <End Role="PaymentSchedule" EntitySet="PaymentSchedules" />
@@ -1299,26 +1256,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <AssociationSet Name="FK_InstallationRequestPlan_Plan" Association="VipChannel_CollectionModel.FK_InstallationRequestPlan_Plan">
             <End Role="Plan" EntitySet="Plans" />
             <End Role="InstallationRequestPlan" EntitySet="InstallationRequestPlans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgramming_Technical" Association="VipChannel_CollectionModel.FK_InstallationRequestProgramming_Technical">
-            <End Role="Technical" EntitySet="Technicals" />
-            <End Role="InstallationRequestProgramming" EntitySet="InstallationRequestProgrammings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgrammingLog_InstallationRequestProgramming" Association="VipChannel_CollectionModel.FK_InstallationRequestProgrammingLog_InstallationRequestProgramming">
-            <End Role="InstallationRequestProgramming" EntitySet="InstallationRequestProgrammings" />
-            <End Role="InstallationRequestProgrammingLog" EntitySet="InstallationRequestProgrammingLogs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming" Association="VipChannel_CollectionModel.FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming">
-            <End Role="InstallationRequestProgramming" EntitySet="InstallationRequestProgrammings" />
-            <End Role="InstallationRequestProgrammingMaterial" EntitySet="InstallationRequestProgrammingMaterials" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog" Association="VipChannel_CollectionModel.FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog">
-            <End Role="InstallationRequestProgrammingLog" EntitySet="InstallationRequestProgrammingLogs" />
-            <End Role="InstallationRequestProgrammingLogImage" EntitySet="InstallationRequestProgrammingLogImages" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InstallationRequestProgrammingMaterial_Material" Association="VipChannel_CollectionModel.FK_InstallationRequestProgrammingMaterial_Material">
-            <End Role="Material" EntitySet="Materials" />
-            <End Role="InstallationRequestProgrammingMaterial" EntitySet="InstallationRequestProgrammingMaterials" />
           </AssociationSet>
           <AssociationSet Name="FK_Payment_PaymentScheduleDetail" Association="VipChannel_CollectionModel.FK_Payment_PaymentScheduleDetail">
             <End Role="PaymentScheduleDetail" EntitySet="PaymentScheduleDetails" />
@@ -1344,16 +1281,28 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="SaleBox" EntitySet="SaleBoxes" />
             <End Role="Voucher" EntitySet="Vouchers" />
           </AssociationSet>
-          <EntitySet Name="vClientes" EntityType="VipChannel_CollectionModel.vCliente" />
-          <EntitySet Name="vPlanesVentas" EntityType="VipChannel_CollectionModel.vPlanesVenta" />
-          <EntitySet Name="vServiciosVentas" EntityType="VipChannel_CollectionModel.vServiciosVenta" />
-        </EntityContainer>
+          <EntitySet Name="InstallationRequestAttendeds" EntityType="VipChannel_CollectionModel.InstallationRequestAttended" />
+          <AssociationSet Name="FK_InstallationRequestAttended_InstallationRequest" Association="VipChannel_CollectionModel.FK_InstallationRequestAttended_InstallationRequest">
+            <End Role="InstallationRequest" EntitySet="InstallationRequests" />
+            <End Role="InstallationRequestAttended" EntitySet="InstallationRequestAttendeds" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="usp_ListarDireccionPorClienteSolicitud_Result">
+          <Property Type="Guid" Name="CustomerAddressId" Nullable="false" />
+          <Property Type="Guid" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="Zone" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Avenue" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Number" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="AdressDetail" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Reference" Nullable="false" MaxLength="500" />
+        </ComplexType>
         <EntityType Name="Avenue">
           <Key>
             <PropertyRef Name="AvenueId" />
           </Key>
           <Property Name="AvenueId" Type="Guid" Nullable="false" />
           <Property Name="ZoneId" Type="Guid" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -1455,6 +1404,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Reference" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAddressStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1491,12 +1441,17 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="InstallationRequestId" Type="Guid" Nullable="false" />
           <Property Name="CustomerAddressId" Type="Guid" Nullable="false" />
           <Property Name="EmployeeId" Type="Guid" />
+          <Property Name="ServiceStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PayDay" Type="Int32" Nullable="false" />
           <Property Name="CreateInvoices" Type="Int32" Nullable="false" />
           <Property Name="DaysOfGrace" Type="Int32" Nullable="false" />
           <Property Name="ApplyDiscount" Type="Boolean" Nullable="false" />
           <Property Name="DiscountAmount" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="DiscountMonths" Type="Int32" />
+          <Property Name="DateAttention" Type="DateTime" Precision="0" />
+          <Property Name="HourAttention" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TechnicalId" Type="Guid" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1506,8 +1461,8 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <NavigationProperty Name="Employee" Relationship="VipChannel_CollectionModel.FK_InstallationRequest_Employee" FromRole="InstallationRequest" ToRole="Employee" />
           <NavigationProperty Name="InstallationRequestCosts" Relationship="VipChannel_CollectionModel.FK_InstallationRequestCost_InstallationRequest" FromRole="InstallationRequest" ToRole="InstallationRequestCost" />
           <NavigationProperty Name="InstallationRequestPlans" Relationship="VipChannel_CollectionModel.FK_InstallationRequestPlan_InstallationRequest" FromRole="InstallationRequest" ToRole="InstallationRequestPlan" />
-          <NavigationProperty Name="InstallationRequestProgrammings" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgramming_InstallationRequest" FromRole="InstallationRequest" ToRole="InstallationRequestProgramming" />
           <NavigationProperty Name="PaymentSchedules" Relationship="VipChannel_CollectionModel.FK_PaymentSchedule_InstallationRequest" FromRole="InstallationRequest" ToRole="PaymentSchedule" />
+          <NavigationProperty Name="InstallationRequestAttendeds" Relationship="VipChannel_CollectionModel.FK_InstallationRequestAttended_InstallationRequest" FromRole="InstallationRequest" ToRole="InstallationRequestAttended" />
         </EntityType>
         <EntityType Name="InstallationRequestCost">
           <Key>
@@ -1516,6 +1471,8 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="InstallationRequestCostId" Type="Guid" Nullable="false" />
           <Property Name="InstallationRequestId" Type="Guid" />
           <Property Name="ServiceId" Type="Guid" />
+          <Property Name="ServiceName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceCost" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
           <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1531,6 +1488,8 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="InstallationRequestPlanId" Type="Guid" Nullable="false" />
           <Property Name="InstallationRequestId" Type="Guid" Nullable="false" />
           <Property Name="PlanId" Type="Guid" />
+          <Property Name="PlanName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="PlanCost" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1538,75 +1497,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="InstallationRequest" Relationship="VipChannel_CollectionModel.FK_InstallationRequestPlan_InstallationRequest" FromRole="InstallationRequestPlan" ToRole="InstallationRequest" />
           <NavigationProperty Name="Plan" Relationship="VipChannel_CollectionModel.FK_InstallationRequestPlan_Plan" FromRole="InstallationRequestPlan" ToRole="Plan" />
-        </EntityType>
-        <EntityType Name="InstallationRequestProgramming">
-          <Key>
-            <PropertyRef Name="InstallationRequestProgrammingId" />
-          </Key>
-          <Property Name="InstallationRequestProgrammingId" Type="Guid" Nullable="false" />
-          <Property Name="InstallationRequestId" Type="Guid" />
-          <Property Name="DateAttention" Type="DateTime" Precision="0" />
-          <Property Name="HourAttention" Type="Time" Precision="7" />
-          <Property Name="TechnicalId" Type="Guid" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
-          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
-          <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="InstallationRequest" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgramming_InstallationRequest" FromRole="InstallationRequestProgramming" ToRole="InstallationRequest" />
-          <NavigationProperty Name="Technical" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgramming_Technical" FromRole="InstallationRequestProgramming" ToRole="Technical" />
-          <NavigationProperty Name="InstallationRequestProgrammingLogs" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgrammingLog_InstallationRequestProgramming" FromRole="InstallationRequestProgramming" ToRole="InstallationRequestProgrammingLog" />
-          <NavigationProperty Name="InstallationRequestProgrammingMaterials" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming" FromRole="InstallationRequestProgramming" ToRole="InstallationRequestProgrammingMaterial" />
-        </EntityType>
-        <EntityType Name="InstallationRequestProgrammingLog">
-          <Key>
-            <PropertyRef Name="InstallationRequestProgrammingLogId" />
-          </Key>
-          <Property Name="InstallationRequestProgrammingLogId" Type="Guid" Nullable="false" />
-          <Property Name="InstallationRequestProgrammingId" Type="Guid" />
-          <Property Name="InstallationRequestType" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
-          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
-          <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="InstallationRequestProgramming" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgrammingLog_InstallationRequestProgramming" FromRole="InstallationRequestProgrammingLog" ToRole="InstallationRequestProgramming" />
-          <NavigationProperty Name="InstallationRequestProgrammingLogImages" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog" FromRole="InstallationRequestProgrammingLog" ToRole="InstallationRequestProgrammingLogImage" />
-        </EntityType>
-        <EntityType Name="InstallationRequestProgrammingLogImage">
-          <Key>
-            <PropertyRef Name="InstallationRequestProgrammingLogImageId" />
-          </Key>
-          <Property Name="InstallationRequestProgrammingLogImageId" Type="Guid" Nullable="false" />
-          <Property Name="InstallationRequestProgrammingLogId" Type="Guid" />
-          <Property Name="ImageEvidence" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
-          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
-          <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="InstallationRequestProgrammingLog" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog" FromRole="InstallationRequestProgrammingLogImage" ToRole="InstallationRequestProgrammingLog" />
-        </EntityType>
-        <EntityType Name="InstallationRequestProgrammingMaterial">
-          <Key>
-            <PropertyRef Name="InstallationRequestProgrammingMaterialId" />
-          </Key>
-          <Property Name="InstallationRequestProgrammingMaterialId" Type="Guid" Nullable="false" />
-          <Property Name="InstallationRequestProgrammingId" Type="Guid" Nullable="false" />
-          <Property Name="MaterialId" Type="Guid" Nullable="false" />
-          <Property Name="ConditionType" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Total" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
-          <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="InstallationRequestProgramming" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming" FromRole="InstallationRequestProgrammingMaterial" ToRole="InstallationRequestProgramming" />
-          <NavigationProperty Name="Material" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgrammingMaterial_Material" FromRole="InstallationRequestProgrammingMaterial" ToRole="Material" />
         </EntityType>
         <EntityType Name="MasterTable">
           <Key>
@@ -1652,7 +1542,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Brand" Relationship="VipChannel_CollectionModel.FK_Material_Brand" FromRole="Material" ToRole="Brand" />
           <NavigationProperty Name="Category" Relationship="VipChannel_CollectionModel.FK_Material_Category" FromRole="Material" ToRole="Category" />
-          <NavigationProperty Name="InstallationRequestProgrammingMaterials" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgrammingMaterial_Material" FromRole="Material" ToRole="InstallationRequestProgrammingMaterial" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -1846,7 +1735,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
           <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="InstallationRequestProgrammings" Relationship="VipChannel_CollectionModel.FK_InstallationRequestProgramming_Technical" FromRole="Technical" ToRole="InstallationRequestProgramming" />
           <NavigationProperty Name="Role" Relationship="VipChannel_CollectionModel.FK_Technical_Role" FromRole="Technical" ToRole="Role" />
         </EntityType>
         <EntityType Name="Voucher">
@@ -1870,6 +1758,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <PropertyRef Name="ZoneId" />
           </Key>
           <Property Name="ZoneId" Type="Guid" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -1877,6 +1766,27 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
           <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="CustomerAddresses" Relationship="VipChannel_CollectionModel.FK_CustomerAddress_Zone" FromRole="Zone" ToRole="CustomerAddress" />
+        </EntityType>
+        <EntityType Name="vCliente">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="PersonTypeId" />
+            <PropertyRef Name="DocumentTypeId" />
+            <PropertyRef Name="DocumentNumber" />
+            <PropertyRef Name="BusinessName" />
+            <PropertyRef Name="CustomerName" />
+          </Key>
+          <Property Name="CustomerId" Type="Guid" Nullable="false" />
+          <Property Name="PersonTypeId" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PersonType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentTypeId" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="DocumentType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="401" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vEmpleado">
           <Key>
@@ -1911,6 +1821,18 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="Description" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
         </EntityType>
+        <EntityType Name="vPlanesVenta">
+          <Key>
+            <PropertyRef Name="PlanId" />
+            <PropertyRef Name="InternalCode" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="PlanId" Type="Guid" Nullable="false" />
+          <Property Name="InternalCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PlanTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="546" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
         <EntityType Name="vPlanInternet">
           <Key>
             <PropertyRef Name="PlanId" />
@@ -1938,6 +1860,41 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="PlanTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="vServiciosVenta">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ServiceId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="vSolicitudesInstalacion">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="CustomerAddressId" />
+            <PropertyRef Name="InstallationRequestId" />
+            <PropertyRef Name="DocumentNumber" />
+            <PropertyRef Name="BusinessName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Names" />
+            <PropertyRef Name="ZoneAvenue" />
+            <PropertyRef Name="AdressDetail" />
+          </Key>
+          <Property Name="CustomerId" Type="Guid" Nullable="false" />
+          <Property Name="CustomerAddressId" Type="Guid" Nullable="false" />
+          <Property Name="InstallationRequestId" Type="Guid" Nullable="false" />
+          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Names" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CellPhones" Type="String" MaxLength="33" FixedLength="false" Unicode="false" />
+          <Property Name="ZoneAvenue" Type="String" Nullable="false" MaxLength="303" FixedLength="false" Unicode="false" />
+          <Property Name="AdressDetail" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DateAttention" Type="String" MaxLength="41" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddressStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vSucursalPorCaja">
           <Key>
@@ -2113,18 +2070,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_InstallationRequestProgramming_InstallationRequest">
-          <End Type="VipChannel_CollectionModel.InstallationRequest" Role="InstallationRequest" Multiplicity="0..1" />
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgramming" Role="InstallationRequestProgramming" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequest">
-              <PropertyRef Name="InstallationRequestId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgramming">
-              <PropertyRef Name="InstallationRequestId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PaymentSchedule_InstallationRequest">
           <End Type="VipChannel_CollectionModel.InstallationRequest" Role="InstallationRequest" Multiplicity="1" />
           <End Type="VipChannel_CollectionModel.PaymentSchedule" Role="PaymentSchedule" Multiplicity="*" />
@@ -2158,66 +2103,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Principal>
             <Dependent Role="InstallationRequestPlan">
               <PropertyRef Name="PlanId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgramming_Technical">
-          <End Type="VipChannel_CollectionModel.Technical" Role="Technical" Multiplicity="0..1" />
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgramming" Role="InstallationRequestProgramming" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Technical">
-              <PropertyRef Name="TechnicalId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgramming">
-              <PropertyRef Name="TechnicalId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgrammingLog_InstallationRequestProgramming">
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgramming" Role="InstallationRequestProgramming" Multiplicity="0..1" />
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgrammingLog" Role="InstallationRequestProgrammingLog" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequestProgramming">
-              <PropertyRef Name="InstallationRequestProgrammingId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgrammingLog">
-              <PropertyRef Name="InstallationRequestProgrammingId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming">
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgramming" Role="InstallationRequestProgramming" Multiplicity="1" />
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgrammingMaterial" Role="InstallationRequestProgrammingMaterial" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequestProgramming">
-              <PropertyRef Name="InstallationRequestProgrammingId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgrammingMaterial">
-              <PropertyRef Name="InstallationRequestProgrammingId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog">
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgrammingLog" Role="InstallationRequestProgrammingLog" Multiplicity="0..1" />
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgrammingLogImage" Role="InstallationRequestProgrammingLogImage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequestProgrammingLog">
-              <PropertyRef Name="InstallationRequestProgrammingLogId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgrammingLogImage">
-              <PropertyRef Name="InstallationRequestProgrammingLogId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InstallationRequestProgrammingMaterial_Material">
-          <End Type="VipChannel_CollectionModel.Material" Role="Material" Multiplicity="1" />
-          <End Type="VipChannel_CollectionModel.InstallationRequestProgrammingMaterial" Role="InstallationRequestProgrammingMaterial" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Material">
-              <PropertyRef Name="MaterialId" />
-            </Principal>
-            <Dependent Role="InstallationRequestProgrammingMaterial">
-              <PropertyRef Name="MaterialId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2293,55 +2178,72 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="vCliente">
+        <EntityType Name="InstallationRequestAttended">
           <Key>
-            <PropertyRef Name="CustomerId" />
-            <PropertyRef Name="PersonTypeId" />
-            <PropertyRef Name="DocumentTypeId" />
-            <PropertyRef Name="DocumentNumber" />
-            <PropertyRef Name="BusinessName" />
-            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="InstallationRequestAttendedId" />
           </Key>
-          <Property Name="CustomerId" Type="Guid" Nullable="false" />
-          <Property Name="PersonTypeId" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="PersonType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentTypeId" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="DocumentType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="BusinessName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="401" FixedLength="false" Unicode="false" />
-          <Property Name="BirthDate" Type="DateTime" Precision="0" />
-          <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="CustomerStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="InstallationRequestAttendedId" Type="Guid" Nullable="false" />
+          <Property Name="InstallationRequestId" Type="Guid" Nullable="false" />
+          <Property Name="DateAttended" Type="DateTime" Precision="0" />
+          <Property Name="HourAttended" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TechnicalAttendedId" Type="Guid" />
+          <Property Name="RequestStatus" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Equipment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Brand" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Serie" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="OltPower" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CatvPower" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nap" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Thread" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Route" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Trunk" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Sector" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TerminalCapacityFirst" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TerminalCapacitySecond" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="InstallationRequest" Relationship="VipChannel_CollectionModel.FK_InstallationRequestAttended_InstallationRequest" FromRole="InstallationRequestAttended" ToRole="InstallationRequest" />
         </EntityType>
-        <EntityType Name="vPlanesVenta">
-          <Key>
-            <PropertyRef Name="PlanId" />
-            <PropertyRef Name="InternalCode" />
-            <PropertyRef Name="Cost" />
-          </Key>
-          <Property Name="PlanId" Type="Guid" Nullable="false" />
-          <Property Name="InternalCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PlanTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="546" FixedLength="false" Unicode="false" />
-          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-        </EntityType>
-        <EntityType Name="vServiciosVenta">
-          <Key>
-            <PropertyRef Name="ServiceId" />
-            <PropertyRef Name="Description" />
-            <PropertyRef Name="Cost" />
-          </Key>
-          <Property Name="ServiceId" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-        </EntityType>
+        <Association Name="FK_InstallationRequestAttended_InstallationRequest">
+          <End Type="VipChannel_CollectionModel.InstallationRequest" Role="InstallationRequest" Multiplicity="1" />
+          <End Type="VipChannel_CollectionModel.InstallationRequestAttended" Role="InstallationRequestAttended" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstallationRequest">
+              <PropertyRef Name="InstallationRequestId" />
+            </Principal>
+            <Dependent Role="InstallationRequestAttended">
+              <PropertyRef Name="InstallationRequestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="VipChannel_CollectionModelStoreContainer" CdmEntityContainer="VipChannel_CollectionEntities">
+          <FunctionImportMapping FunctionImportName="usp_ListarDireccionPorClienteSolicitud" FunctionName="VipChannel_CollectionModel.Store.usp_ListarDireccionPorClienteSolicitud">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VipChannel_CollectionModel.usp_ListarDireccionPorClienteSolicitud_Result">
+                <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Avenue" ColumnName="Avenue" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="AdressDetail" ColumnName="AdressDetail" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ActualizarCoordenadasCliente" FunctionName="VipChannel_CollectionModel.Store.usp_ActualizarCoordenadasCliente" />
           <EntitySetMapping Name="Avenues">
             <EntityTypeMapping TypeName="VipChannel_CollectionModel.Avenue">
               <MappingFragment StoreEntitySet="Avenue">
@@ -2351,6 +2253,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
                 <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
                 <ScalarProperty Name="AvenueId" ColumnName="AvenueId" />
               </MappingFragment>
@@ -2444,6 +2347,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
                 <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
                 <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="CustomerAddressStatus" ColumnName="CustomerAddressStatus" />
                 <ScalarProperty Name="Reference" ColumnName="Reference" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
@@ -2482,12 +2386,17 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
                 <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
                 <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TechnicalId" ColumnName="TechnicalId" />
+                <ScalarProperty Name="HourAttention" ColumnName="HourAttention" />
+                <ScalarProperty Name="DateAttention" ColumnName="DateAttention" />
                 <ScalarProperty Name="DiscountMonths" ColumnName="DiscountMonths" />
                 <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
                 <ScalarProperty Name="ApplyDiscount" ColumnName="ApplyDiscount" />
                 <ScalarProperty Name="DaysOfGrace" ColumnName="DaysOfGrace" />
                 <ScalarProperty Name="CreateInvoices" ColumnName="CreateInvoices" />
                 <ScalarProperty Name="PayDay" ColumnName="PayDay" />
+                <ScalarProperty Name="ServiceStatus" ColumnName="ServiceStatus" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
                 <ScalarProperty Name="InstallationRequestId" ColumnName="InstallationRequestId" />
@@ -2502,6 +2411,8 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
                 <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
                 <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="ServiceCost" ColumnName="ServiceCost" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
                 <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
                 <ScalarProperty Name="InstallationRequestId" ColumnName="InstallationRequestId" />
                 <ScalarProperty Name="InstallationRequestCostId" ColumnName="InstallationRequestCostId" />
@@ -2516,73 +2427,11 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
                 <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
                 <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="PlanCost" ColumnName="PlanCost" />
+                <ScalarProperty Name="PlanName" ColumnName="PlanName" />
                 <ScalarProperty Name="PlanId" ColumnName="PlanId" />
                 <ScalarProperty Name="InstallationRequestId" ColumnName="InstallationRequestId" />
                 <ScalarProperty Name="InstallationRequestPlanId" ColumnName="InstallationRequestPlanId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InstallationRequestProgrammings">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.InstallationRequestProgramming">
-              <MappingFragment StoreEntitySet="InstallationRequestProgramming">
-                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
-                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
-                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
-                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
-                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="TechnicalId" ColumnName="TechnicalId" />
-                <ScalarProperty Name="HourAttention" ColumnName="HourAttention" />
-                <ScalarProperty Name="DateAttention" ColumnName="DateAttention" />
-                <ScalarProperty Name="InstallationRequestId" ColumnName="InstallationRequestId" />
-                <ScalarProperty Name="InstallationRequestProgrammingId" ColumnName="InstallationRequestProgrammingId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InstallationRequestProgrammingLogs">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.InstallationRequestProgrammingLog">
-              <MappingFragment StoreEntitySet="InstallationRequestProgrammingLog">
-                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
-                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
-                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
-                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
-                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="InstallationRequestType" ColumnName="InstallationRequestType" />
-                <ScalarProperty Name="InstallationRequestProgrammingId" ColumnName="InstallationRequestProgrammingId" />
-                <ScalarProperty Name="InstallationRequestProgrammingLogId" ColumnName="InstallationRequestProgrammingLogId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InstallationRequestProgrammingLogImages">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.InstallationRequestProgrammingLogImage">
-              <MappingFragment StoreEntitySet="InstallationRequestProgrammingLogImage">
-                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
-                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
-                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
-                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
-                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
-                <ScalarProperty Name="ImageEvidence" ColumnName="ImageEvidence" />
-                <ScalarProperty Name="InstallationRequestProgrammingLogId" ColumnName="InstallationRequestProgrammingLogId" />
-                <ScalarProperty Name="InstallationRequestProgrammingLogImageId" ColumnName="InstallationRequestProgrammingLogImageId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InstallationRequestProgrammingMaterials">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.InstallationRequestProgrammingMaterial">
-              <MappingFragment StoreEntitySet="InstallationRequestProgrammingMaterial">
-                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
-                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
-                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
-                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
-                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ConditionType" ColumnName="ConditionType" />
-                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
-                <ScalarProperty Name="InstallationRequestProgrammingId" ColumnName="InstallationRequestProgrammingId" />
-                <ScalarProperty Name="InstallationRequestProgrammingMaterialId" ColumnName="InstallationRequestProgrammingMaterialId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2845,7 +2694,25 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
                 <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vClientes">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vCliente">
+              <MappingFragment StoreEntitySet="vClientes">
+                <ScalarProperty Name="CustomerStatus" ColumnName="CustomerStatus" />
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="PersonType" ColumnName="PersonType" />
+                <ScalarProperty Name="PersonTypeId" ColumnName="PersonTypeId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2875,6 +2742,17 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vPlanesVentas">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vPlanesVenta">
+              <MappingFragment StoreEntitySet="vPlanesVenta">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="PlanTypeDescription" ColumnName="PlanTypeDescription" />
+                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
+                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vPlanInternets">
             <EntityTypeMapping TypeName="VipChannel_CollectionModel.vPlanInternet">
               <MappingFragment StoreEntitySet="vPlanInternet">
@@ -2896,6 +2774,33 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="PlanTypeDescription" ColumnName="PlanTypeDescription" />
                 <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
                 <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vServiciosVentas">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vServiciosVenta">
+              <MappingFragment StoreEntitySet="vServiciosVenta">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vSolicitudesInstalacions">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vSolicitudesInstalacion">
+              <MappingFragment StoreEntitySet="vSolicitudesInstalacion">
+                <ScalarProperty Name="CustomerAddressStatus" ColumnName="CustomerAddressStatus" />
+                <ScalarProperty Name="DateAttention" ColumnName="DateAttention" />
+                <ScalarProperty Name="AdressDetail" ColumnName="AdressDetail" />
+                <ScalarProperty Name="ZoneAvenue" ColumnName="ZoneAvenue" />
+                <ScalarProperty Name="CellPhones" ColumnName="CellPhones" />
+                <ScalarProperty Name="Names" ColumnName="Names" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="InstallationRequestId" ColumnName="InstallationRequestId" />
+                <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2935,44 +2840,41 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vClientes">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vCliente">
-              <MappingFragment StoreEntitySet="vClientes">
-                <ScalarProperty Name="CustomerStatus" ColumnName="CustomerStatus" />
-                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
-                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
-                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
-                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
-                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
-                <ScalarProperty Name="PersonType" ColumnName="PersonType" />
-                <ScalarProperty Name="PersonTypeId" ColumnName="PersonTypeId" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <EntitySetMapping Name="InstallationRequestAttendeds">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.InstallationRequestAttended">
+              <MappingFragment StoreEntitySet="InstallationRequestAttended">
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
+                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
+                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
+                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="TerminalCapacitySecond" ColumnName="TerminalCapacitySecond" />
+                <ScalarProperty Name="TerminalCapacityFirst" ColumnName="TerminalCapacityFirst" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Trunk" ColumnName="Trunk" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="Nap" ColumnName="Nap" />
+                <ScalarProperty Name="CatvPower" ColumnName="CatvPower" />
+                <ScalarProperty Name="OltPower" ColumnName="OltPower" />
+                <ScalarProperty Name="Serie" ColumnName="Serie" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="TechnicalAttendedId" ColumnName="TechnicalAttendedId" />
+                <ScalarProperty Name="HourAttended" ColumnName="HourAttended" />
+                <ScalarProperty Name="DateAttended" ColumnName="DateAttended" />
+                <ScalarProperty Name="InstallationRequestId" ColumnName="InstallationRequestId" />
+                <ScalarProperty Name="InstallationRequestAttendedId" ColumnName="InstallationRequestAttendedId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vPlanesVentas">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vPlanesVenta">
-              <MappingFragment StoreEntitySet="vPlanesVenta">
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="PlanTypeDescription" ColumnName="PlanTypeDescription" />
-                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
-                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vServiciosVentas">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vServiciosVenta">
-              <MappingFragment StoreEntitySet="vServiciosVenta">
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

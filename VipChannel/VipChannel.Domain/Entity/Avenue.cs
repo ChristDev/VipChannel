@@ -22,6 +22,7 @@ namespace VipChannel.Domain.Entity
     
         public System.Guid AvenueId { get; set; }
         public System.Guid ZoneId { get; set; }
+        public string Code { get; set; }
         public string Description { get; set; }
         public string UserRecordCreation { get; set; }
         public System.DateTime RecordCreationDate { get; set; }

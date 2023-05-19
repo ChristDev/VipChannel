@@ -14,12 +14,6 @@ namespace VipChannel.Domain.Entity
     
     public partial class Technical
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Technical()
-        {
-            this.InstallationRequestProgrammings = new HashSet<InstallationRequestProgramming>();
-        }
-    
         public System.Guid TechnicalId { get; set; }
         public string TypeDocument { get; set; }
         public string DocumentNumber { get; set; }
@@ -33,8 +27,6 @@ namespace VipChannel.Domain.Entity
         public Nullable<System.DateTime> RecordEditDate { get; set; }
         public string RecordStatus { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InstallationRequestProgramming> InstallationRequestProgrammings { get; set; }
         public virtual Role Role { get; set; }
     }
 }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterTables\ConstantBase.cs" />
+    <Compile Include="MasterTables\ConstantEmployeeType.cs" />
     <Compile Include="MasterTables\ConstantMasterTable.cs" />
     <Compile Include="MasterTables\ConstantOperation.cs" />
     <Compile Include="MasterTables\ConstantPersonType.cs" />

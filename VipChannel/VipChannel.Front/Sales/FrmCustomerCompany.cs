@@ -41,7 +41,6 @@ namespace VipChannel.Front.Sales
             txtEmail.Text = entity.Email;
             txtCellPhone.Text = entity.CellPhone;
             txtOptionalCellPhone.Text = entity.OptionalCellPhone;
-            txtEmail.Text = entity.Email;
 
             _userRecordCreation = entity.UserRecordCreation;
             _recordCreationDate = entity.RecordCreationDate;

@@ -90,7 +90,7 @@ namespace VipChannel.Front.Definitions
 
             _roleApplication = new RoleApplication();
             roleBindingSource.DataSource = _roleApplication.SelectList(x=>x.RecordStatus == ConstantBase.Active && 
-                                                                          x.IsTechnicalRole.GetValueOrDefault());
+                                                                          x.IsTechnicalRole.Value);
         }
 
         private Technical SetFormData()

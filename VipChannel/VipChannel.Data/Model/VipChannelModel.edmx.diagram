@@ -5,42 +5,42 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="45cc0d9235804be8a924f1078f39d56c" Name="Diagram1">
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Avenue" Width="1.5" PointX="0.75" PointY="28.5" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Brand" Width="1.5" PointX="8.25" PointY="7.125" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Category" Width="1.5" PointX="8.25" PointY="3.625" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Company" Width="1.5" PointX="12.75" PointY="1.125" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Customer" Width="1.5" PointX="0.75" PointY="23.25" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.CustomerAddress" Width="1.5" PointX="3" PointY="23.375" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Employee" Width="1.5" PointX="3" PointY="14.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequest" Width="1.5" PointX="5.25" PointY="14.25" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestCost" Width="1.5" PointX="7.5" PointY="18.125" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestPlan" Width="1.5" PointX="10.5" PointY="15.125" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestProgramming" Width="1.5" PointX="7.5" PointY="12.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestProgrammingLog" Width="1.5" PointX="9.75" PointY="10.625" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestProgrammingLogImage" Width="1.5" PointX="12" PointY="10.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestProgrammingMaterial" Width="1.5" PointX="12.75" PointY="14.875" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.MasterTable" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Material" Width="1.5" PointX="10.5" PointY="4" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Payment" Width="1.5" PointX="12" PointY="22.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.PaymentDetail" Width="1.5" PointX="14.25" PointY="23.25" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.PaymentSchedule" Width="1.5" PointX="7.5" PointY="23.375" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.PaymentScheduleDetail" Width="1.5" PointX="9.75" PointY="23.125" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Plan" Width="1.5" PointX="8.25" PointY="27.625" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Role" Width="1.5" PointX="0.75" PointY="12.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.SaleBox" Width="1.5" PointX="17.25" PointY="2.5" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Service" Width="1.5" PointX="5.25" PointY="20.125" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Sucursal" Width="1.5" PointX="15" PointY="2.5" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Supplier" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Technical" Width="1.5" PointX="3" PointY="10.25" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Voucher" Width="1.5" PointX="19.5" PointY="2.5" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.Zone" Width="1.5" PointX="0.75" PointY="20" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vEmpleado" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vPlanCable" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vPlanInternet" Width="1.5" PointX="0.75" PointY="5.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vPlanPersonalizado" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vSucursalPorCaja" Width="1.5" PointX="2.75" PointY="7.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vTecnico" Width="1.5" PointX="14.75" PointY="6.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vTipoComprobantePorCaja" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Avenue" Width="1.5" PointX="0.75" PointY="21" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Brand" Width="1.5" PointX="16.75" PointY="2.5" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Category" Width="1.5" PointX="16.75" PointY="7.375" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Company" Width="1.5" PointX="12.75" PointY="12.125" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Customer" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.CustomerAddress" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Employee" Width="1.5" PointX="3" PointY="10.25" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequest" Width="1.5" PointX="5.25" PointY="9.125" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestCost" Width="1.5" PointX="7.5" PointY="11.375" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestPlan" Width="1.5" PointX="10.5" PointY="11.375" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.MasterTable" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Material" Width="1.5" PointX="19" PointY="1.125" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Payment" Width="1.5" PointX="12" PointY="6.125" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.PaymentDetail" Width="1.5" PointX="14.25" PointY="6.625" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.PaymentSchedule" Width="1.5" PointX="7.5" PointY="6.875" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.PaymentScheduleDetail" Width="1.5" PointX="9.75" PointY="6.5" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Plan" Width="1.5" PointX="8.25" PointY="1.125" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Role" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.SaleBox" Width="1.5" PointX="17.25" PointY="13.625" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Service" Width="1.5" PointX="5.25" PointY="16.625" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Sucursal" Width="1.5" PointX="15" PointY="13.5" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Supplier" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Technical" Width="1.5" PointX="3" PointY="14.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Voucher" Width="1.5" PointX="19.5" PointY="13.5" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.Zone" Width="1.5" PointX="0.75" PointY="17.5" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vCliente" Width="1.5" PointX="9.75" PointY="15.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vEmpleado" Width="1.5" PointX="14.75" PointY="17.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vPlanCable" Width="1.5" PointX="16.75" PointY="17.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vPlanesVenta" Width="1.5" PointX="18.75" PointY="7.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vPlanInternet" Width="1.5" PointX="11.75" PointY="18.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vPlanPersonalizado" Width="1.5" PointX="18.75" PointY="17.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vServiciosVenta" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vSolicitudesInstalacion" Width="1.5" PointX="2.75" PointY="20.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vSucursalPorCaja" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vTecnico" Width="1.5" PointX="4.75" PointY="20.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vTipoComprobantePorCaja" Width="1.5" PointX="20.75" PointY="7.75" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_CustomerAddress_Avenue" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_Material_Brand" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_Material_Category" />
@@ -52,24 +52,17 @@
         <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequest_Employee" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestCost_InstallationRequest" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestPlan_InstallationRequest" />
-        <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestProgramming_InstallationRequest" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_PaymentSchedule_InstallationRequest" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestCost_Service" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestPlan_Plan" />
-        <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestProgramming_Technical" />
-        <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestProgrammingLog_InstallationRequestProgramming" />
-        <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestProgrammingMaterial_InstallationRequestProgramming" />
-        <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestProgrammingLogImage_InstallationRequestProgrammingLog" />
-        <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestProgrammingMaterial_Material" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_Payment_PaymentScheduleDetail" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_PaymentDetail_Payment" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_PaymentScheduleDetail_PaymentSchedule" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_Technical_Role" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_SaleBox_Sucursal" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_Voucher_SaleBox" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vCliente" Width="1.5" PointX="5.375" PointY="7.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vPlanesVenta" Width="1.5" PointX="9.375" PointY="0.75" />
-        <EntityTypeShape EntityType="VipChannel_CollectionModel.vServiciosVenta" Width="1.5" PointX="15.375" PointY="13.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.InstallationRequestAttended" Width="1.5" PointX="7.5" PointY="15.75" />
+        <AssociationConnector Association="VipChannel_CollectionModel.FK_InstallationRequestAttended_InstallationRequest" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

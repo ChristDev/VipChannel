@@ -14,6 +14,7 @@ namespace VipChannel.Front.Constants
 
         public const string FrmServiceList = "Listado de Servicios";
         public const string FrmCustomerList = "Listado de Clientes";
+        public const string FrmRequestList = "Listado de Solicitudes de Instalación";
 
     }
 }

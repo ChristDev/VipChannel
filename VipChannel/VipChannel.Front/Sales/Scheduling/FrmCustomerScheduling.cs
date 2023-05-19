@@ -18,9 +18,20 @@ namespace VipChannel.Front.Sales
         private Guid _id;
         private string _userSession;
 
-        private Customer _customerEntity;
-        private CustomerApplication _customerApplication;
+        private CustomerAddress _customerAddress;
+        private InstallationRequest _installationRequest;
 
+        private InstallationRequestPlan _installationRequestPlan;
+        private List<InstallationRequestPlan> _installationRequestPlans = new List<InstallationRequestPlan>();
+
+        private InstallationRequestCost _installationRequestCost;
+        private List<InstallationRequestCost> _installationRequestCosts = new List<InstallationRequestCost>();
+
+        private CustomerApplication _customerApplication;
+        private CustomerAddressApplication _customerAddressApplication;
+        private InstallationRequestApplication _installationRequestApplication;
+        private InstallationRequestPlanApplication _installationRequestPlanApplication;
+        private InstallationRequestCostApplication _installationRequestCostApplication;
 
         private ZoneApplication _zoneApplication;
         private AvenueApplication _avenueApplication;
@@ -33,86 +44,128 @@ namespace VipChannel.Front.Sales
 
         private TecnicoView _tecnicoView;
 
-
         private string _userRecordCreation;
         private DateTime _recordCreationDate;
 
         private string _personType;
-        public FrmCustomerScheduling()
-            //(int operation, Guid id)
+        public FrmCustomerScheduling(int operation, Guid id)
         {
             InitializeComponent();
-            //_operation = operation;
-            //_id = id;
+            _operation = operation;
+            _id = id;
             _personType = ConstantPersonType.Natural;
         }
 
-        private void CargarEntidad(Customer entity)
+        private CustomerAddress AsignarDatos_CustomerAddres()
         {
-            cboZoneId.SelectedValue = entity.DocumentType;
-            txtReference.Text = entity.DocumentNumber;
-            //txtLastName.Text = entity.LastName;
-            //txtNames.Text = entity.Names;
-            //dtpBirthDate.Value = entity.BirthDate.GetValueOrDefault();
-            //txtEmail.Text = entity.Email;
-            //txtCellPhone.Text = entity.CellPhone;
-            //txtOptionalCellPhone.Text = entity.OptionalCellPhone;
-            //txtEmail.Text = entity.Email;
+            var customerAddresId = Guid.NewGuid();
+            _customerAddress = new CustomerAddress()
+            {                
+                CustomerAddressId = customerAddresId,
+                CustomerId = _id,
+                ZoneId = Guid.Parse(cboZoneId.SelectedValue.ToString()),
+                AvenueId = Guid.Parse(cboAvenueId.SelectedValue.ToString()),
+                AdressDetail = txtAdressDetail.Text,
+                Number = txtNumber.Text,
+                Latitude = "",
+                Longitude = "",
+                Reference = txtReference.Text,
+                UserRecordCreation = "LOAD",
+                RecordCreationDate = DateTime.Now,
+                RecordStatus = ConstantBase.Active
+            };            
+            _customerAddress.InstallationRequests.Add(AsignarDatos_InstallationRequest());
 
-            _userRecordCreation = entity.UserRecordCreation;
-            _recordCreationDate = entity.RecordCreationDate;
+            return _customerAddress;
         }
 
 
-        private Customer AsignarDatos()
+        private InstallationRequest AsignarDatos_InstallationRequest()
         {
-            _customerEntity = new Customer()
+            var installationRequestId = Guid.NewGuid(); ;
+            _installationRequest = new InstallationRequest()
             {
-                CustomerId = _id,
-                PersonType = _personType,
-                DocumentType = cboZoneId.SelectedValue.ToString(),
-                DocumentNumber = txtReference.Text,
-                //LastName = txtLastName.Text,
-                //Names = txtNames.Text,
-                //BusinessName = string.Empty,
-                //BirthDate = dtpBirthDate.Value,
-                //Email = txtEmail.Text,
-                //CellPhone = txtCellPhone.Text,
-                //OptionalCellPhone = txtOptionalCellPhone.Text,
+                InstallationRequestId = installationRequestId,                
+                CustomerAddressId = _customerAddress.CustomerAddressId,
+                ServiceStatus = cboServiceStatus.SelectedValue.ToString(),
+                EmployeeId = Guid.Parse("E5E5B878-7181-4CDD-83CD-F4B616E48DAB"), //TODO: Aqui va el codigo del empleado
+                PayDay = int.Parse(cboPayDay.SelectedValue.ToString()),
+                CreateInvoices = int.Parse(cboCreateInvoices.SelectedValue.ToString()),
+                DaysOfGrace = int.Parse(cboDaysOfGrace.SelectedValue.ToString()),
+                ApplyDiscount = chkApplyDiscount.Checked,
+                DiscountAmount = cboDiscountMonths.SelectedValue == null ? 0 : decimal.Parse(txtDiscountAmount.Text),
+                DiscountMonths = cboDiscountMonths.SelectedValue == null ? 0 : int.Parse(cboDiscountMonths.SelectedValue.ToString()),
+
+                DateAttention = dtpDateAttention.Value,
+                HourAttention = tmpHourAttention.Text,
+                TechnicalId = Guid.Parse(cboTechnicalId.SelectedValue.ToString()),
+                Comment = txtComment.Text,
+
+                UserRecordCreation = "LOAD",
+                RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };
 
-            if (_operation == Convert.ToInt32(Operation.Create))
+            var plans = new List<InstallationRequestPlan>();
+            foreach (var item in _installationRequestPlans)
             {
-                _customerEntity.UserRecordCreation = "LOAD";
-                _customerEntity.RecordCreationDate = DateTime.Now;
+                var plan = new InstallationRequestPlan()
+                {
+                    InstallationRequestPlanId = Guid.NewGuid(),
+                    InstallationRequestId = item.InstallationRequestId,
+                    PlanId = item.PlanId,
+                    PlanName = item.PlanName,
+                    PlanCost = item.PlanCost,
+                    UserRecordCreation = "LOAD",
+                    RecordCreationDate = DateTime.Now,
+                    RecordStatus = ConstantBase.Active
+                };
+                plans.Add(plan);
             }
-            else if (_operation == (int)Operation.Update)
+
+            var services = new List<InstallationRequestCost>();
+            foreach (var item in _installationRequestCosts) 
             {
-                _customerEntity.UserRecordCreation = _userRecordCreation;
-                _customerEntity.RecordCreationDate = _recordCreationDate;
-                _customerEntity.UserEditRecord = "LOAD";
-                _customerEntity.RecordEditDate = DateTime.Now;
+                var service = new InstallationRequestCost()
+                {
+                    InstallationRequestCostId = Guid.NewGuid(),
+                    InstallationRequestId = item.InstallationRequestId,
+                    ServiceId = item.ServiceId,
+                    ServiceName = item.ServiceName,
+                    ServiceCost = item.ServiceCost,
+                    UserRecordCreation = "LOAD",
+                    RecordCreationDate = DateTime.Now,
+                    RecordStatus = ConstantBase.Active
+                };
+                services.Add(service);
             }
-            
-            return _customerEntity;
+
+            _installationRequest.InstallationRequestPlans = plans;
+            _installationRequest.InstallationRequestCosts = services;
+
+            return _installationRequest;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            var entity = AsignarDatos();
+            _customerAddressApplication = new CustomerAddressApplication();
+            _installationRequestApplication = new InstallationRequestApplication();
 
-            if (_operation == Convert.ToInt32(Operation.Create))
+            if (_installationRequestPlans.Count == 0)
             {
-                _customerApplication.Insert(entity);
+                MessageBox.Show("Debe agregar al menos un plan", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else if (_operation == (int)Operation.Update)
+
+            if(_installationRequestCosts.Count == 0)
             {
-                _customerApplication.Update(entity);
+                MessageBox.Show("Debe agregar al menos un servicio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+                       
+            _customerAddressApplication.Insert(AsignarDatos_CustomerAddres());
 
             MessageBox.Show("Se guardo correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
         }
 
         private void CargarCombos()
@@ -162,12 +215,15 @@ namespace VipChannel.Front.Sales
             vServiciosVentaBindingSource.DataSource = _dtServices;
             cboServicios.SelectedIndex = -1;
 
-
-
             _tecnicoView = new TecnicoView();
             vTecnicoBindingSource.DataSource = _tecnicoView.SelectListView();
             cboTechnicalId.SelectedIndex = -1;
 
+            var dtCargarMeses = CargarMeses();
+            cboMesesContrato.DataSource = dtCargarMeses;
+            cboMesesContrato.DisplayMember = "Descripcion";
+            cboMesesContrato.ValueMember = "Id";
+            cboMesesContrato.SelectedIndex = -1;
         }
 
         private DataTable CargarEstadoDeServicio()
@@ -270,20 +326,29 @@ namespace VipChannel.Front.Sales
             return dt;
         }
 
+        private DataTable CargarMeses()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id", typeof(string));
+            dt.Columns.Add("Descripcion", typeof(string));
+
+            for (int i = 6; i <= 12; i++)
+            {
+                dt.Rows.Add(i.ToString(), i.ToString() + " Meses");               
+            }
+            return dt;
+        }
+
         private void FrmPlanCable_Load(object sender, EventArgs e)
         {
             CargarCombos();
             if (_operation == Convert.ToInt32(Operation.Create))
             {
-                _customerApplication = new CustomerApplication();
                 lblTituloFormulario.Text = Constants.FormCreateNames.FrmCustomerCreate;
             }
             else if (_operation == (int)Operation.Update)
             {
                 lblTituloFormulario.Text = Constants.FormCreateNames.FrmCustomerUpdate;
-                _customerApplication = new CustomerApplication();
-                var entity = _customerApplication.SelectSingle(x=>x.CustomerId == _id);
-                CargarEntidad(entity);
             }
         }
 
@@ -301,7 +366,7 @@ namespace VipChannel.Front.Sales
                 txtDiscountAmount.Visible = true;
 
                 fLabelMedium12.Visible = true;
-                cboDiscountMonths.Visible = true;
+                cboDiscountMonths.Visible = true;                
             }
             else
             {
@@ -310,6 +375,9 @@ namespace VipChannel.Front.Sales
 
                 fLabelMedium12.Visible = false;
                 cboDiscountMonths.Visible = false;
+
+                txtDiscountAmount.Text = string.Empty;
+                cboDiscountMonths.SelectedIndex = -1;
             }
         }
 
@@ -365,6 +433,137 @@ namespace VipChannel.Front.Sales
             {
                 throw;
             }
+        }
+
+        private void LimpiarPlanPaquete()
+        {
+            cboPlanes.SelectedIndex = -1;
+            txtPlanPaquete.Text = string.Empty;
+            txtMontoPlanPaquete.Text = string.Empty;
+        }
+
+        private void btnAgregarPlanPaquete_Click(object sender, EventArgs e)
+        {
+            if(cboPlanes.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un plan", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var planId = Guid.Parse(cboPlanes.SelectedValue.ToString());
+            var planName = txtPlanPaquete.Text;
+            var planCost = Convert.ToDecimal(txtMontoPlanPaquete.Text);
+            
+            var plan = new InstallationRequestPlan
+            {
+                PlanId = planId,
+                PlanName = planName,
+                PlanCost = planCost
+            };           
+
+            if (_installationRequestPlans.Count(x => x.PlanId == planId) != 0)
+            {
+                MessageBox.Show("El plan ya se encuentra agregado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LimpiarPlanPaquete();
+                return;
+            }
+
+            _installationRequestPlans.Add(plan);
+            LimpiarPlanPaquete();
+
+            if (installationRequestPlanBindingSource.Count == 0)
+            {
+                installationRequestPlanBindingSource.DataSource = _installationRequestPlans;
+            }
+            else
+            {
+                installationRequestPlanBindingSource.DataSource = null;
+                installationRequestPlanBindingSource.DataSource = _installationRequestPlans;
+            }
+        }
+
+        private void btnQuitarPlanPaquete_Click(object sender, EventArgs e)
+        {
+            if(dgvDatosPlanPaquete.CurrentRow == null)
+            {
+                MessageBox.Show("No existen registros a eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var id = Guid.Parse(dgvDatosPlanPaquete.CurrentRow.Cells[0].Value.ToString());
+            var selected = _installationRequestPlans.FirstOrDefault(x => x.PlanId == id);
+
+            _installationRequestPlans.Remove(selected);
+            installationRequestPlanBindingSource.DataSource = null;
+            installationRequestPlanBindingSource.DataSource = _installationRequestPlans;
+        }
+
+        private void LimpiarServicio()
+        {
+            cboServicios.SelectedIndex = -1;
+            txtServicio.Text = string.Empty;
+            txtMontoServicio.Text = string.Empty;
+        }
+
+        private void btnAgregarServicio_Click(object sender, EventArgs e)
+        {
+            if (cboServicios.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un servicio", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var servicioId = Guid.Parse(cboServicios.SelectedValue.ToString());
+            var serviceName = txtServicio.Text;
+            var serviceCost = Convert.ToDecimal(txtMontoServicio.Text);
+
+            var servicio = new InstallationRequestCost
+            {
+                ServiceId = servicioId,
+                ServiceName = serviceName,
+                ServiceCost = serviceCost
+            };            
+
+            if (_installationRequestCosts.Count(x => x.ServiceId == servicioId) != 0)
+            {
+                MessageBox.Show("El servicio ya se encuentra agregado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LimpiarServicio();
+                return;
+            }
+
+            _installationRequestCosts.Add(servicio);
+            LimpiarServicio();
+
+            if (installationRequestCostBindingSource.Count == 0)
+            {
+                installationRequestCostBindingSource.DataSource = _installationRequestCosts;
+            }
+            else
+            {
+                installationRequestCostBindingSource.DataSource = null;
+                installationRequestCostBindingSource.DataSource = _installationRequestCosts;
+            }
+        }
+
+        private void btnEliminarServicio_Click(object sender, EventArgs e)
+        {
+            if (dgvDatosServicio.CurrentRow == null)
+            {
+                MessageBox.Show("No existen registros a eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var id = Guid.Parse(dgvDatosServicio.CurrentRow.Cells[0].Value.ToString());
+            var selected = _installationRequestCosts.FirstOrDefault(x => x.ServiceId == id);
+
+            _installationRequestCosts.Remove(selected);
+            installationRequestCostBindingSource.DataSource = null;
+            installationRequestCostBindingSource.DataSource = _installationRequestCosts;
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

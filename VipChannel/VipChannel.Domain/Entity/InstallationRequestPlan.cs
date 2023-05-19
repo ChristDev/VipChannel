@@ -17,6 +17,8 @@ namespace VipChannel.Domain.Entity
         public System.Guid InstallationRequestPlanId { get; set; }
         public System.Guid InstallationRequestId { get; set; }
         public Nullable<System.Guid> PlanId { get; set; }
+        public string PlanName { get; set; }
+        public Nullable<decimal> PlanCost { get; set; }
         public string UserRecordCreation { get; set; }
         public System.DateTime RecordCreationDate { get; set; }
         public string UserEditRecord { get; set; }

@@ -14,12 +14,6 @@ namespace VipChannel.Domain.Entity
     
     public partial class Material
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Material()
-        {
-            this.InstallationRequestProgrammingMaterials = new HashSet<InstallationRequestProgrammingMaterial>();
-        }
-    
         public System.Guid MaterialId { get; set; }
         public System.Guid CategoryId { get; set; }
         public string Name { get; set; }
@@ -43,7 +37,5 @@ namespace VipChannel.Domain.Entity
     
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InstallationRequestProgrammingMaterial> InstallationRequestProgrammingMaterials { get; set; }
     }
 }
