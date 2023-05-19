@@ -35,6 +35,7 @@ namespace VipChannel.Domain.Entity
         public string UserEditRecord { get; set; }
         public Nullable<System.DateTime> RecordEditDate { get; set; }
         public string RecordStatus { get; set; }
+        public string CodeCustomerAddress { get; set; }
     
         public virtual Avenue Avenue { get; set; }
         public virtual Customer Customer { get; set; }

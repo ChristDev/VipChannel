@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
+using VipChannel.Front.Constants;
 using VipChannel.Front.Principal;
 
 namespace VipChannel.Front.Definitions
@@ -73,75 +74,46 @@ namespace VipChannel.Front.Definitions
             roleBindingSource.DataSource = _rolApplication.SelectList();
         }
 
-        //private Rol SetFormData()
-        //{
-        //    var opcionGestion = OpcionGestion.GESTION +
-        //                       OpcionGestion.MANTENIMIENTO +
-        //                       OpcionGestion.CATEGORIAS +
-        //                       OpcionGestion.PRODUCTOS +
-        //                       OpcionGestion.SERVICIOS +
-        //                       OpcionGestion.PROVEEDORES +
-        //                       OpcionGestion.CLIENTES +
-        //                       OpcionGestion.ALMACENES +
-        //                       OpcionGestion.CAJAS +
-        //                       OpcionGestion.MEDIOS_DE_PAGO +
-        //                       OpcionGestion.CONCEPTO_INGRESOS +
-        //                       OpcionGestion.CONCEPTO_EGRESOS +
-        //                       OpcionGestion.CONFIGURACION +
-        //                       OpcionGestion.GENERAL +
-        //                       OpcionGestion.SEGURIDAD +
-        //                       OpcionGestion.USUARIOS +
-        //                       OpcionGestion.ROLES +
-        //                       OpcionGestion.SALIR;
-
-        //    var opcionCompras = OpcionCompras.COMPRAS +
-        //                        OpcionCompras.AGREGAR_COMPRAS;
-        //    var opcionVentas = OpcionVentas.VENTAS +
-        //                       OpcionVentas.AGREGAR_VENTAS +
-        //                       OpcionVentas.MEMBRESIAS;
-
-        //    var opcionInventarios = OpcionInventarios.INVENTARIOS +
-        //                            OpcionInventarios.KARDEX +
-        //                            OpcionInventarios.TRANSFORMACIONES;
-
-        //    var opcionContable = OpcionContable.CONTABLE +
-        //                         OpcionContable.INGRESOS +
-        //                         OpcionContable.EGRESOS +
-        //                         OpcionContable.MOVIMIENTOS;
-
-        //    var opcionCaja = OpcionCaja.CAJA +
-        //                     OpcionCaja.APERTURA +
-        //                     OpcionCaja.CIERRE;
-
-        //    var opcionReportes = OpcionReportes.REPORTES +
-        //                         OpcionReportes.EGRESOS_DEL_MES +
-        //                         OpcionReportes.CIERRES_DEL_MES;
-
-        //    var opcionesMenu = opcionGestion + opcionCompras + opcionVentas +
-        //    opcionInventarios + opcionContable + opcionCaja + opcionReportes;
-
-        //    _rolEntity = new Role()
-        //    {
-        //        Name = txtName.Text.Trim(),
-        //        Description = txtDescription.Text.Trim(),
-
-        //        Permisos = opcionesMenu
-        //    };
-        //    if (flag) return _rolEntity;
-        //    if (dgvDatosRegistrados.CurrentRow != null)
-        //        _rolEntity.Id = int.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
-        //    return _rolEntity;
-        //}
-
-        private Role SetFormData()
+         private Role SetFormData()
         {
+            var optionAjustes = OptionAjustes.AJUSTES +
+                OptionAjustes.GENERAL +
+                OptionAjustes.SUCURSAL +
+                OptionAjustes.COMPROBANTES +
+                OptionAjustes.ROLES +
+                OptionAjustes.EMPLEADOS+
+                OptionAjustes.TECNICOS +
+                OptionAjustes.GESTORES +
+                OptionAjustes.SALIR;
+
+            var optionMantenimientos = OptionMantenimientos.MANTENIMIENTOS +
+                OptionMantenimientos.ZONAS +
+                OptionMantenimientos.SERVICIOS;
+
+            var optionPlanes = OptionPlanes.PLANES +
+                OptionPlanes.INTERNET +
+                OptionPlanes.CABLE +
+                OptionPlanes.PAQUETES;
+
+            var optionVentas = OptionVentas.VENTAS +
+                OptionVentas.CLIENTE;
+
+            var optionSolicitudes = OptionSolicitudes.SOLICITUDES +
+                OptionSolicitudes.INSTALACIONES;
+
+            var permissions = optionAjustes + 
+                optionMantenimientos +
+                optionPlanes +
+                optionVentas +
+                optionSolicitudes;
+
             _rolEntity = new Role()
             {
                 RoleId = Guid.NewGuid(),
                 Name = txtName.Text.Trim(),
                 Description = txtDescription.Text.Trim(),
                 IsEmployeeRole = rbtIsEmployeeRole.Checked,
-                IsTechnicalRole = rbtIsTechnicalRole.Checked,
+                IsTechnicalRole = rbtIsTechnicalRole.Checked,                
                 UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
@@ -232,7 +204,11 @@ namespace VipChannel.Front.Definitions
 
         private void btnPermisos_Click(object sender, EventArgs e)
         {
-
+            if (dgvDatosRegistrados.CurrentRow == null) return;
+            var idRol = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
+            var nombreRol = dgvDatosRegistrados.CurrentRow.Cells[1].Value.ToString();
+            var oFrm = new FrmPermissions(idRol, nombreRol);
+            oFrm.Show();
         }
     }
 }

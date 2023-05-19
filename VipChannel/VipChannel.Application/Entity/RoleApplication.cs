@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,18 @@ namespace VipChannel.Application.Entity
             if (_dataContext == null) return;
             _dataContext.Dispose();
             _dataContext = null;
+        }
+
+        public void ActualizarPermisos(Guid idRol, string cadenapermisos)
+        {
+            var entity = _dataContext.Roles.FirstOrDefault(x => x.RoleId == idRol);
+            if (entity != null)
+            {
+                entity.Permissions = cadenapermisos;
+                _dataContext.Roles.Add(entity);
+                _dataContext.Entry(entity).State = EntityState.Modified;
+            }
+            _dataContext.SaveChanges();
         }
     }
 }

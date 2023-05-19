@@ -20,5 +20,6 @@ namespace VipChannel.Domain.Entity
         public string Number { get; set; }
         public string AdressDetail { get; set; }
         public string Reference { get; set; }
+        public string CustomerAddressStatus { get; set; }
     }
 }

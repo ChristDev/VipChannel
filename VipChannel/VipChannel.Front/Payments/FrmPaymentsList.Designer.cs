@@ -1,6 +1,6 @@
-﻿namespace VipChannel.Front.Requests
+﻿namespace VipChannel.Front.Payments
 {
-    partial class FrmRequestList
+    partial class FrmPaymentsList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,44 +29,65 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRequestList));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaymentsList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.generarSolicitudInstalacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fGroupBox1 = new Controles_Standar.FGroupBox();
+            this.btnAgregarCliente = new Controles_Standar.FButtonNuevo();
             this.fLabelMedium1 = new Controles_Standar.FLabelMedium();
             this.btnBuscar = new Controles_Standar.FButtonBuscar();
             this.fTextBox1 = new Controles_Standar.FTextBox();
+            this.btnAgregarEmpresa = new Controles_Standar.FButtonNuevo();
+            this.btnCancelar = new Controles_Standar.FButtonCancelar();
+            this.btnEliminar = new Controles_Standar.FButtonEliminar();
+            this.btnEditar = new Controles_Standar.FButtonEditar();
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
             this.dgvDatosRegistrados = new Controles_Standar.FDataGridView();
-            this.vSolicitudesInstalacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fLabelBig1 = new Controles_Standar.FLabelBig();
-            this.btnCancelarSolicitud = new Controles_Standar.FButtonEliminar();
-            this.btnAtenderSolicitud = new Controles_Standar.FButtonEditar();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerAddressIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.installationRequestIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.businessNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellPhonesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zoneAvenueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adressDetailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateAttentionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerAddressStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fLabelBig1 = new Controles_Standar.FLabelBig();
+            this.contextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vClienteBindingSource)).BeginInit();
             this.fGroupBox1.SuspendLayout();
             this.fGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vSolicitudesInstalacionBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generarSolicitudInstalacionToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(225, 26);
+            // 
+            // generarSolicitudInstalacionToolStripMenuItem
+            // 
+            this.generarSolicitudInstalacionToolStripMenuItem.Name = "generarSolicitudInstalacionToolStripMenuItem";
+            this.generarSolicitudInstalacionToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.generarSolicitudInstalacionToolStripMenuItem.Text = "Generar Solicitud Instalación";
+            // 
+            // vClienteBindingSource
+            // 
+            this.vClienteBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vCliente);
             // 
             // fGroupBox1
             // 
             this.fGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.fGroupBox1.Controls.Add(this.btnAgregarCliente);
             this.fGroupBox1.Controls.Add(this.fLabelMedium1);
             this.fGroupBox1.Controls.Add(this.btnBuscar);
             this.fGroupBox1.Controls.Add(this.fTextBox1);
+            this.fGroupBox1.Controls.Add(this.btnAgregarEmpresa);
             this.fGroupBox1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fGroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.fGroupBox1.Location = new System.Drawing.Point(12, 53);
@@ -75,12 +96,27 @@
             this.fGroupBox1.TabIndex = 1;
             this.fGroupBox1.TabStop = false;
             // 
+            // btnAgregarCliente
+            // 
+            this.btnAgregarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarCliente.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
+            this.btnAgregarCliente.Location = new System.Drawing.Point(877, 36);
+            this.btnAgregarCliente.Name = "btnAgregarCliente";
+            this.btnAgregarCliente.Size = new System.Drawing.Size(90, 34);
+            this.btnAgregarCliente.TabIndex = 4;
+            this.btnAgregarCliente.Text = "Cliente";
+            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAgregarCliente.UseVisualStyleBackColor = true;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
+            // 
             // fLabelMedium1
             // 
             this.fLabelMedium1.AutoSize = true;
             this.fLabelMedium1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fLabelMedium1.ForeColor = System.Drawing.Color.Black;
-            this.fLabelMedium1.Location = new System.Drawing.Point(6, 14);
+            this.fLabelMedium1.Location = new System.Drawing.Point(6, 19);
             this.fLabelMedium1.Name = "fLabelMedium1";
             this.fLabelMedium1.Size = new System.Drawing.Size(54, 21);
             this.fLabelMedium1.TabIndex = 0;
@@ -91,7 +127,7 @@
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(974, 32);
+            this.btnBuscar.Location = new System.Drawing.Point(781, 36);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(90, 34);
             this.btnBuscar.TabIndex = 2;
@@ -106,15 +142,74 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fTextBox1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fTextBox1.Location = new System.Drawing.Point(10, 38);
+            this.fTextBox1.Location = new System.Drawing.Point(10, 43);
             this.fTextBox1.Name = "fTextBox1";
-            this.fTextBox1.Size = new System.Drawing.Size(943, 23);
+            this.fTextBox1.Size = new System.Drawing.Size(765, 23);
             this.fTextBox1.TabIndex = 1;
+            // 
+            // btnAgregarEmpresa
+            // 
+            this.btnAgregarEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarEmpresa.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarEmpresa.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarEmpresa.Image")));
+            this.btnAgregarEmpresa.Location = new System.Drawing.Point(973, 36);
+            this.btnAgregarEmpresa.Name = "btnAgregarEmpresa";
+            this.btnAgregarEmpresa.Size = new System.Drawing.Size(90, 34);
+            this.btnAgregarEmpresa.TabIndex = 3;
+            this.btnAgregarEmpresa.Text = "Empresa";
+            this.btnAgregarEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregarEmpresa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAgregarEmpresa.UseVisualStyleBackColor = true;
+            this.btnAgregarEmpresa.Click += new System.EventHandler(this.btnAgregarEmpresa_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(985, 575);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 34);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Salir";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.Location = new System.Drawing.Point(877, 575);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(102, 34);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "Dar de Baja";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.Location = new System.Drawing.Point(781, 575);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(90, 34);
+            this.btnEditar.TabIndex = 3;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // fGroupBox2
             // 
-            this.fGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.fGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fGroupBox2.Controls.Add(this.dgvDatosRegistrados);
             this.fGroupBox2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,17 +239,14 @@
             this.dgvDatosRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosRegistrados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customerIdDataGridViewTextBoxColumn,
-            this.customerAddressIdDataGridViewTextBoxColumn,
-            this.installationRequestIdDataGridViewTextBoxColumn,
+            this.personTypeDataGridViewTextBoxColumn,
+            this.documentTypeDataGridViewTextBoxColumn,
+            this.documentNumberDataGridViewTextBoxColumn,
             this.businessNameDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
-            this.namesDataGridViewTextBoxColumn,
-            this.cellPhonesDataGridViewTextBoxColumn,
-            this.zoneAvenueDataGridViewTextBoxColumn,
-            this.adressDetailDataGridViewTextBoxColumn,
-            this.dateAttentionDataGridViewTextBoxColumn,
-            this.customerAddressStatusDataGridViewTextBoxColumn});
-            this.dgvDatosRegistrados.DataSource = this.vSolicitudesInstalacionBindingSource;
+            this.customerNameDataGridViewTextBoxColumn,
+            this.cellPhoneDataGridViewTextBoxColumn});
+            this.dgvDatosRegistrados.ContextMenuStrip = this.contextMenuStrip;
+            this.dgvDatosRegistrados.DataSource = this.vClienteBindingSource;
             this.dgvDatosRegistrados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatosRegistrados.EnableHeadersVisualStyles = false;
             this.dgvDatosRegistrados.Location = new System.Drawing.Point(3, 19);
@@ -171,50 +263,6 @@
             this.dgvDatosRegistrados.TabIndex = 0;
             this.dgvDatosRegistrados.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRegistrados_CellContentDoubleClick);
             // 
-            // vSolicitudesInstalacionBindingSource
-            // 
-            this.vSolicitudesInstalacionBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vSolicitudesInstalacion);
-            // 
-            // fLabelBig1
-            // 
-            this.fLabelBig1.AutoSize = true;
-            this.fLabelBig1.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fLabelBig1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fLabelBig1.Location = new System.Drawing.Point(5, 9);
-            this.fLabelBig1.Name = "fLabelBig1";
-            this.fLabelBig1.Size = new System.Drawing.Size(288, 41);
-            this.fLabelBig1.TabIndex = 0;
-            this.fLabelBig1.Text = "Listado de Solicitudes";
-            // 
-            // btnCancelarSolicitud
-            // 
-            this.btnCancelarSolicitud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarSolicitud.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarSolicitud.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarSolicitud.Image")));
-            this.btnCancelarSolicitud.Location = new System.Drawing.Point(880, 575);
-            this.btnCancelarSolicitud.Name = "btnCancelarSolicitud";
-            this.btnCancelarSolicitud.Size = new System.Drawing.Size(202, 34);
-            this.btnCancelarSolicitud.TabIndex = 4;
-            this.btnCancelarSolicitud.Text = "Cancelar Solicitud";
-            this.btnCancelarSolicitud.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelarSolicitud.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCancelarSolicitud.UseVisualStyleBackColor = true;
-            // 
-            // btnAtenderSolicitud
-            // 
-            this.btnAtenderSolicitud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAtenderSolicitud.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtenderSolicitud.Image = ((System.Drawing.Image)(resources.GetObject("btnAtenderSolicitud.Image")));
-            this.btnAtenderSolicitud.Location = new System.Drawing.Point(672, 575);
-            this.btnAtenderSolicitud.Name = "btnAtenderSolicitud";
-            this.btnAtenderSolicitud.Size = new System.Drawing.Size(202, 34);
-            this.btnAtenderSolicitud.TabIndex = 3;
-            this.btnAtenderSolicitud.Text = "Atender Solicitud";
-            this.btnAtenderSolicitud.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAtenderSolicitud.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAtenderSolicitud.UseVisualStyleBackColor = true;
-            this.btnAtenderSolicitud.Click += new System.EventHandler(this.btnAtenderSolicitud_Click);
-            // 
             // customerIdDataGridViewTextBoxColumn
             // 
             this.customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
@@ -224,109 +272,88 @@
             this.customerIdDataGridViewTextBoxColumn.Visible = false;
             this.customerIdDataGridViewTextBoxColumn.Width = 71;
             // 
-            // customerAddressIdDataGridViewTextBoxColumn
+            // personTypeDataGridViewTextBoxColumn
             // 
-            this.customerAddressIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddressId";
-            this.customerAddressIdDataGridViewTextBoxColumn.HeaderText = "CustomerAddressId";
-            this.customerAddressIdDataGridViewTextBoxColumn.Name = "customerAddressIdDataGridViewTextBoxColumn";
-            this.customerAddressIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerAddressIdDataGridViewTextBoxColumn.Visible = false;
-            this.customerAddressIdDataGridViewTextBoxColumn.Width = 113;
+            this.personTypeDataGridViewTextBoxColumn.DataPropertyName = "PersonType";
+            this.personTypeDataGridViewTextBoxColumn.HeaderText = "Tipo Persona";
+            this.personTypeDataGridViewTextBoxColumn.Name = "personTypeDataGridViewTextBoxColumn";
+            this.personTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.personTypeDataGridViewTextBoxColumn.Width = 96;
             // 
-            // installationRequestIdDataGridViewTextBoxColumn
+            // documentTypeDataGridViewTextBoxColumn
             // 
-            this.installationRequestIdDataGridViewTextBoxColumn.DataPropertyName = "InstallationRequestId";
-            this.installationRequestIdDataGridViewTextBoxColumn.HeaderText = "InstallationRequestId";
-            this.installationRequestIdDataGridViewTextBoxColumn.Name = "installationRequestIdDataGridViewTextBoxColumn";
-            this.installationRequestIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.installationRequestIdDataGridViewTextBoxColumn.Visible = false;
-            this.installationRequestIdDataGridViewTextBoxColumn.Width = 116;
+            this.documentTypeDataGridViewTextBoxColumn.DataPropertyName = "DocumentType";
+            this.documentTypeDataGridViewTextBoxColumn.HeaderText = "Tipo Documento";
+            this.documentTypeDataGridViewTextBoxColumn.Name = "documentTypeDataGridViewTextBoxColumn";
+            this.documentTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.documentTypeDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // documentNumberDataGridViewTextBoxColumn
+            // 
+            this.documentNumberDataGridViewTextBoxColumn.DataPropertyName = "DocumentNumber";
+            this.documentNumberDataGridViewTextBoxColumn.HeaderText = "Número Documento";
+            this.documentNumberDataGridViewTextBoxColumn.Name = "documentNumberDataGridViewTextBoxColumn";
+            this.documentNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.documentNumberDataGridViewTextBoxColumn.Width = 135;
             // 
             // businessNameDataGridViewTextBoxColumn
             // 
             this.businessNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.businessNameDataGridViewTextBoxColumn.DataPropertyName = "BusinessName";
-            this.businessNameDataGridViewTextBoxColumn.HeaderText = "Razón Social";
+            this.businessNameDataGridViewTextBoxColumn.HeaderText = "Nombre Empresa";
             this.businessNameDataGridViewTextBoxColumn.Name = "businessNameDataGridViewTextBoxColumn";
             this.businessNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // lastNameDataGridViewTextBoxColumn
+            // customerNameDataGridViewTextBoxColumn
             // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Apellidos";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastNameDataGridViewTextBoxColumn.Width = 77;
+            this.customerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Cliente ";
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // namesDataGridViewTextBoxColumn
+            // cellPhoneDataGridViewTextBoxColumn
             // 
-            this.namesDataGridViewTextBoxColumn.DataPropertyName = "Names";
-            this.namesDataGridViewTextBoxColumn.HeaderText = "Nombres";
-            this.namesDataGridViewTextBoxColumn.Name = "namesDataGridViewTextBoxColumn";
-            this.namesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.namesDataGridViewTextBoxColumn.Width = 79;
+            this.cellPhoneDataGridViewTextBoxColumn.DataPropertyName = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn.HeaderText = "Celular";
+            this.cellPhoneDataGridViewTextBoxColumn.Name = "cellPhoneDataGridViewTextBoxColumn";
+            this.cellPhoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cellPhoneDataGridViewTextBoxColumn.Width = 64;
             // 
-            // cellPhonesDataGridViewTextBoxColumn
+            // fLabelBig1
             // 
-            this.cellPhonesDataGridViewTextBoxColumn.DataPropertyName = "CellPhones";
-            this.cellPhonesDataGridViewTextBoxColumn.HeaderText = "Celulares";
-            this.cellPhonesDataGridViewTextBoxColumn.Name = "cellPhonesDataGridViewTextBoxColumn";
-            this.cellPhonesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cellPhonesDataGridViewTextBoxColumn.Width = 75;
+            this.fLabelBig1.AutoSize = true;
+            this.fLabelBig1.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fLabelBig1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.fLabelBig1.Location = new System.Drawing.Point(5, 9);
+            this.fLabelBig1.Name = "fLabelBig1";
+            this.fLabelBig1.Size = new System.Drawing.Size(254, 41);
+            this.fLabelBig1.TabIndex = 0;
+            this.fLabelBig1.Text = "Listado de Clientes";
             // 
-            // zoneAvenueDataGridViewTextBoxColumn
-            // 
-            this.zoneAvenueDataGridViewTextBoxColumn.DataPropertyName = "ZoneAvenue";
-            this.zoneAvenueDataGridViewTextBoxColumn.HeaderText = "Zona/Avenida";
-            this.zoneAvenueDataGridViewTextBoxColumn.Name = "zoneAvenueDataGridViewTextBoxColumn";
-            this.zoneAvenueDataGridViewTextBoxColumn.ReadOnly = true;
-            this.zoneAvenueDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // adressDetailDataGridViewTextBoxColumn
-            // 
-            this.adressDetailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.adressDetailDataGridViewTextBoxColumn.DataPropertyName = "AdressDetail";
-            this.adressDetailDataGridViewTextBoxColumn.HeaderText = "Dirección Detalle";
-            this.adressDetailDataGridViewTextBoxColumn.Name = "adressDetailDataGridViewTextBoxColumn";
-            this.adressDetailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateAttentionDataGridViewTextBoxColumn
-            // 
-            this.dateAttentionDataGridViewTextBoxColumn.DataPropertyName = "DateAttention";
-            this.dateAttentionDataGridViewTextBoxColumn.HeaderText = "Fecha Programada";
-            this.dateAttentionDataGridViewTextBoxColumn.Name = "dateAttentionDataGridViewTextBoxColumn";
-            this.dateAttentionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateAttentionDataGridViewTextBoxColumn.Width = 127;
-            // 
-            // customerAddressStatusDataGridViewTextBoxColumn
-            // 
-            this.customerAddressStatusDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddressStatus";
-            this.customerAddressStatusDataGridViewTextBoxColumn.HeaderText = "Estado Atención";
-            this.customerAddressStatusDataGridViewTextBoxColumn.Name = "customerAddressStatusDataGridViewTextBoxColumn";
-            this.customerAddressStatusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerAddressStatusDataGridViewTextBoxColumn.Width = 113;
-            // 
-            // FrmRequestList
+            // FrmPaymentsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1094, 621);
             this.Controls.Add(this.fGroupBox1);
-            this.Controls.Add(this.btnCancelarSolicitud);
-            this.Controls.Add(this.btnAtenderSolicitud);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.fGroupBox2);
             this.Controls.Add(this.fLabelBig1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "FrmRequestList";
+            this.Name = "FrmPaymentsList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmList_Load);
+            this.contextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.vClienteBindingSource)).EndInit();
             this.fGroupBox1.ResumeLayout(false);
             this.fGroupBox1.PerformLayout();
             this.fGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vSolicitudesInstalacionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,6 +365,7 @@
         private Controles_Standar.FGroupBox fGroupBox1;
         private Controles_Standar.FButtonBuscar btnBuscar;
         private Controles_Standar.FTextBox fTextBox1;
+        private Controles_Standar.FButtonNuevo btnAgregarEmpresa;
         private Controles_Standar.FGroupBox fGroupBox2;
         private Controles_Standar.FDataGridView dgvDatosRegistrados;
         private Controles_Standar.FLabelMedium fLabelMedium1;
@@ -357,8 +385,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private Controles_Standar.FButtonEditar btnAtenderSolicitud;
-        private Controles_Standar.FButtonEliminar btnCancelarSolicitud;
+        private Controles_Standar.FButtonEditar btnEditar;
+        private Controles_Standar.FButtonEliminar btnEliminar;
+        private Controles_Standar.FButtonCancelar btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn planTypeDescriptionDataGridViewTextBoxColumn;
@@ -366,17 +395,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.BindingSource vSolicitudesInstalacionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn installationRequestIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn personTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn businessNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhonesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zoneAvenueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adressDetailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateAttentionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource vClienteBindingSource;
+        private Controles_Standar.FButtonNuevo btnAgregarCliente;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem generarSolicitudInstalacionToolStripMenuItem;
     }
 }

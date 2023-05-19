@@ -11,7 +11,7 @@ namespace VipChannel.Enums.MasterTables
         public static class MasterTable
         {
             public const string TypeDocument = "00100";
-            public const string ClientState = "00200";
+            public const string CustomerType = "00200";
             public const string PersonType = "00300";
             public const string PlanType = "00400";
             public const string InternetSpeedType = "00500";
@@ -23,6 +23,7 @@ namespace VipChannel.Enums.MasterTables
             public const string VoucherType = "01100";
             public const string EmployeeType = "01200";
             public const string RequestStatus = "01300";
+            public const string CustomerAddressStatus = "01400";
         }
     }
 }

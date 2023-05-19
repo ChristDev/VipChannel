@@ -35,5 +35,15 @@ namespace VipChannel.Application.Entity
         {
             return _dataContext.usp_ActualizarCoordenadasCliente(customerAddressId, latitude, longitude);
         }
+
+        public int ActualizarEstadoClienteDireccionActivo(Guid customerAddressId, string customerAddressStatus)
+        {
+            return _dataContext.usp_ActualizarEstadoClienteDireccionActivo(customerAddressId, customerAddressStatus);
+        }
+
+        public int ActualizarEstadoClienteDireccionRechazado(Guid customerAddressId, string customerAddressStatus)
+        {
+            return _dataContext.usp_ActualizarEstadoClienteDireccionRechazado(customerAddressId, customerAddressStatus);
+        }
     }
 }

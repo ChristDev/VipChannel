@@ -106,12 +106,6 @@ namespace VipChannel.Front.Principal
             FrmCustomerList.DefInstance.Show();
         }
 
-        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmRequestList.DefInstance.MdiParent = this;
-            FrmRequestList.DefInstance.Show();
-        }
-
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             CargarParametros(UserActive);
@@ -131,6 +125,17 @@ namespace VipChannel.Front.Principal
         {
             FrmManager.DefInstance.MdiParent = this;
             FrmManager.DefInstance.Show();
+        }
+
+        private void instalacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRequestList.DefInstance.MdiParent = this;
+            FrmRequestList.DefInstance.Show();
+        }
+
+        private void registroPagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

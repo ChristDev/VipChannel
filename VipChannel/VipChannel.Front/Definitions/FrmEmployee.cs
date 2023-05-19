@@ -93,7 +93,7 @@ namespace VipChannel.Front.Definitions
 
             _roleApplication = new RoleApplication();
             roleBindingSource.DataSource = _roleApplication.SelectList(x=>x.RecordStatus == ConstantBase.Active && 
-                                                                          x.IsEmployeeRole.GetValueOrDefault());
+                                                                          x.IsEmployeeRole.Value);
         }
 
         private Employee SetFormData()
@@ -136,7 +136,7 @@ namespace VipChannel.Front.Definitions
 
                 var passwordRegister = _md5.ConvertStringToMd5(txtPassword.Text.Trim());
 
-                if(passwordRegister != _employeeEntity.Password) 
+                if(passwordRegister != _employeeEntity.Password && chkCambiarPassword.Checked) 
                 { 
                     entity.Password = passwordRegister;
                 }                

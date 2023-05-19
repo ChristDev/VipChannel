@@ -75,6 +75,7 @@ namespace VipChannel.Front.Sales
                 Longitude = "",
                 Reference = txtReference.Text,
                 UserRecordCreation = "LOAD",
+                CustomerAddressStatus = ConstantCustomerAddressStatus.EnProceso,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
             };            
@@ -99,11 +100,12 @@ namespace VipChannel.Front.Sales
                 ApplyDiscount = chkApplyDiscount.Checked,
                 DiscountAmount = cboDiscountMonths.SelectedValue == null ? 0 : decimal.Parse(txtDiscountAmount.Text),
                 DiscountMonths = cboDiscountMonths.SelectedValue == null ? 0 : int.Parse(cboDiscountMonths.SelectedValue.ToString()),
+                MonthsContracts = int.Parse(cboMonthsContracts.SelectedValue.ToString()),
 
                 DateAttention = dtpDateAttention.Value,
                 HourAttention = tmpHourAttention.Text,
                 TechnicalId = Guid.Parse(cboTechnicalId.SelectedValue.ToString()),
-                Comment = txtComment.Text,
+                Comment = txtComment.Text,                
 
                 UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
@@ -176,6 +178,7 @@ namespace VipChannel.Front.Sales
         {
             _zoneApplication = new ZoneApplication();
             zoneBindingSource.DataSource = _zoneApplication.SelectList(x=> x.RecordStatus == ConstantBase.Active);
+            cboZoneId.SelectedIndex = -1;
 
             var dtCargarEstadoDeServicio =  CargarEstadoDeServicio();
             cboServiceStatus.DataSource = dtCargarEstadoDeServicio;
@@ -224,10 +227,10 @@ namespace VipChannel.Front.Sales
             cboTechnicalId.SelectedIndex = -1;
 
             var dtCargarMeses = CargarMeses();
-            cboMesesContrato.DataSource = dtCargarMeses;
-            cboMesesContrato.DisplayMember = "Descripcion";
-            cboMesesContrato.ValueMember = "Id";
-            cboMesesContrato.SelectedIndex = -1;
+            cboMonthsContracts.DataSource = dtCargarMeses;
+            cboMonthsContracts.DisplayMember = "Descripcion";
+            cboMonthsContracts.ValueMember = "Id";
+            cboMonthsContracts.SelectedIndex = -1;
         }
 
         private DataTable CargarEstadoDeServicio()
@@ -389,6 +392,11 @@ namespace VipChannel.Front.Sales
         {
             try
             {
+                if(cboZoneId.SelectedValue == null)
+                {
+                    return;
+                }
+
                 var idSelected = Guid.Parse(cboZoneId.SelectedValue.ToString());
                 _avenueApplication = new AvenueApplication();
                 avenueBindingSource.DataSource = _avenueApplication

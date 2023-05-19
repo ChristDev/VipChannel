@@ -1,4 +1,5 @@
 ﻿using System;
+using VipChannel.Front.Definitions;
 using VipChannel.Front.Principal;
 
 namespace VipChannel.Front

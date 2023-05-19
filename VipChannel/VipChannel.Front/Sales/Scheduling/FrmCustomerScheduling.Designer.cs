@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomerScheduling));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTituloFormulario = new Controles_Standar.FLabelBig();
             this.fGroupBox1 = new Controles_Standar.FGroupBox();
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
@@ -70,7 +70,7 @@
             this.fLabelMedium19 = new Controles_Standar.FLabelMedium();
             this.fGroupBox3 = new Controles_Standar.FGroupBox();
             this.fLabelMedium24 = new Controles_Standar.FLabelMedium();
-            this.cboMesesContrato = new Controles_Standar.FComboBox();
+            this.cboMonthsContracts = new Controles_Standar.FComboBox();
             this.fLabelMedium12 = new Controles_Standar.FLabelMedium();
             this.txtDiscountAmount = new Controles_Standar.FTextBoxRequerido();
             this.cboDiscountMonths = new Controles_Standar.FComboBox();
@@ -505,7 +505,7 @@
             // fGroupBox3
             // 
             this.fGroupBox3.Controls.Add(this.fLabelMedium24);
-            this.fGroupBox3.Controls.Add(this.cboMesesContrato);
+            this.fGroupBox3.Controls.Add(this.cboMonthsContracts);
             this.fGroupBox3.Controls.Add(this.fLabelMedium12);
             this.fGroupBox3.Controls.Add(this.txtDiscountAmount);
             this.fGroupBox3.Controls.Add(this.cboDiscountMonths);
@@ -539,15 +539,15 @@
             this.fLabelMedium24.TabIndex = 6;
             this.fLabelMedium24.Text = "Meses de Contrato";
             // 
-            // cboMesesContrato
+            // cboMonthsContracts
             // 
-            this.cboMesesContrato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMesesContrato.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboMesesContrato.FormattingEnabled = true;
-            this.cboMesesContrato.Location = new System.Drawing.Point(6, 193);
-            this.cboMesesContrato.Name = "cboMesesContrato";
-            this.cboMesesContrato.Size = new System.Drawing.Size(325, 23);
-            this.cboMesesContrato.TabIndex = 7;
+            this.cboMonthsContracts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMonthsContracts.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMonthsContracts.FormattingEnabled = true;
+            this.cboMonthsContracts.Location = new System.Drawing.Point(6, 193);
+            this.cboMonthsContracts.Name = "cboMonthsContracts";
+            this.cboMonthsContracts.Size = new System.Drawing.Size(325, 23);
+            this.cboMonthsContracts.TabIndex = 7;
             // 
             // fLabelMedium12
             // 
@@ -776,16 +776,16 @@
             this.dgvDatosServicio.AllowUserToAddRows = false;
             this.dgvDatosServicio.AllowUserToDeleteRows = false;
             this.dgvDatosServicio.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosServicio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosServicio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDatosServicio.AutoGenerateColumns = false;
             this.dgvDatosServicio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatosServicio.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvDatosServicio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            this.dgvDatosServicio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            this.dgvDatosServicio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDatosServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosServicio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.serviceIdDataGridViewTextBoxColumn,
@@ -799,10 +799,10 @@
             this.dgvDatosServicio.Name = "dgvDatosServicio";
             this.dgvDatosServicio.ReadOnly = true;
             this.dgvDatosServicio.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosServicio.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosServicio.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDatosServicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosServicio.Size = new System.Drawing.Size(440, 225);
             this.dgvDatosServicio.TabIndex = 0;
@@ -976,16 +976,16 @@
             this.dgvDatosPlanPaquete.AllowUserToAddRows = false;
             this.dgvDatosPlanPaquete.AllowUserToDeleteRows = false;
             this.dgvDatosPlanPaquete.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosPlanPaquete.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosPlanPaquete.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDatosPlanPaquete.AutoGenerateColumns = false;
             this.dgvDatosPlanPaquete.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatosPlanPaquete.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvDatosPlanPaquete.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            this.dgvDatosPlanPaquete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            this.dgvDatosPlanPaquete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDatosPlanPaquete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosPlanPaquete.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.planIdDataGridViewTextBoxColumn,
@@ -999,10 +999,10 @@
             this.dgvDatosPlanPaquete.Name = "dgvDatosPlanPaquete";
             this.dgvDatosPlanPaquete.ReadOnly = true;
             this.dgvDatosPlanPaquete.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosPlanPaquete.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosPlanPaquete.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDatosPlanPaquete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosPlanPaquete.Size = new System.Drawing.Size(440, 225);
             this.dgvDatosPlanPaquete.TabIndex = 0;
@@ -1269,6 +1269,6 @@
         private Controles_Standar.FButtonCancelar btnCancelar;
         private Controles_Standar.FButtonGuardar btnGuardar;
         private Controles_Standar.FLabelMedium fLabelMedium24;
-        private Controles_Standar.FComboBox cboMesesContrato;
+        private Controles_Standar.FComboBox cboMonthsContracts;
     }
 }

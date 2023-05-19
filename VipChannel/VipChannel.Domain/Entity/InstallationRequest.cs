@@ -17,10 +17,10 @@ namespace VipChannel.Domain.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public InstallationRequest()
         {
+            this.InstallationRequestAttendeds = new HashSet<InstallationRequestAttended>();
             this.InstallationRequestCosts = new HashSet<InstallationRequestCost>();
             this.InstallationRequestPlans = new HashSet<InstallationRequestPlan>();
             this.PaymentSchedules = new HashSet<PaymentSchedule>();
-            this.InstallationRequestAttendeds = new HashSet<InstallationRequestAttended>();
         }
     
         public System.Guid InstallationRequestId { get; set; }
@@ -33,6 +33,7 @@ namespace VipChannel.Domain.Entity
         public bool ApplyDiscount { get; set; }
         public Nullable<decimal> DiscountAmount { get; set; }
         public Nullable<int> DiscountMonths { get; set; }
+        public Nullable<int> MonthsContracts { get; set; }
         public Nullable<System.DateTime> DateAttention { get; set; }
         public string HourAttention { get; set; }
         public Nullable<System.Guid> TechnicalId { get; set; }
@@ -46,12 +47,12 @@ namespace VipChannel.Domain.Entity
         public virtual CustomerAddress CustomerAddress { get; set; }
         public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InstallationRequestAttended> InstallationRequestAttendeds { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InstallationRequestCost> InstallationRequestCosts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InstallationRequestPlan> InstallationRequestPlans { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PaymentSchedule> PaymentSchedules { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InstallationRequestAttended> InstallationRequestAttendeds { get; set; }
     }
 }

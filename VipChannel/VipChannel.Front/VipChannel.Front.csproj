@@ -62,11 +62,18 @@
   <ItemGroup>
     <Compile Include="Constants\FormCreateNames.cs" />
     <Compile Include="Constants\FormListNames.cs" />
+    <Compile Include="Constants\OptionsMenu.cs" />
     <Compile Include="Definitions\FrmManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Definitions\FrmManager.Designer.cs">
       <DependentUpon>FrmManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\FrmPermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\FrmPermissions.Designer.cs">
+      <DependentUpon>FrmPermissions.cs</DependentUpon>
     </Compile>
     <Compile Include="Definitions\FrmTechnical.cs">
       <SubType>Form</SubType>
@@ -122,6 +129,12 @@
     </Compile>
     <Compile Include="Definitions\Voucher\FrmVoucher.Designer.cs">
       <DependentUpon>FrmVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\FrmPaymentsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\FrmPaymentsList.Designer.cs">
+      <DependentUpon>FrmPaymentsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Plan\FrmPlanPersonalizado.cs">
       <SubType>Form</SubType>
@@ -231,6 +244,9 @@
       <DependentUpon>FrmManager.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\FrmPermissions.resx">
+      <DependentUpon>FrmPermissions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Definitions\FrmTechnical.resx">
       <DependentUpon>FrmTechnical.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -259,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Definitions\Voucher\FrmVoucher.resx">
       <DependentUpon>FrmVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\FrmPaymentsList.resx">
+      <DependentUpon>FrmPaymentsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plan\FrmPlanPersonalizado.resx">
       <DependentUpon>FrmPlanPersonalizado.cs</DependentUpon>

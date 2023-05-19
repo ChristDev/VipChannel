@@ -36,8 +36,10 @@ namespace VipChannel.Data.Model
         public virtual DbSet<CustomerAddress> CustomerAddresses { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<InstallationRequest> InstallationRequests { get; set; }
+        public virtual DbSet<InstallationRequestAttended> InstallationRequestAttendeds { get; set; }
         public virtual DbSet<InstallationRequestCost> InstallationRequestCosts { get; set; }
         public virtual DbSet<InstallationRequestPlan> InstallationRequestPlans { get; set; }
+        public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<MasterTable> MasterTables { get; set; }
         public virtual DbSet<Material> Materials { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
@@ -64,17 +66,6 @@ namespace VipChannel.Data.Model
         public virtual DbSet<vSucursalPorCaja> vSucursalPorCajas { get; set; }
         public virtual DbSet<vTecnico> vTecnicoes { get; set; }
         public virtual DbSet<vTipoComprobantePorCaja> vTipoComprobantePorCajas { get; set; }
-        public virtual DbSet<InstallationRequestAttended> InstallationRequestAttendeds { get; set; }
-        public virtual DbSet<Manager> Managers { get; set; }
-    
-        public virtual ObjectResult<usp_ListarDireccionPorClienteSolicitud_Result> usp_ListarDireccionPorClienteSolicitud(Nullable<System.Guid> customerId)
-        {
-            var customerIdParameter = customerId.HasValue ?
-                new ObjectParameter("CustomerId", customerId) :
-                new ObjectParameter("CustomerId", typeof(System.Guid));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarDireccionPorClienteSolicitud_Result>("usp_ListarDireccionPorClienteSolicitud", customerIdParameter);
-        }
     
         public virtual int usp_ActualizarCoordenadasCliente(Nullable<System.Guid> customerAddressId, string latitude, string longitude)
         {
@@ -91,6 +82,41 @@ namespace VipChannel.Data.Model
                 new ObjectParameter("Longitude", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarCoordenadasCliente", customerAddressIdParameter, latitudeParameter, longitudeParameter);
+        }
+    
+        public virtual int usp_ActualizarEstadoClienteDireccionActivo(Nullable<System.Guid> customerAddressId, string customerAddressStatus)
+        {
+            var customerAddressIdParameter = customerAddressId.HasValue ?
+                new ObjectParameter("CustomerAddressId", customerAddressId) :
+                new ObjectParameter("CustomerAddressId", typeof(System.Guid));
+    
+            var customerAddressStatusParameter = customerAddressStatus != null ?
+                new ObjectParameter("CustomerAddressStatus", customerAddressStatus) :
+                new ObjectParameter("CustomerAddressStatus", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarEstadoClienteDireccionActivo", customerAddressIdParameter, customerAddressStatusParameter);
+        }
+    
+        public virtual int usp_ActualizarEstadoClienteDireccionRechazado(Nullable<System.Guid> customerAddressId, string customerAddressStatus)
+        {
+            var customerAddressIdParameter = customerAddressId.HasValue ?
+                new ObjectParameter("CustomerAddressId", customerAddressId) :
+                new ObjectParameter("CustomerAddressId", typeof(System.Guid));
+    
+            var customerAddressStatusParameter = customerAddressStatus != null ?
+                new ObjectParameter("CustomerAddressStatus", customerAddressStatus) :
+                new ObjectParameter("CustomerAddressStatus", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarEstadoClienteDireccionRechazado", customerAddressIdParameter, customerAddressStatusParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarDireccionPorClienteSolicitud_Result> usp_ListarDireccionPorClienteSolicitud(Nullable<System.Guid> customerId)
+        {
+            var customerIdParameter = customerId.HasValue ?
+                new ObjectParameter("CustomerId", customerId) :
+                new ObjectParameter("CustomerId", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarDireccionPorClienteSolicitud_Result>("usp_ListarDireccionPorClienteSolicitud", customerIdParameter);
         }
     }
 }

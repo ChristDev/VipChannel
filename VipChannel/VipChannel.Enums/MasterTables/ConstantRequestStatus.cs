@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace VipChannel.Enums.MasterTables
 {
-    public static class ConstantEmployeeType
+    public static class ConstantRequestStatus
     {
-        public const string Administrativo = "01201";
-        public const string Tecnico = "01202"; 
+        public const string Completado = "01301";
+        public const string NoCompletado = "01302";
     }
 }

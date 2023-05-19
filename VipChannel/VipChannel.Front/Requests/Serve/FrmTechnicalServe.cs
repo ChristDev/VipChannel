@@ -32,6 +32,9 @@ namespace VipChannel.Front.Requests.Serve
         private int _operation;
         private Guid _customerId;
         private Guid _customerAddressId;
+        private CustomerAddressApplication _customerAddressApplication;
+
+
         private Guid _installationRequestId;
 
         private string _userActive = FrmMenu.IdUserActive;
@@ -172,13 +175,14 @@ namespace VipChannel.Front.Requests.Serve
         {
             _installationRequestAttended = new InstallationRequestAttended()
             {
+                InstallationRequestAttendedId = Guid.NewGuid(),
                 InstallationRequestId = _installationRequestId,
                 DateAttended = dtpDateAttended.Value,
                 HourAttended = tmpHourAttended.Text,
                 TechnicalAttendedId = Guid.Parse(cboTechnicalAttendedId.SelectedValue.ToString()),
                 RequestStatus = cboRequestStatus.SelectedValue.ToString(),
                 Comment = txtComment.Text,
-                Equipment = cboEquipment.SelectedValue.ToString(),
+                Equipment = cboEquipment.SelectedValue == null ? "" : cboEquipment.SelectedValue.ToString(),
                 Brand = txtBrand.Text,
                 Model = txtModel.Text,
                 Serie = txtSerie.Text,
@@ -193,7 +197,7 @@ namespace VipChannel.Front.Requests.Serve
                 Latitude = txtLatitude.Text,
                 Longitude = txtLongitude.Text,
                 TerminalCapacityFirst = txtTerminalCapacityFirst.Text,
-                TerminalCapacitySecond = txtTerminalCapacitySecond.Text,
+                TerminalCapacitySecond = txtTerminalCapacitySecond.Text,                
                 UserRecordCreation = _userActive,
                 RecordCreationDate = DateTime.Now,
                 RecordStatus = ConstantBase.Active
@@ -203,9 +207,29 @@ namespace VipChannel.Front.Requests.Serve
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            var entity = SetForm();
+
             _installationRequestAttendedApplication = new InstallationRequestAttendedApplication();
-            _installationRequestAttendedApplication.Insert(SetForm());
+            _installationRequestAttendedApplication.Insert(entity);
+
+            var customerAddressApplication = new CustomerAddressApplication();
+            if(entity.RequestStatus == ConstantRequestStatus.Completado)
+            {
+                customerAddressApplication.ActualizarEstadoClienteDireccionActivo(
+                    _customerAddressId,
+                    ConstantCustomerAddressStatus.Activo);
+
+            }
+            else
+            {
+                customerAddressApplication.ActualizarEstadoClienteDireccionRechazado(
+                    _customerAddressId,
+                    ConstantCustomerAddressStatus.Rechazado);
+            }
+
+            MessageBox.Show("Se registró correctamente la atención de la solicitud", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
     }
 }

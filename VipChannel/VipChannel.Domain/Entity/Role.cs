@@ -26,6 +26,7 @@ namespace VipChannel.Domain.Entity
         public string Description { get; set; }
         public Nullable<bool> IsTechnicalRole { get; set; }
         public Nullable<bool> IsEmployeeRole { get; set; }
+        public string Permissions { get; set; }
         public string UserRecordCreation { get; set; }
         public System.DateTime RecordCreationDate { get; set; }
         public string UserEditRecord { get; set; }

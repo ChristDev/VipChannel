@@ -42,11 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MasterTables\ConstantBase.cs" />
+    <Compile Include="MasterTables\ConstantCustomerAddressStatus.cs" />
+    <Compile Include="MasterTables\ConstantCustomerType.cs" />
     <Compile Include="MasterTables\ConstantEmployeeType.cs" />
     <Compile Include="MasterTables\ConstantMasterTable.cs" />
     <Compile Include="MasterTables\ConstantOperation.cs" />
     <Compile Include="MasterTables\ConstantPersonType.cs" />
     <Compile Include="MasterTables\ConstantPlanType.cs" />
+    <Compile Include="MasterTables\ConstantRequestStatus.cs" />
     <Compile Include="MasterTables\ConstantTypeDocument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
