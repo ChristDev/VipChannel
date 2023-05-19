@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
+using VipChannel.Front.Principal;
 
 namespace VipChannel.Front.Definitions.Sucursal
 {
@@ -21,6 +22,7 @@ namespace VipChannel.Front.Definitions.Sucursal
             LoadData();
             _idSucursal = idSucursal;
             _nameSucursal = nameSucursal;
+            var aaa = FrmMenu.variableCompartida;
         }
 
 

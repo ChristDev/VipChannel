@@ -15,9 +15,17 @@ namespace VipChannel.Front.Principal
 {
     public partial class FrmMenu : Form
     {
-        public FrmMenu()
+        public string IdUserActive { get; set; }
+        public string UserActive { get; set; }
+
+        internal static string variableCompartida;
+
+        public FrmMenu(string idUserActive, string userActive)
         {
             InitializeComponent();
+            IdUserActive = idUserActive;
+            UserActive = userActive;
+            variableCompartida = idUserActive;
         }
 
         private void internetToolStripMenuItem_Click(object sender, EventArgs e)
