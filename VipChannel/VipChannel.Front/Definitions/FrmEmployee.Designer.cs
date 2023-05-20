@@ -35,13 +35,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmployee));
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
             this.dgvDatosRegistrados = new Controles_Standar.FDataGridView();
-            this.employeeIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vEmpleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fGroupBox3 = new Controles_Standar.FGroupBox();
+            this.btnAsignarCaja = new Controles_Standar.FButtonReporte();
             this.btnEliminar = new Controles_Standar.FButtonEliminar();
             this.btnCancelar = new Controles_Standar.FButtonCancelar();
             this.btnGuardar = new Controles_Standar.FButtonGuardar();
@@ -63,6 +60,10 @@
             this.fLabelMedium2 = new Controles_Standar.FLabelMedium();
             this.fLabelMedium1 = new Controles_Standar.FLabelMedium();
             this.fLabelBig1 = new Controles_Standar.FLabelBig();
+            this.employeeIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEmpleadoBindingSource)).BeginInit();
@@ -79,7 +80,7 @@
             this.fGroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.fGroupBox2.Location = new System.Drawing.Point(510, 63);
             this.fGroupBox2.Name = "fGroupBox2";
-            this.fGroupBox2.Size = new System.Drawing.Size(491, 312);
+            this.fGroupBox2.Size = new System.Drawing.Size(622, 312);
             this.fGroupBox2.TabIndex = 4;
             this.fGroupBox2.TabStop = false;
             this.fGroupBox2.Text = "Repositorio de Datos";
@@ -118,42 +119,8 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dgvDatosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatosRegistrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosRegistrados.Size = new System.Drawing.Size(485, 290);
+            this.dgvDatosRegistrados.Size = new System.Drawing.Size(616, 290);
             this.dgvDatosRegistrados.TabIndex = 0;
-            // 
-            // employeeIdDataGridViewTextBoxColumn
-            // 
-            this.employeeIdDataGridViewTextBoxColumn.DataPropertyName = "EmployeeId";
-            this.employeeIdDataGridViewTextBoxColumn.HeaderText = "EmployeeId";
-            this.employeeIdDataGridViewTextBoxColumn.Name = "employeeIdDataGridViewTextBoxColumn";
-            this.employeeIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.employeeIdDataGridViewTextBoxColumn.Visible = false;
-            this.employeeIdDataGridViewTextBoxColumn.Width = 71;
-            // 
-            // documentNumberDataGridViewTextBoxColumn
-            // 
-            this.documentNumberDataGridViewTextBoxColumn.DataPropertyName = "DocumentNumber";
-            this.documentNumberDataGridViewTextBoxColumn.HeaderText = "Nro Documento";
-            this.documentNumberDataGridViewTextBoxColumn.Name = "documentNumberDataGridViewTextBoxColumn";
-            this.documentNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.documentNumberDataGridViewTextBoxColumn.Width = 113;
-            // 
-            // employeeNameDataGridViewTextBoxColumn
-            // 
-            this.employeeNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.employeeNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeName";
-            this.employeeNameDataGridViewTextBoxColumn.HeaderText = "Empleado";
-            this.employeeNameDataGridViewTextBoxColumn.Name = "employeeNameDataGridViewTextBoxColumn";
-            this.employeeNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roleNameDataGridViewTextBoxColumn
-            // 
-            this.roleNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
-            this.roleNameDataGridViewTextBoxColumn.HeaderText = "Rol";
-            this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
-            this.roleNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roleNameDataGridViewTextBoxColumn.Width = 47;
             // 
             // vEmpleadoBindingSource
             // 
@@ -165,6 +132,7 @@
             // 
             // fGroupBox3
             // 
+            this.fGroupBox3.Controls.Add(this.btnAsignarCaja);
             this.fGroupBox3.Controls.Add(this.btnEliminar);
             this.fGroupBox3.Controls.Add(this.btnCancelar);
             this.fGroupBox3.Controls.Add(this.btnGuardar);
@@ -174,10 +142,24 @@
             this.fGroupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.fGroupBox3.Location = new System.Drawing.Point(513, 381);
             this.fGroupBox3.Name = "fGroupBox3";
-            this.fGroupBox3.Size = new System.Drawing.Size(492, 64);
+            this.fGroupBox3.Size = new System.Drawing.Size(619, 64);
             this.fGroupBox3.TabIndex = 3;
             this.fGroupBox3.TabStop = false;
             this.fGroupBox3.Text = "Acciones del Formulario";
+            // 
+            // btnAsignarCaja
+            // 
+            this.btnAsignarCaja.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarCaja.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarCaja.Image")));
+            this.btnAsignarCaja.Location = new System.Drawing.Point(492, 22);
+            this.btnAsignarCaja.Name = "btnAsignarCaja";
+            this.btnAsignarCaja.Size = new System.Drawing.Size(114, 34);
+            this.btnAsignarCaja.TabIndex = 6;
+            this.btnAsignarCaja.Text = "Asignar Cajas";
+            this.btnAsignarCaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAsignarCaja.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAsignarCaja.UseVisualStyleBackColor = true;
+            this.btnAsignarCaja.Click += new System.EventHandler(this.btnAsignarCaja_Click);
             // 
             // btnEliminar
             // 
@@ -441,12 +423,45 @@
             this.fLabelBig1.TabIndex = 1;
             this.fLabelBig1.Text = "Gestión Empleados";
             // 
+            // employeeIdDataGridViewTextBoxColumn
+            // 
+            this.employeeIdDataGridViewTextBoxColumn.DataPropertyName = "EmployeeId";
+            this.employeeIdDataGridViewTextBoxColumn.HeaderText = "EmployeeId";
+            this.employeeIdDataGridViewTextBoxColumn.Name = "employeeIdDataGridViewTextBoxColumn";
+            this.employeeIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeeIdDataGridViewTextBoxColumn.Visible = false;
+            this.employeeIdDataGridViewTextBoxColumn.Width = 71;
+            // 
+            // documentNumberDataGridViewTextBoxColumn
+            // 
+            this.documentNumberDataGridViewTextBoxColumn.DataPropertyName = "DocumentNumber";
+            this.documentNumberDataGridViewTextBoxColumn.HeaderText = "Nro Documento";
+            this.documentNumberDataGridViewTextBoxColumn.Name = "documentNumberDataGridViewTextBoxColumn";
+            this.documentNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.documentNumberDataGridViewTextBoxColumn.Width = 113;
+            // 
+            // employeeNameDataGridViewTextBoxColumn
+            // 
+            this.employeeNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.employeeNameDataGridViewTextBoxColumn.DataPropertyName = "EmployeeName";
+            this.employeeNameDataGridViewTextBoxColumn.HeaderText = "Empleado";
+            this.employeeNameDataGridViewTextBoxColumn.Name = "employeeNameDataGridViewTextBoxColumn";
+            this.employeeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roleNameDataGridViewTextBoxColumn
+            // 
+            this.roleNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
+            this.roleNameDataGridViewTextBoxColumn.HeaderText = "Rol";
+            this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
+            this.roleNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1011, 454);
+            this.ClientSize = new System.Drawing.Size(1143, 454);
             this.Controls.Add(this.fGroupBox2);
             this.Controls.Add(this.fGroupBox3);
             this.Controls.Add(this.fGroupBox1);
@@ -499,6 +514,7 @@
         private Controles_Standar.FCheckBox chkCambiarPassword;
         private System.Windows.Forms.BindingSource selectResponseBindingSource;
         private System.Windows.Forms.BindingSource vEmpleadoBindingSource;
+        private Controles_Standar.FButtonReporte btnAsignarCaja;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn documentNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeNameDataGridViewTextBoxColumn;

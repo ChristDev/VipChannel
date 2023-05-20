@@ -18,10 +18,12 @@ namespace VipChannel.Domain.Entity
         public CustomerAddress()
         {
             this.InstallationRequests = new HashSet<InstallationRequest>();
+            this.Schedules = new HashSet<Schedule>();
         }
     
         public System.Guid CustomerAddressId { get; set; }
         public System.Guid CustomerId { get; set; }
+        public string CodeCustomerAddress { get; set; }
         public System.Guid ZoneId { get; set; }
         public System.Guid AvenueId { get; set; }
         public string AdressDetail { get; set; }
@@ -35,12 +37,13 @@ namespace VipChannel.Domain.Entity
         public string UserEditRecord { get; set; }
         public Nullable<System.DateTime> RecordEditDate { get; set; }
         public string RecordStatus { get; set; }
-        public string CodeCustomerAddress { get; set; }
     
         public virtual Avenue Avenue { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Zone Zone { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InstallationRequest> InstallationRequests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Schedule> Schedules { get; set; }
     }
 }

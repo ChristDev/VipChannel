@@ -21,6 +21,7 @@ namespace VipChannel.Domain.Entity
         }
     
         public System.Guid CustomerId { get; set; }
+        public string CodeCustomer { get; set; }
         public string PersonType { get; set; }
         public string DocumentType { get; set; }
         public string DocumentNumber { get; set; }
@@ -37,7 +38,6 @@ namespace VipChannel.Domain.Entity
         public string UserEditRecord { get; set; }
         public Nullable<System.DateTime> RecordEditDate { get; set; }
         public string RecordStatus { get; set; }
-        public string CodeCustomer { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerAddress> CustomerAddresses { get; set; }

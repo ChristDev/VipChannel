@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Windows.Forms;
 using VipChannel.Application.Entity;
@@ -13,8 +15,9 @@ namespace VipChannel.Front.Payments
 {
     public partial class FrmPaymentsList : Form
     {
-        private ClienteView _clienteView;
+        private CronogramaPagosView _cronogramaPagos;
         private CustomerAddressApplication _customerAddressApplication;
+        private GestorView _gestorView;
         public FrmPaymentsList()
         {
             InitializeComponent();
@@ -38,105 +41,71 @@ namespace VipChannel.Front.Payments
         }
         #endregion
 
-
-
         private void FrmList_Load(object sender, EventArgs e)
         {
-            CargarDatos();
             dgvDatosRegistrados.Select();
         }
 
-        private void CargarDatos()
+        private void CargarDatos(string val)
         {
-            _clienteView = new ClienteView();
-            vClienteBindingSource.DataSource = _clienteView.SelectListView();
-        }
+            _customerAddressApplication = new CustomerAddressApplication();
+            uspListarClientesActivosResultBindingSource.DataSource = _customerAddressApplication.ListarClientesActivos().Where(x=>x.Customer.Contains(val)).ToList();
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {            
-            if (dgvDatosRegistrados.CurrentRow != null)
-            {
-                Guid id = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
 
-                var numeroDocumento = dgvDatosRegistrados.CurrentRow.Cells[3].Value.ToString();
-
-                if(numeroDocumento.Length == 11)
-                {
-                    var form = new FrmCustomerCompany(Convert.ToInt32(Operation.Update), id);
-                    if (DialogResult.OK == form.ShowDialog())
-                    {
-                        CargarDatos();
-                    }
-                }
-                else
-                {
-                    var form = new FrmCustomer(Convert.ToInt32(Operation.Update), id);
-                    if (DialogResult.OK == form.ShowDialog())
-                    {
-                        CargarDatos();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Seleccione un registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }                
+            _gestorView = new GestorView();
+            vGestoreBindingSource.DataSource = _gestorView.SelectListView().ToList();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            var customerApplication = new CustomerApplication();
-            if (dgvDatosRegistrados.RowCount == 0)
+            if (string.IsNullOrEmpty(txtBuscarCliente.Text.Trim()))
             {
-                MessageBox.Show("No hay registros para eliminar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                uspListarClientesActivosResultBindingSource.DataSource = null;
                 return;
             }
 
-            if (MessageBox.Show("¿Está seguro que desea eliminar el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
-
-            Guid id = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString());
-
-            var entity = new Domain.Entity.Customer();
-            entity = customerApplication.SelectSingle(x => x.CustomerId == id, true);
-
-            entity.RecordEditDate = DateTime.Now;
-            entity.UserEditRecord = "LOAD";
-            entity.RecordStatus = ConstantBase.Inactive;
-
-            customerApplication.Update(entity);
-            MessageBox.Show("Registro eliminado correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CargarDatos();
+            CargarDatos(txtBuscarCliente.Text.Trim().ToUpper());    
         }
 
-        private void btnAgregarCliente_Click(object sender, EventArgs e)
+
+        private void txtBuscarCliente_TextChanged(object sender, EventArgs e)
         {
-            Guid id = Guid.NewGuid();
-            var form = new FrmCustomer(Convert.ToInt32(Operation.Create), id);
-            if (DialogResult.OK == form.ShowDialog())
+            btnBuscar_Click(sender, e);
+
+        }
+
+        private void dgvDatosRegistrados_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dgvDatosRegistrados.CurrentRow == null)
             {
-                CargarDatos();
+                vCronogramaPagoBindingSource.DataSource = null;
+                return;
             }
+
+            _cronogramaPagos = new CronogramaPagosView();
+            var customerAddressId = Guid.Parse(dgvDatosRegistrados.CurrentRow.Cells[1].Value.ToString());
+
+            vCronogramaPagoBindingSource.DataSource = _cronogramaPagos
+                .SelectListView(x => x.CustomerAddressId == customerAddressId)
+                .OrderBy(x => x.ExpirationDate);
         }
 
-        private void dgvDatosRegistrados_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPendientePago_SelectionChanged(object sender, EventArgs e)
         {
-            btnEditar_Click(sender, e);
-        }
-
-        private void btnAgregarEmpresa_Click(object sender, EventArgs e)
-        {
-            Guid id = Guid.NewGuid();
-            var form = new FrmCustomerCompany(Convert.ToInt32(Operation.Create), id);
-            if (DialogResult.OK == form.ShowDialog())
+            if(dgvPendientePago.CurrentRow == null)
             {
-                CargarDatos();
+                txtPay.Text = string.Empty;
+                return;
             }
-        }
 
+            var pendiente = decimal.Parse(dgvPendientePago.CurrentRow.Cells[2].Value.ToString());
+
+            txtPay.Text = pendiente.ToString();
+        }
     }
 }

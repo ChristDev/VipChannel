@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VipChannel.Application.Entity;
 using VipChannel.Enums.MasterTables;
@@ -73,10 +66,16 @@ namespace VipChannel.Front.Principal
                 {
                     if (usuario.Password.SequenceEqual(passwordMd5))
                     {
-                        string usuarioActivo = usuario.Names + " " + usuario.LastName;
+                        var assignmentApplication = new AssignmentApplication();
+                        var assignment = assignmentApplication.SelectSingle(x => x.EmployeeId == usuario.EmployeeId);
 
+                        string usuarioActivo = usuario.Names + " " + usuario.LastName;
                         MessageBox.Show(this, "BIENVENIDO: " + usuarioActivo, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FrmMenu frm = new FrmMenu(usuario.EmployeeId.ToString(), usuarioActivo);
+                        FrmMenu frm = new FrmMenu(usuario.EmployeeId.ToString(), 
+                                                  usuarioActivo,
+                                                  assignment.SucursalId.ToString(),
+                                                  assignment.SaleBoxId.ToString()
+                                                  );
                         _intentos = 3;
                         GuardarConfig(usuario.EmployeeId.ToString());
                         frm.Show();
@@ -117,7 +116,10 @@ namespace VipChannel.Front.Principal
                         string usuarioActivo = usuario.Names + " " + usuario.LastName;
 
                         MessageBox.Show(this, "BIENVENIDO: " + usuarioActivo, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FrmMenu frm = new FrmMenu(usuario.TechnicalId.ToString(), usuarioActivo);
+                        FrmMenu frm = new FrmMenu(usuario.TechnicalId.ToString(), 
+                                                  usuarioActivo,
+                                                  null,
+                                                  null);
                         _intentos = 3;
                         GuardarConfig(usuario.TechnicalId.ToString());
                         frm.Show();

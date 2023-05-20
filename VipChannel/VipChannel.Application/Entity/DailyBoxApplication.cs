@@ -9,12 +9,11 @@ using VipChannel.Domain.Entity;
 
 namespace VipChannel.Application.Entity
 {
-    public class InstallationRequestAttendedApplication : GenericClass<VipChannel_CollectionEntities, 
-        InstallationRequestAttended>, IDisposable
+    public class DailyBoxApplication : GenericClass<VipChannel_CollectionEntities, DailyBox>, IDisposable
     {
         private VipChannel_CollectionEntities _dataContext;
 
-        public InstallationRequestAttendedApplication()
+        public DailyBoxApplication()
         {
             _dataContext = new VipChannel_CollectionEntities();
         }
@@ -24,11 +23,6 @@ namespace VipChannel.Application.Entity
             if (_dataContext == null) return;
             _dataContext.Dispose();
             _dataContext = null;
-        }
-
-        public void GenerarCronogramaClienteDireccion(Guid customerAddressId, string userRecordCreation)
-        {
-            _dataContext.usp_GenerarCronogramaClienteDireccion(customerAddressId, userRecordCreation);
         }
     }
 }

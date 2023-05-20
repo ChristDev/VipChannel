@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="VipChannel_CollectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="AssignmentsId" />
+          </Key>
+          <Property Name="AssignmentsId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeId" Type="uniqueidentifier" />
+          <Property Name="SucursalId" Type="uniqueidentifier" />
+          <Property Name="SaleBoxId" Type="uniqueidentifier" />
+          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
+          <Property Name="RecordCreationDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="char" MaxLength="1" />
+        </EntityType>
         <EntityType Name="Avenue">
           <Key>
             <PropertyRef Name="AvenueId" />
@@ -116,6 +128,23 @@
           <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
           <Property Name="RecordEditDate" Type="datetime" />
           <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DailyBox">
+          <Key>
+            <PropertyRef Name="DailyBoxId" />
+          </Key>
+          <Property Name="DailyBoxId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeId" Type="uniqueidentifier" />
+          <Property Name="SaleBoxId" Type="uniqueidentifier" />
+          <Property Name="OpeningDate" Type="datetime" />
+          <Property Name="OpeningAmount" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="ClosingDate" Type="datetime" />
+          <Property Name="ClosingAmount" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
+          <Property Name="RecordCreationDate" Type="datetime" />
+          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
+          <Property Name="RecordEditDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -280,74 +309,21 @@
           <Property Name="RecordEditDate" Type="datetime" />
           <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
-        <EntityType Name="Payment">
+        <EntityType Name="PaymentFeeSchedule">
           <Key>
-            <PropertyRef Name="PaymentId" />
+            <PropertyRef Name="PaymentFeeScheduleId" />
           </Key>
-          <Property Name="PaymentId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PaymentScheduleDetailId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CustomerName" Type="varchar" MaxLength="400" />
-          <Property Name="DuePaymentDate" Type="nchar" MaxLength="10" />
-          <Property Name="BroadcastPaymentDate" Type="datetime" Nullable="false" />
-          <Property Name="VoucherType" Type="char" MaxLength="5" />
-          <Property Name="Serie" Type="varchar" MaxLength="10" />
-          <Property Name="WayPay" Type="char" MaxLength="5" Nullable="false" />
-          <Property Name="Observation" Type="text" />
-          <Property Name="Discount" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
-          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
-          <Property Name="RecordEditDate" Type="datetime" />
-          <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PaymentDetail">
-          <Key>
-            <PropertyRef Name="PaymentDetailId" />
-          </Key>
-          <Property Name="PaymentDetailId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PaymentId" Type="uniqueidentifier" />
-          <Property Name="Detail" Type="varchar" MaxLength="300" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Quantity" Type="int" />
-          <Property Name="Discount" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="SubTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PaymentFeeScheduleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ScheduleId" Type="uniqueidentifier" />
+          <Property Name="PayDay" Type="datetime" />
+          <Property Name="ManagerId" Type="uniqueidentifier" />
+          <Property Name="SaleBoxId" Type="uniqueidentifier" />
+          <Property Name="Serie" Type="char" MaxLength="5" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Pay" Type="decimal" Precision="10" Scale="2" />
           <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
           <Property Name="RecordCreationDate" Type="datetime" />
-          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
-          <Property Name="RecordEditDate" Type="datetime" />
           <Property Name="RecordStatus" Type="char" MaxLength="1" />
-        </EntityType>
-        <EntityType Name="PaymentSchedule">
-          <Key>
-            <PropertyRef Name="PaymentScheduleId" />
-          </Key>
-          <Property Name="PaymentScheduleId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CustomerCode" Type="varchar" MaxLength="20" />
-          <Property Name="DischargeDate" Type="datetime" />
-          <Property Name="InstallationRequestId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
-          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
-          <Property Name="RecordEditDate" Type="datetime" />
-          <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PaymentScheduleDetail">
-          <Key>
-            <PropertyRef Name="PaymentScheduleDetailId" />
-          </Key>
-          <Property Name="PaymentScheduleDetailId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PaymentScheduleId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="VoucherNumber" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="BroadcastDate" Type="datetime" Nullable="false" />
-          <Property Name="DueDate" Type="datetime" Nullable="false" />
-          <Property Name="PayableAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="PendingAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
-          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
-          <Property Name="RecordEditDate" Type="datetime" />
-          <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="Plan">
           <Key>
@@ -395,6 +371,45 @@
           <Property Name="RecordCreationDate" Type="datetime" />
           <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
           <Property Name="RecordEditDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerAddressId" Type="uniqueidentifier" />
+          <Property Name="Account" Type="varchar" MaxLength="15" />
+          <Property Name="Customer" Type="varchar(max)" />
+          <Property Name="DocumentNumber" Type="varchar" MaxLength="15" />
+          <Property Name="CellPhone" Type="varchar" MaxLength="15" />
+          <Property Name="Zone" Type="varchar" MaxLength="100" />
+          <Property Name="Avenue" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Number" Type="varchar" MaxLength="15" />
+          <Property Name="ExpirationDate" Type="date" />
+          <Property Name="PayPerDay" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="DaysProration" Type="int" />
+          <Property Name="DaysMonth" Type="int" />
+          <Property Name="TotalInstallation" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="TotalPlan" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="TotalMonth" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="TotalOnAccount" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="TotalPending" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
+          <Property Name="RecordCreationDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="ScheduleDetail">
+          <Key>
+            <PropertyRef Name="ScheduleDetailId" />
+          </Key>
+          <Property Name="ScheduleDetailId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ScheduleId" Type="uniqueidentifier" />
+          <Property Name="Concept" Type="varchar(max)" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" />
+          <Property Name="RecordCreationDate" Type="datetime" />
           <Property Name="RecordStatus" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="Service">
@@ -508,7 +523,23 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vClientes' does not have
           <Property Name="CustomerName" Type="varchar" MaxLength="401" Nullable="false" />
           <Property Name="BirthDate" Type="date" />
           <Property Name="CellPhone" Type="varchar" MaxLength="15" />
-          <Property Name="CustomerStatus" Type="varchar" MaxLength="5" />
+          <Property Name="CustomerStatus" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VipChannel_Collection.dbo.vCronogramaPagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vCronogramaPagos">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerAddressId" Type="uniqueidentifier" />
+          <Property Name="Account" Type="varchar" MaxLength="15" />
+          <Property Name="Customer" Type="varchar(max)" />
+          <Property Name="DocumentNumber" Type="varchar" MaxLength="15" />
+          <Property Name="CellPhone" Type="varchar" MaxLength="15" />
+          <Property Name="Direccion" Type="varchar" MaxLength="322" />
+          <Property Name="ExpirationDate" Type="date" />
+          <Property Name="TotalPending" Type="decimal" Precision="10" Scale="1" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'VipChannel_Collection.dbo.vEmpleado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -529,6 +560,25 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vEmpleado' does not have
           <Property Name="EmployeeName" Type="varchar" MaxLength="401" Nullable="false" />
           <Property Name="RoleId" Type="uniqueidentifier" />
           <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Names" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VipChannel_Collection.dbo.vGestores' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vGestores">
+          <Key>
+            <PropertyRef Name="ManagerId" />
+            <PropertyRef Name="TypeDocumentId" />
+            <PropertyRef Name="DocumentNumber" />
+            <PropertyRef Name="EmployeeName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Names" />
+          </Key>
+          <Property Name="ManagerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeDocument" Type="varchar" MaxLength="100" />
+          <Property Name="TypeDocumentId" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="DocumentNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="401" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Names" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
@@ -630,7 +680,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vSolicitudesInstalacion'
           <Property Name="ZoneAvenue" Type="varchar" MaxLength="303" Nullable="false" />
           <Property Name="AdressDetail" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="DateAttention" Type="nvarchar" MaxLength="41" />
-          <Property Name="CustomerAddressStatus" Type="varchar" MaxLength="5" />
+          <Property Name="CustomerAddressStatus" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'VipChannel_Collection.dbo.vSucursalPorCaja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -713,6 +763,18 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Principal>
             <Dependent Role="CustomerAddress">
               <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DailyBox_SaleBox">
+          <End Role="SaleBox" Type="Self.SaleBox" Multiplicity="0..1" />
+          <End Role="DailyBox" Type="Self.DailyBox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaleBox">
+              <PropertyRef Name="SaleBoxId" />
+            </Principal>
+            <Dependent Role="DailyBox">
+              <PropertyRef Name="SaleBoxId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -836,51 +898,15 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Payment_PaymentScheduleDetail">
-          <End Role="PaymentScheduleDetail" Type="Self.PaymentScheduleDetail" Multiplicity="1" />
-          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+        <Association Name="FK_PaymentFeeSchedule_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
+          <End Role="PaymentFeeSchedule" Type="Self.PaymentFeeSchedule" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PaymentScheduleDetail">
-              <PropertyRef Name="PaymentScheduleDetailId" />
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
             </Principal>
-            <Dependent Role="Payment">
-              <PropertyRef Name="PaymentScheduleDetailId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PaymentDetail_Payment">
-          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
-          <End Role="PaymentDetail" Type="Self.PaymentDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Payment">
-              <PropertyRef Name="PaymentId" />
-            </Principal>
-            <Dependent Role="PaymentDetail">
-              <PropertyRef Name="PaymentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PaymentSchedule_InstallationRequest">
-          <End Role="InstallationRequest" Type="Self.InstallationRequest" Multiplicity="1" />
-          <End Role="PaymentSchedule" Type="Self.PaymentSchedule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequest">
-              <PropertyRef Name="InstallationRequestId" />
-            </Principal>
-            <Dependent Role="PaymentSchedule">
-              <PropertyRef Name="InstallationRequestId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PaymentScheduleDetail_PaymentSchedule">
-          <End Role="PaymentSchedule" Type="Self.PaymentSchedule" Multiplicity="1" />
-          <End Role="PaymentScheduleDetail" Type="Self.PaymentScheduleDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentSchedule">
-              <PropertyRef Name="PaymentScheduleId" />
-            </Principal>
-            <Dependent Role="PaymentScheduleDetail">
-              <PropertyRef Name="PaymentScheduleId" />
+            <Dependent Role="PaymentFeeSchedule">
+              <PropertyRef Name="ScheduleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -893,6 +919,30 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Principal>
             <Dependent Role="SaleBox">
               <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_CustomerAddress">
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddress">
+              <PropertyRef Name="CustomerAddressId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="CustomerAddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleDetail_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
+          <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="ScheduleDetail">
+              <PropertyRef Name="ScheduleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -945,16 +995,23 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Parameter Name="CustomerAddressId" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="CustomerAddressStatus" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_GenerarCronogramaClienteDireccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerAddressId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="UserRecordCreation" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarClientesActivos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ListarDireccionPorClienteSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CustomerId" Type="uniqueidentifier" Mode="In" />
         </Function>
         <EntityContainer Name="VipChannel_CollectionModelStoreContainer">
+          <EntitySet Name="Assignment" EntityType="Self.Assignment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Avenue" EntityType="Self.Avenue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyBox" EntityType="Self.DailyBox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InstallationRequest" EntityType="Self.InstallationRequest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InstallationRequestAttended" EntityType="Self.InstallationRequestAttended" Schema="dbo" store:Type="Tables" />
@@ -963,13 +1020,12 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterTable" EntityType="Self.MasterTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PaymentDetail" EntityType="Self.PaymentDetail" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PaymentSchedule" EntityType="Self.PaymentSchedule" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PaymentScheduleDetail" EntityType="Self.PaymentScheduleDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentFeeSchedule" EntityType="Self.PaymentFeeSchedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Plan" EntityType="Self.Plan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleBox" EntityType="Self.SaleBox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleDetail" EntityType="Self.ScheduleDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
@@ -991,6 +1047,19 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
     [vClientes].[CustomerStatus] AS [CustomerStatus]
     FROM [dbo].[vClientes] AS [vClientes]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vCronogramaPagos" EntityType="Self.vCronogramaPagos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vCronogramaPagos].[ScheduleId] AS [ScheduleId], 
+    [vCronogramaPagos].[CustomerAddressId] AS [CustomerAddressId], 
+    [vCronogramaPagos].[Account] AS [Account], 
+    [vCronogramaPagos].[Customer] AS [Customer], 
+    [vCronogramaPagos].[DocumentNumber] AS [DocumentNumber], 
+    [vCronogramaPagos].[CellPhone] AS [CellPhone], 
+    [vCronogramaPagos].[Direccion] AS [Direccion], 
+    [vCronogramaPagos].[ExpirationDate] AS [ExpirationDate], 
+    [vCronogramaPagos].[TotalPending] AS [TotalPending]
+    FROM [dbo].[vCronogramaPagos] AS [vCronogramaPagos]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vEmpleado" EntityType="Self.vEmpleado" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vEmpleado].[EmployeeId] AS [EmployeeId], 
@@ -1003,6 +1072,17 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
     [vEmpleado].[LastName] AS [LastName], 
     [vEmpleado].[Names] AS [Names]
     FROM [dbo].[vEmpleado] AS [vEmpleado]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vGestores" EntityType="Self.vGestores" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vGestores].[ManagerId] AS [ManagerId], 
+    [vGestores].[TypeDocument] AS [TypeDocument], 
+    [vGestores].[TypeDocumentId] AS [TypeDocumentId], 
+    [vGestores].[DocumentNumber] AS [DocumentNumber], 
+    [vGestores].[EmployeeName] AS [EmployeeName], 
+    [vGestores].[LastName] AS [LastName], 
+    [vGestores].[Names] AS [Names]
+    FROM [dbo].[vGestores] AS [vGestores]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vPlanCable" EntityType="Self.vPlanCable" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1107,6 +1187,10 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="Zone" EntitySet="Zone" />
             <End Role="CustomerAddress" EntitySet="CustomerAddress" />
           </AssociationSet>
+          <AssociationSet Name="FK_DailyBox_SaleBox" Association="Self.FK_DailyBox_SaleBox">
+            <End Role="SaleBox" EntitySet="SaleBox" />
+            <End Role="DailyBox" EntitySet="DailyBox" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employee_Role" Association="Self.FK_Employee_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="Employee" EntitySet="Employee" />
@@ -1147,25 +1231,21 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="Category" EntitySet="Category" />
             <End Role="Material" EntitySet="Material" />
           </AssociationSet>
-          <AssociationSet Name="FK_Payment_PaymentScheduleDetail" Association="Self.FK_Payment_PaymentScheduleDetail">
-            <End Role="PaymentScheduleDetail" EntitySet="PaymentScheduleDetail" />
-            <End Role="Payment" EntitySet="Payment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PaymentDetail_Payment" Association="Self.FK_PaymentDetail_Payment">
-            <End Role="Payment" EntitySet="Payment" />
-            <End Role="PaymentDetail" EntitySet="PaymentDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PaymentSchedule_InstallationRequest" Association="Self.FK_PaymentSchedule_InstallationRequest">
-            <End Role="InstallationRequest" EntitySet="InstallationRequest" />
-            <End Role="PaymentSchedule" EntitySet="PaymentSchedule" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PaymentScheduleDetail_PaymentSchedule" Association="Self.FK_PaymentScheduleDetail_PaymentSchedule">
-            <End Role="PaymentSchedule" EntitySet="PaymentSchedule" />
-            <End Role="PaymentScheduleDetail" EntitySet="PaymentScheduleDetail" />
+          <AssociationSet Name="FK_PaymentFeeSchedule_Schedule" Association="Self.FK_PaymentFeeSchedule_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="PaymentFeeSchedule" EntitySet="PaymentFeeSchedule" />
           </AssociationSet>
           <AssociationSet Name="FK_SaleBox_Sucursal" Association="Self.FK_SaleBox_Sucursal">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="SaleBox" EntitySet="SaleBox" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_CustomerAddress" Association="Self.FK_Schedule_CustomerAddress">
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleDetail_Schedule" Association="Self.FK_ScheduleDetail_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_Sucursal_Company" Association="Self.FK_Sucursal_Company">
             <End Role="Company" EntitySet="Company" />
@@ -1190,6 +1270,21 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <Parameter Name="Latitude" Mode="In" Type="String" />
             <Parameter Name="Longitude" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="usp_ActualizarEstadoClienteDireccionActivo">
+            <Parameter Name="CustomerAddressId" Mode="In" Type="Guid" />
+            <Parameter Name="CustomerAddressStatus" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ActualizarEstadoClienteDireccionRechazado">
+            <Parameter Name="CustomerAddressId" Mode="In" Type="Guid" />
+            <Parameter Name="CustomerAddressStatus" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarDireccionPorClienteSolicitud" ReturnType="Collection(VipChannel_CollectionModel.usp_ListarDireccionPorClienteSolicitud_Result)">
+          <Parameter Name="CustomerId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GenerarCronogramaClienteDireccion" ReturnType="Collection(Int32)">
+            <Parameter Name="CustomerAddressId" Mode="In" Type="Guid" />
+            <Parameter Name="UserRecordCreation" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="Avenues" EntityType="VipChannel_CollectionModel.Avenue" />
           <EntitySet Name="Brands" EntityType="VipChannel_CollectionModel.Brand" />
           <EntitySet Name="Categories" EntityType="VipChannel_CollectionModel.Category" />
@@ -1204,13 +1299,12 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySet Name="Managers" EntityType="VipChannel_CollectionModel.Manager" />
           <EntitySet Name="MasterTables" EntityType="VipChannel_CollectionModel.MasterTable" />
           <EntitySet Name="Materials" EntityType="VipChannel_CollectionModel.Material" />
-          <EntitySet Name="Payments" EntityType="VipChannel_CollectionModel.Payment" />
-          <EntitySet Name="PaymentDetails" EntityType="VipChannel_CollectionModel.PaymentDetail" />
-          <EntitySet Name="PaymentSchedules" EntityType="VipChannel_CollectionModel.PaymentSchedule" />
-          <EntitySet Name="PaymentScheduleDetails" EntityType="VipChannel_CollectionModel.PaymentScheduleDetail" />
+          <EntitySet Name="PaymentFeeSchedules" EntityType="VipChannel_CollectionModel.PaymentFeeSchedule" />
           <EntitySet Name="Plans" EntityType="VipChannel_CollectionModel.Plan" />
           <EntitySet Name="Roles" EntityType="VipChannel_CollectionModel.Role" />
           <EntitySet Name="SaleBoxes" EntityType="VipChannel_CollectionModel.SaleBox" />
+          <EntitySet Name="Schedules" EntityType="VipChannel_CollectionModel.Schedule" />
+          <EntitySet Name="ScheduleDetails" EntityType="VipChannel_CollectionModel.ScheduleDetail" />
           <EntitySet Name="Services" EntityType="VipChannel_CollectionModel.Service" />
           <EntitySet Name="Sucursals" EntityType="VipChannel_CollectionModel.Sucursal" />
           <EntitySet Name="Suppliers" EntityType="VipChannel_CollectionModel.Supplier" />
@@ -1218,6 +1312,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySet Name="Vouchers" EntityType="VipChannel_CollectionModel.Voucher" />
           <EntitySet Name="Zones" EntityType="VipChannel_CollectionModel.Zone" />
           <EntitySet Name="vClientes" EntityType="VipChannel_CollectionModel.vCliente" />
+          <EntitySet Name="vCronogramaPagos" EntityType="VipChannel_CollectionModel.vCronogramaPago" />
           <EntitySet Name="vEmpleadoes" EntityType="VipChannel_CollectionModel.vEmpleado" />
           <EntitySet Name="vPlanCables" EntityType="VipChannel_CollectionModel.vPlanCable" />
           <EntitySet Name="vPlanesVentas" EntityType="VipChannel_CollectionModel.vPlanesVenta" />
@@ -1256,6 +1351,10 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
             <End Role="InstallationRequest" EntitySet="InstallationRequests" />
           </AssociationSet>
+          <AssociationSet Name="FK_Schedule_CustomerAddress" Association="VipChannel_CollectionModel.FK_Schedule_CustomerAddress">
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employee_Role" Association="VipChannel_CollectionModel.FK_Employee_Role">
             <End Role="Role" EntitySet="Roles" />
             <End Role="Employee" EntitySet="Employees" />
@@ -1276,10 +1375,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="InstallationRequest" EntitySet="InstallationRequests" />
             <End Role="InstallationRequestPlan" EntitySet="InstallationRequestPlans" />
           </AssociationSet>
-          <AssociationSet Name="FK_PaymentSchedule_InstallationRequest" Association="VipChannel_CollectionModel.FK_PaymentSchedule_InstallationRequest">
-            <End Role="InstallationRequest" EntitySet="InstallationRequests" />
-            <End Role="PaymentSchedule" EntitySet="PaymentSchedules" />
-          </AssociationSet>
           <AssociationSet Name="FK_InstallationRequestCost_Service" Association="VipChannel_CollectionModel.FK_InstallationRequestCost_Service">
             <End Role="Service" EntitySet="Services" />
             <End Role="InstallationRequestCost" EntitySet="InstallationRequestCosts" />
@@ -1288,17 +1383,9 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="Plan" EntitySet="Plans" />
             <End Role="InstallationRequestPlan" EntitySet="InstallationRequestPlans" />
           </AssociationSet>
-          <AssociationSet Name="FK_Payment_PaymentScheduleDetail" Association="VipChannel_CollectionModel.FK_Payment_PaymentScheduleDetail">
-            <End Role="PaymentScheduleDetail" EntitySet="PaymentScheduleDetails" />
-            <End Role="Payment" EntitySet="Payments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PaymentDetail_Payment" Association="VipChannel_CollectionModel.FK_PaymentDetail_Payment">
-            <End Role="Payment" EntitySet="Payments" />
-            <End Role="PaymentDetail" EntitySet="PaymentDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PaymentScheduleDetail_PaymentSchedule" Association="VipChannel_CollectionModel.FK_PaymentScheduleDetail_PaymentSchedule">
-            <End Role="PaymentSchedule" EntitySet="PaymentSchedules" />
-            <End Role="PaymentScheduleDetail" EntitySet="PaymentScheduleDetails" />
+          <AssociationSet Name="FK_PaymentFeeSchedule_Schedule" Association="VipChannel_CollectionModel.FK_PaymentFeeSchedule_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="PaymentFeeSchedule" EntitySet="PaymentFeeSchedules" />
           </AssociationSet>
           <AssociationSet Name="FK_Technical_Role" Association="VipChannel_CollectionModel.FK_Technical_Role">
             <End Role="Role" EntitySet="Roles" />
@@ -1312,18 +1399,29 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="SaleBox" EntitySet="SaleBoxes" />
             <End Role="Voucher" EntitySet="Vouchers" />
           </AssociationSet>
-          <FunctionImport Name="usp_ActualizarEstadoClienteDireccionActivo">
-            <Parameter Name="CustomerAddressId" Mode="In" Type="Guid" />
-            <Parameter Name="CustomerAddressStatus" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="usp_ActualizarEstadoClienteDireccionRechazado">
-            <Parameter Name="CustomerAddressId" Mode="In" Type="Guid" />
-            <Parameter Name="CustomerAddressStatus" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="usp_ListarDireccionPorClienteSolicitud" ReturnType="Collection(VipChannel_CollectionModel.usp_ListarDireccionPorClienteSolicitud_Result)">
-            <Parameter Name="CustomerId" Mode="In" Type="Guid" />
-          </FunctionImport>
+          <AssociationSet Name="FK_ScheduleDetail_Schedule" Association="VipChannel_CollectionModel.FK_ScheduleDetail_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
+          </AssociationSet>
+          <FunctionImport Name="usp_ListarClientesActivos" ReturnType="Collection(VipChannel_CollectionModel.usp_ListarClientesActivos_Result)" />
+          <EntitySet Name="vGestores" EntityType="VipChannel_CollectionModel.vGestore" />
+          <EntitySet Name="Assignments" EntityType="VipChannel_CollectionModel.Assignment" />
+          <EntitySet Name="DailyBoxes" EntityType="VipChannel_CollectionModel.DailyBox" />
+          <AssociationSet Name="FK_DailyBox_SaleBox" Association="VipChannel_CollectionModel.FK_DailyBox_SaleBox">
+            <End Role="SaleBox" EntitySet="SaleBoxes" />
+            <End Role="DailyBox" EntitySet="DailyBoxes" />
+          </AssociationSet>
           </EntityContainer>
+        <ComplexType Name="usp_ListarDireccionPorClienteSolicitud_Result">
+          <Property Type="Guid" Name="CustomerAddressId" Nullable="false" />
+          <Property Type="Guid" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="Zone" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Avenue" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Number" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="AdressDetail" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Reference" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="CustomerAddressStatus" Nullable="true" MaxLength="5" />
+        </ComplexType>
         <EntityType Name="Avenue">
           <Key>
             <PropertyRef Name="AvenueId" />
@@ -1401,6 +1499,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <PropertyRef Name="CustomerId" />
           </Key>
           <Property Name="CustomerId" Type="Guid" Nullable="false" />
+          <Property Name="CodeCustomer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="PersonType" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="DocumentType" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
@@ -1418,7 +1517,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
           <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="CustomerAddresses" Relationship="VipChannel_CollectionModel.FK_CustomerAddress_Customer" FromRole="Customer" ToRole="CustomerAddress" />
-          <Property Name="CodeCustomer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -1426,6 +1524,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           </Key>
           <Property Name="CustomerAddressId" Type="Guid" Nullable="false" />
           <Property Name="CustomerId" Type="Guid" Nullable="false" />
+          <Property Name="CodeCustomerAddress" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ZoneId" Type="Guid" Nullable="false" />
           <Property Name="AvenueId" Type="Guid" Nullable="false" />
           <Property Name="AdressDetail" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -1443,7 +1542,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <NavigationProperty Name="Customer" Relationship="VipChannel_CollectionModel.FK_CustomerAddress_Customer" FromRole="CustomerAddress" ToRole="Customer" />
           <NavigationProperty Name="Zone" Relationship="VipChannel_CollectionModel.FK_CustomerAddress_Zone" FromRole="CustomerAddress" ToRole="Zone" />
           <NavigationProperty Name="InstallationRequests" Relationship="VipChannel_CollectionModel.FK_InstallationRequest_CustomerAddress" FromRole="CustomerAddress" ToRole="InstallationRequest" />
-          <Property Name="CodeCustomerAddress" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Schedules" Relationship="VipChannel_CollectionModel.FK_Schedule_CustomerAddress" FromRole="CustomerAddress" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -1493,7 +1592,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <NavigationProperty Name="InstallationRequestAttendeds" Relationship="VipChannel_CollectionModel.FK_InstallationRequestAttended_InstallationRequest" FromRole="InstallationRequest" ToRole="InstallationRequestAttended" />
           <NavigationProperty Name="InstallationRequestCosts" Relationship="VipChannel_CollectionModel.FK_InstallationRequestCost_InstallationRequest" FromRole="InstallationRequest" ToRole="InstallationRequestCost" />
           <NavigationProperty Name="InstallationRequestPlans" Relationship="VipChannel_CollectionModel.FK_InstallationRequestPlan_InstallationRequest" FromRole="InstallationRequest" ToRole="InstallationRequestPlan" />
-          <NavigationProperty Name="PaymentSchedules" Relationship="VipChannel_CollectionModel.FK_PaymentSchedule_InstallationRequest" FromRole="InstallationRequest" ToRole="PaymentSchedule" />
         </EntityType>
         <EntityType Name="InstallationRequestAttended">
           <Key>
@@ -1623,81 +1721,22 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <NavigationProperty Name="Brand" Relationship="VipChannel_CollectionModel.FK_Material_Brand" FromRole="Material" ToRole="Brand" />
           <NavigationProperty Name="Category" Relationship="VipChannel_CollectionModel.FK_Material_Category" FromRole="Material" ToRole="Category" />
         </EntityType>
-        <EntityType Name="Payment">
+        <EntityType Name="PaymentFeeSchedule">
           <Key>
-            <PropertyRef Name="PaymentId" />
+            <PropertyRef Name="PaymentFeeScheduleId" />
           </Key>
-          <Property Name="PaymentId" Type="Guid" Nullable="false" />
-          <Property Name="PaymentScheduleDetailId" Type="Guid" Nullable="false" />
-          <Property Name="CustomerName" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
-          <Property Name="DuePaymentDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="BroadcastPaymentDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="VoucherType" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Serie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="WayPay" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Observation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Discount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
-          <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="PaymentScheduleDetail" Relationship="VipChannel_CollectionModel.FK_Payment_PaymentScheduleDetail" FromRole="Payment" ToRole="PaymentScheduleDetail" />
-          <NavigationProperty Name="PaymentDetails" Relationship="VipChannel_CollectionModel.FK_PaymentDetail_Payment" FromRole="Payment" ToRole="PaymentDetail" />
-        </EntityType>
-        <EntityType Name="PaymentDetail">
-          <Key>
-            <PropertyRef Name="PaymentDetailId" />
-          </Key>
-          <Property Name="PaymentDetailId" Type="Guid" Nullable="false" />
-          <Property Name="PaymentId" Type="Guid" />
-          <Property Name="Detail" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="Discount" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="SubTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PaymentFeeScheduleId" Type="Guid" Nullable="false" />
+          <Property Name="ScheduleId" Type="Guid" />
+          <Property Name="PayDay" Type="DateTime" Precision="3" />
+          <Property Name="ManagerId" Type="Guid" />
+          <Property Name="SaleBoxId" Type="Guid" />
+          <Property Name="Serie" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Pay" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
-          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
           <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Payment" Relationship="VipChannel_CollectionModel.FK_PaymentDetail_Payment" FromRole="PaymentDetail" ToRole="Payment" />
-        </EntityType>
-        <EntityType Name="PaymentSchedule">
-          <Key>
-            <PropertyRef Name="PaymentScheduleId" />
-          </Key>
-          <Property Name="PaymentScheduleId" Type="Guid" Nullable="false" />
-          <Property Name="CustomerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="DischargeDate" Type="DateTime" Precision="3" />
-          <Property Name="InstallationRequestId" Type="Guid" Nullable="false" />
-          <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
-          <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="InstallationRequest" Relationship="VipChannel_CollectionModel.FK_PaymentSchedule_InstallationRequest" FromRole="PaymentSchedule" ToRole="InstallationRequest" />
-          <NavigationProperty Name="PaymentScheduleDetails" Relationship="VipChannel_CollectionModel.FK_PaymentScheduleDetail_PaymentSchedule" FromRole="PaymentSchedule" ToRole="PaymentScheduleDetail" />
-        </EntityType>
-        <EntityType Name="PaymentScheduleDetail">
-          <Key>
-            <PropertyRef Name="PaymentScheduleDetailId" />
-          </Key>
-          <Property Name="PaymentScheduleDetailId" Type="Guid" Nullable="false" />
-          <Property Name="PaymentScheduleId" Type="Guid" Nullable="false" />
-          <Property Name="VoucherNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="BroadcastDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="PayableAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="PendingAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
-          <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Payments" Relationship="VipChannel_CollectionModel.FK_Payment_PaymentScheduleDetail" FromRole="PaymentScheduleDetail" ToRole="Payment" />
-          <NavigationProperty Name="PaymentSchedule" Relationship="VipChannel_CollectionModel.FK_PaymentScheduleDetail_PaymentSchedule" FromRole="PaymentScheduleDetail" ToRole="PaymentSchedule" />
+          <NavigationProperty Name="Schedule" Relationship="VipChannel_CollectionModel.FK_PaymentFeeSchedule_Schedule" FromRole="PaymentFeeSchedule" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="Plan">
           <Key>
@@ -1751,6 +1790,50 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Sucursal" Relationship="VipChannel_CollectionModel.FK_SaleBox_Sucursal" FromRole="SaleBox" ToRole="Sucursal" />
           <NavigationProperty Name="Vouchers" Relationship="VipChannel_CollectionModel.FK_Voucher_SaleBox" FromRole="SaleBox" ToRole="Voucher" />
+          <NavigationProperty Name="DailyBoxes" Relationship="VipChannel_CollectionModel.FK_DailyBox_SaleBox" FromRole="SaleBox" ToRole="DailyBox" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Guid" Nullable="false" />
+          <Property Name="CustomerAddressId" Type="Guid" />
+          <Property Name="Account" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Customer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Avenue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
+          <Property Name="PayPerDay" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="DaysProration" Type="Int32" />
+          <Property Name="DaysMonth" Type="Int32" />
+          <Property Name="TotalInstallation" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="TotalPlan" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="TotalMonth" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="TotalOnAccount" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="TotalPending" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CustomerAddress" Relationship="VipChannel_CollectionModel.FK_Schedule_CustomerAddress" FromRole="Schedule" ToRole="CustomerAddress" />
+          <NavigationProperty Name="PaymentFeeSchedules" Relationship="VipChannel_CollectionModel.FK_PaymentFeeSchedule_Schedule" FromRole="Schedule" ToRole="PaymentFeeSchedule" />
+          <NavigationProperty Name="ScheduleDetails" Relationship="VipChannel_CollectionModel.FK_ScheduleDetail_Schedule" FromRole="Schedule" ToRole="ScheduleDetail" />
+        </EntityType>
+        <EntityType Name="ScheduleDetail">
+          <Key>
+            <PropertyRef Name="ScheduleDetailId" />
+          </Key>
+          <Property Name="ScheduleDetailId" Type="Guid" Nullable="false" />
+          <Property Name="ScheduleId" Type="Guid" />
+          <Property Name="Concept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Schedule" Relationship="VipChannel_CollectionModel.FK_ScheduleDetail_Schedule" FromRole="ScheduleDetail" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -1867,7 +1950,21 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="401" FixedLength="false" Unicode="false" />
           <Property Name="BirthDate" Type="DateTime" Precision="0" />
           <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="CustomerStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vCronogramaPago">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Guid" Nullable="false" />
+          <Property Name="CustomerAddressId" Type="Guid" />
+          <Property Name="Account" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Customer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="322" FixedLength="false" Unicode="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
+          <Property Name="TotalPending" Type="Decimal" Precision="10" Scale="1" />
         </EntityType>
         <EntityType Name="vEmpleado">
           <Key>
@@ -1975,7 +2072,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="ZoneAvenue" Type="String" Nullable="false" MaxLength="303" FixedLength="false" Unicode="false" />
           <Property Name="AdressDetail" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="DateAttention" Type="String" MaxLength="41" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerAddressStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAddressStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vSucursalPorCaja">
           <Key>
@@ -2103,6 +2200,18 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Schedule_CustomerAddress">
+          <End Type="VipChannel_CollectionModel.CustomerAddress" Role="CustomerAddress" Multiplicity="0..1" />
+          <End Type="VipChannel_CollectionModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddress">
+              <PropertyRef Name="CustomerAddressId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="CustomerAddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employee_Role">
           <End Type="VipChannel_CollectionModel.Role" Role="Role" Multiplicity="0..1" />
           <End Type="VipChannel_CollectionModel.Employee" Role="Employee" Multiplicity="*" />
@@ -2163,18 +2272,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PaymentSchedule_InstallationRequest">
-          <End Type="VipChannel_CollectionModel.InstallationRequest" Role="InstallationRequest" Multiplicity="1" />
-          <End Type="VipChannel_CollectionModel.PaymentSchedule" Role="PaymentSchedule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstallationRequest">
-              <PropertyRef Name="InstallationRequestId" />
-            </Principal>
-            <Dependent Role="PaymentSchedule">
-              <PropertyRef Name="InstallationRequestId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_InstallationRequestCost_Service">
           <End Type="VipChannel_CollectionModel.Service" Role="Service" Multiplicity="0..1" />
           <End Type="VipChannel_CollectionModel.InstallationRequestCost" Role="InstallationRequestCost" Multiplicity="*" />
@@ -2199,39 +2296,15 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Payment_PaymentScheduleDetail">
-          <End Type="VipChannel_CollectionModel.PaymentScheduleDetail" Role="PaymentScheduleDetail" Multiplicity="1" />
-          <End Type="VipChannel_CollectionModel.Payment" Role="Payment" Multiplicity="*" />
+        <Association Name="FK_PaymentFeeSchedule_Schedule">
+          <End Type="VipChannel_CollectionModel.Schedule" Role="Schedule" Multiplicity="0..1" />
+          <End Type="VipChannel_CollectionModel.PaymentFeeSchedule" Role="PaymentFeeSchedule" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PaymentScheduleDetail">
-              <PropertyRef Name="PaymentScheduleDetailId" />
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
             </Principal>
-            <Dependent Role="Payment">
-              <PropertyRef Name="PaymentScheduleDetailId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PaymentDetail_Payment">
-          <End Type="VipChannel_CollectionModel.Payment" Role="Payment" Multiplicity="0..1" />
-          <End Type="VipChannel_CollectionModel.PaymentDetail" Role="PaymentDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Payment">
-              <PropertyRef Name="PaymentId" />
-            </Principal>
-            <Dependent Role="PaymentDetail">
-              <PropertyRef Name="PaymentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PaymentScheduleDetail_PaymentSchedule">
-          <End Type="VipChannel_CollectionModel.PaymentSchedule" Role="PaymentSchedule" Multiplicity="1" />
-          <End Type="VipChannel_CollectionModel.PaymentScheduleDetail" Role="PaymentScheduleDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentSchedule">
-              <PropertyRef Name="PaymentScheduleId" />
-            </Principal>
-            <Dependent Role="PaymentScheduleDetail">
-              <PropertyRef Name="PaymentScheduleId" />
+            <Dependent Role="PaymentFeeSchedule">
+              <PropertyRef Name="ScheduleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2271,16 +2344,84 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="usp_ListarDireccionPorClienteSolicitud_Result">
-          <Property Type="Guid" Name="CustomerAddressId" Nullable="false" />
-          <Property Type="Guid" Name="CustomerId" Nullable="false" />
-          <Property Type="String" Name="Zone" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="Avenue" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="Number" Nullable="false" MaxLength="10" />
-          <Property Type="String" Name="AdressDetail" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="Reference" Nullable="false" MaxLength="500" />
-          <Property Type="String" Name="CustomerAddressStatus" Nullable="true" MaxLength="5" />
+        <Association Name="FK_ScheduleDetail_Schedule">
+          <End Type="VipChannel_CollectionModel.Schedule" Role="Schedule" Multiplicity="0..1" />
+          <End Type="VipChannel_CollectionModel.ScheduleDetail" Role="ScheduleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="ScheduleId" />
+            </Principal>
+            <Dependent Role="ScheduleDetail">
+              <PropertyRef Name="ScheduleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="usp_ListarClientesActivos_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="CustomerId" Nullable="true" />
+          <Property Type="Guid" Name="CustomerAddressId" Nullable="true" />
+          <Property Type="String" Name="Customer" Nullable="true" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="true" />
         </ComplexType>
+        <EntityType Name="vGestore">
+          <Key>
+            <PropertyRef Name="ManagerId" />
+            <PropertyRef Name="TypeDocumentId" />
+            <PropertyRef Name="DocumentNumber" />
+            <PropertyRef Name="EmployeeName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Names" />
+          </Key>
+          <Property Name="ManagerId" Type="Guid" Nullable="false" />
+          <Property Name="TypeDocument" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TypeDocumentId" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="401" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Names" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="AssignmentsId" />
+          </Key>
+          <Property Name="AssignmentsId" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeId" Type="Guid" />
+          <Property Name="SucursalId" Type="Guid" />
+          <Property Name="SaleBoxId" Type="Guid" />
+          <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DailyBox">
+          <Key>
+            <PropertyRef Name="DailyBoxId" />
+          </Key>
+          <Property Name="DailyBoxId" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeId" Type="Guid" />
+          <Property Name="SaleBoxId" Type="Guid" />
+          <Property Name="OpeningDate" Type="DateTime" Precision="3" />
+          <Property Name="OpeningAmount" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="3" />
+          <Property Name="ClosingAmount" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="UserRecordCreation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
+          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="SaleBox" Relationship="VipChannel_CollectionModel.FK_DailyBox_SaleBox" FromRole="DailyBox" ToRole="SaleBox" />
+        </EntityType>
+        <Association Name="FK_DailyBox_SaleBox">
+          <End Type="VipChannel_CollectionModel.SaleBox" Role="SaleBox" Multiplicity="0..1" />
+          <End Type="VipChannel_CollectionModel.DailyBox" Role="DailyBox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaleBox">
+              <PropertyRef Name="SaleBoxId" />
+            </Principal>
+            <Dependent Role="DailyBox">
+              <PropertyRef Name="SaleBoxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2288,6 +2429,23 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="VipChannel_CollectionModelStoreContainer" CdmEntityContainer="VipChannel_CollectionEntities">
           <FunctionImportMapping FunctionImportName="usp_ActualizarCoordenadasCliente" FunctionName="VipChannel_CollectionModel.Store.usp_ActualizarCoordenadasCliente" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarEstadoClienteDireccionActivo" FunctionName="VipChannel_CollectionModel.Store.usp_ActualizarEstadoClienteDireccionActivo" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarEstadoClienteDireccionRechazado" FunctionName="VipChannel_CollectionModel.Store.usp_ActualizarEstadoClienteDireccionRechazado" />
+          <FunctionImportMapping FunctionImportName="usp_ListarDireccionPorClienteSolicitud" FunctionName="VipChannel_CollectionModel.Store.usp_ListarDireccionPorClienteSolicitud">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VipChannel_CollectionModel.usp_ListarDireccionPorClienteSolicitud_Result">
+                <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Avenue" ColumnName="Avenue" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="AdressDetail" ColumnName="AdressDetail" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="CustomerAddressStatus" ColumnName="CustomerAddressStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GenerarCronogramaClienteDireccion" FunctionName="VipChannel_CollectionModel.Store.usp_GenerarCronogramaClienteDireccion" />
           <EntitySetMapping Name="Avenues">
             <EntityTypeMapping TypeName="VipChannel_CollectionModel.Avenue">
               <MappingFragment StoreEntitySet="Avenue">
@@ -2363,7 +2521,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="VipChannel_CollectionModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="CodeCustomer" ColumnName="CodeCustomer" />
                 <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
                 <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
                 <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
@@ -2380,6 +2537,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
                 <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
                 <ScalarProperty Name="PersonType" ColumnName="PersonType" />
+                <ScalarProperty Name="CodeCustomer" ColumnName="CodeCustomer" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2387,7 +2545,6 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySetMapping Name="CustomerAddresses">
             <EntityTypeMapping TypeName="VipChannel_CollectionModel.CustomerAddress">
               <MappingFragment StoreEntitySet="CustomerAddress">
-                <ScalarProperty Name="CodeCustomerAddress" ColumnName="CodeCustomerAddress" />
                 <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
                 <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
                 <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
@@ -2401,6 +2558,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="AdressDetail" ColumnName="AdressDetail" />
                 <ScalarProperty Name="AvenueId" ColumnName="AvenueId" />
                 <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="CodeCustomerAddress" ColumnName="CodeCustomerAddress" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
               </MappingFragment>
@@ -2577,76 +2735,20 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Payments">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.Payment">
-              <MappingFragment StoreEntitySet="Payment">
+          <EntitySetMapping Name="PaymentFeeSchedules">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.PaymentFeeSchedule">
+              <MappingFragment StoreEntitySet="PaymentFeeSchedule">
                 <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
-                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
-                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
                 <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
                 <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="Observation" ColumnName="Observation" />
-                <ScalarProperty Name="WayPay" ColumnName="WayPay" />
+                <ScalarProperty Name="Pay" ColumnName="Pay" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Serie" ColumnName="Serie" />
-                <ScalarProperty Name="VoucherType" ColumnName="VoucherType" />
-                <ScalarProperty Name="BroadcastPaymentDate" ColumnName="BroadcastPaymentDate" />
-                <ScalarProperty Name="DuePaymentDate" ColumnName="DuePaymentDate" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="PaymentScheduleDetailId" ColumnName="PaymentScheduleDetailId" />
-                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PaymentDetails">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.PaymentDetail">
-              <MappingFragment StoreEntitySet="PaymentDetail">
-                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
-                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
-                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
-                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
-                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
-                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
-                <ScalarProperty Name="PaymentDetailId" ColumnName="PaymentDetailId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PaymentSchedules">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.PaymentSchedule">
-              <MappingFragment StoreEntitySet="PaymentSchedule">
-                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
-                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
-                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
-                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
-                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
-                <ScalarProperty Name="InstallationRequestId" ColumnName="InstallationRequestId" />
-                <ScalarProperty Name="DischargeDate" ColumnName="DischargeDate" />
-                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
-                <ScalarProperty Name="PaymentScheduleId" ColumnName="PaymentScheduleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PaymentScheduleDetails">
-            <EntityTypeMapping TypeName="VipChannel_CollectionModel.PaymentScheduleDetail">
-              <MappingFragment StoreEntitySet="PaymentScheduleDetail">
-                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
-                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
-                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
-                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
-                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
-                <ScalarProperty Name="PendingAmount" ColumnName="PendingAmount" />
-                <ScalarProperty Name="PayableAmount" ColumnName="PayableAmount" />
-                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-                <ScalarProperty Name="BroadcastDate" ColumnName="BroadcastDate" />
-                <ScalarProperty Name="VoucherNumber" ColumnName="VoucherNumber" />
-                <ScalarProperty Name="PaymentScheduleId" ColumnName="PaymentScheduleId" />
-                <ScalarProperty Name="PaymentScheduleDetailId" ColumnName="PaymentScheduleDetailId" />
+                <ScalarProperty Name="SaleBoxId" ColumnName="SaleBoxId" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="PayDay" ColumnName="PayDay" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="PaymentFeeScheduleId" ColumnName="PaymentFeeScheduleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2698,6 +2800,47 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SaleBoxId" ColumnName="SaleBoxId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
+                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="TotalPending" ColumnName="TotalPending" />
+                <ScalarProperty Name="TotalOnAccount" ColumnName="TotalOnAccount" />
+                <ScalarProperty Name="TotalMonth" ColumnName="TotalMonth" />
+                <ScalarProperty Name="TotalPlan" ColumnName="TotalPlan" />
+                <ScalarProperty Name="TotalInstallation" ColumnName="TotalInstallation" />
+                <ScalarProperty Name="DaysMonth" ColumnName="DaysMonth" />
+                <ScalarProperty Name="DaysProration" ColumnName="DaysProration" />
+                <ScalarProperty Name="PayPerDay" ColumnName="PayPerDay" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Avenue" ColumnName="Avenue" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleDetails">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.ScheduleDetail">
+              <MappingFragment StoreEntitySet="ScheduleDetail">
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
+                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Concept" ColumnName="Concept" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="ScheduleDetailId" ColumnName="ScheduleDetailId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2811,6 +2954,21 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="PersonType" ColumnName="PersonType" />
                 <ScalarProperty Name="PersonTypeId" ColumnName="PersonTypeId" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vCronogramaPagos">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vCronogramaPago">
+              <MappingFragment StoreEntitySet="vCronogramaPagos">
+                <ScalarProperty Name="TotalPending" ColumnName="TotalPending" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2938,22 +3096,61 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="usp_ActualizarEstadoClienteDireccionActivo" FunctionName="VipChannel_CollectionModel.Store.usp_ActualizarEstadoClienteDireccionActivo" />
-          <FunctionImportMapping FunctionImportName="usp_ActualizarEstadoClienteDireccionRechazado" FunctionName="VipChannel_CollectionModel.Store.usp_ActualizarEstadoClienteDireccionRechazado" />
-          <FunctionImportMapping FunctionImportName="usp_ListarDireccionPorClienteSolicitud" FunctionName="VipChannel_CollectionModel.Store.usp_ListarDireccionPorClienteSolicitud">
+          <FunctionImportMapping FunctionImportName="usp_ListarClientesActivos" FunctionName="VipChannel_CollectionModel.Store.usp_ListarClientesActivos">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="VipChannel_CollectionModel.usp_ListarDireccionPorClienteSolicitud_Result">
-                <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
+              <ComplexTypeMapping TypeName="VipChannel_CollectionModel.usp_ListarClientesActivos_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="Zone" ColumnName="Zone" />
-                <ScalarProperty Name="Avenue" ColumnName="Avenue" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="AdressDetail" ColumnName="AdressDetail" />
-                <ScalarProperty Name="Reference" ColumnName="Reference" />
-                <ScalarProperty Name="CustomerAddressStatus" ColumnName="CustomerAddressStatus" />
+                <ScalarProperty Name="CustomerAddressId" ColumnName="CustomerAddressId" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="vGestores">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vGestore">
+              <MappingFragment StoreEntitySet="vGestores">
+                <ScalarProperty Name="Names" ColumnName="Names" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="TypeDocumentId" ColumnName="TypeDocumentId" />
+                <ScalarProperty Name="TypeDocument" ColumnName="TypeDocument" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assignments">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.Assignment">
+              <MappingFragment StoreEntitySet="Assignment">
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
+                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="SaleBoxId" ColumnName="SaleBoxId" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="AssignmentsId" ColumnName="AssignmentsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyBoxes">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.DailyBox">
+              <MappingFragment StoreEntitySet="DailyBox">
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
+                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
+                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
+                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="ClosingAmount" ColumnName="ClosingAmount" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="OpeningAmount" ColumnName="OpeningAmount" />
+                <ScalarProperty Name="OpeningDate" ColumnName="OpeningDate" />
+                <ScalarProperty Name="SaleBoxId" ColumnName="SaleBoxId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="DailyBoxId" ColumnName="DailyBoxId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

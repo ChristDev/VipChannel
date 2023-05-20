@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Assignment.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Avenue.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
@@ -58,6 +61,9 @@
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\CustomerAddress.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DailyBox.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Employee.cs">
@@ -84,16 +90,7 @@
     <Compile Include="Entity\Material.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Payment.cs">
-      <DependentUpon>VipChannelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\PaymentDetail.cs">
-      <DependentUpon>VipChannelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\PaymentSchedule.cs">
-      <DependentUpon>VipChannelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\PaymentScheduleDetail.cs">
+    <Compile Include="Entity\PaymentFeeSchedule.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Plan.cs">
@@ -103,6 +100,12 @@
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SaleBox.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Schedule.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ScheduleDetail.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SelectResponse.cs" />
@@ -118,13 +121,22 @@
     <Compile Include="Entity\Technical.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\usp_ListarClientesActivos_Result.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\usp_ListarDireccionPorClienteSolicitud_Result.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\vCliente.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\vCronogramaPago.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\vEmpleado.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\vGestore.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\VipChannelModel.cs">

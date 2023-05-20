@@ -42,13 +42,12 @@ namespace VipChannel.Data.Model
         public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<MasterTable> MasterTables { get; set; }
         public virtual DbSet<Material> Materials { get; set; }
-        public virtual DbSet<Payment> Payments { get; set; }
-        public virtual DbSet<PaymentDetail> PaymentDetails { get; set; }
-        public virtual DbSet<PaymentSchedule> PaymentSchedules { get; set; }
-        public virtual DbSet<PaymentScheduleDetail> PaymentScheduleDetails { get; set; }
+        public virtual DbSet<PaymentFeeSchedule> PaymentFeeSchedules { get; set; }
         public virtual DbSet<Plan> Plans { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<SaleBox> SaleBoxes { get; set; }
+        public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<ScheduleDetail> ScheduleDetails { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<Sucursal> Sucursals { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
@@ -56,6 +55,7 @@ namespace VipChannel.Data.Model
         public virtual DbSet<Voucher> Vouchers { get; set; }
         public virtual DbSet<Zone> Zones { get; set; }
         public virtual DbSet<vCliente> vClientes { get; set; }
+        public virtual DbSet<vCronogramaPago> vCronogramaPagos { get; set; }
         public virtual DbSet<vEmpleado> vEmpleadoes { get; set; }
         public virtual DbSet<vPlanCable> vPlanCables { get; set; }
         public virtual DbSet<vPlanesVenta> vPlanesVentas { get; set; }
@@ -66,6 +66,9 @@ namespace VipChannel.Data.Model
         public virtual DbSet<vSucursalPorCaja> vSucursalPorCajas { get; set; }
         public virtual DbSet<vTecnico> vTecnicoes { get; set; }
         public virtual DbSet<vTipoComprobantePorCaja> vTipoComprobantePorCajas { get; set; }
+        public virtual DbSet<vGestore> vGestores { get; set; }
+        public virtual DbSet<Assignment> Assignments { get; set; }
+        public virtual DbSet<DailyBox> DailyBoxes { get; set; }
     
         public virtual int usp_ActualizarCoordenadasCliente(Nullable<System.Guid> customerAddressId, string latitude, string longitude)
         {
@@ -117,6 +120,24 @@ namespace VipChannel.Data.Model
                 new ObjectParameter("CustomerId", typeof(System.Guid));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarDireccionPorClienteSolicitud_Result>("usp_ListarDireccionPorClienteSolicitud", customerIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> usp_GenerarCronogramaClienteDireccion(Nullable<System.Guid> customerAddressId, string userRecordCreation)
+        {
+            var customerAddressIdParameter = customerAddressId.HasValue ?
+                new ObjectParameter("CustomerAddressId", customerAddressId) :
+                new ObjectParameter("CustomerAddressId", typeof(System.Guid));
+    
+            var userRecordCreationParameter = userRecordCreation != null ?
+                new ObjectParameter("UserRecordCreation", userRecordCreation) :
+                new ObjectParameter("UserRecordCreation", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("usp_GenerarCronogramaClienteDireccion", customerAddressIdParameter, userRecordCreationParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarClientesActivos_Result> usp_ListarClientesActivos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarClientesActivos_Result>("usp_ListarClientesActivos");
         }
     }
 }

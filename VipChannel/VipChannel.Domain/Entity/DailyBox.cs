@@ -12,21 +12,21 @@ namespace VipChannel.Domain.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class PaymentDetail
+    public partial class DailyBox
     {
-        public System.Guid PaymentDetailId { get; set; }
-        public Nullable<System.Guid> PaymentId { get; set; }
-        public string Detail { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<decimal> Discount { get; set; }
-        public Nullable<decimal> SubTotal { get; set; }
+        public System.Guid DailyBoxId { get; set; }
+        public Nullable<System.Guid> EmployeeId { get; set; }
+        public Nullable<System.Guid> SaleBoxId { get; set; }
+        public Nullable<System.DateTime> OpeningDate { get; set; }
+        public Nullable<decimal> OpeningAmount { get; set; }
+        public Nullable<System.DateTime> ClosingDate { get; set; }
+        public Nullable<decimal> ClosingAmount { get; set; }
         public string UserRecordCreation { get; set; }
         public Nullable<System.DateTime> RecordCreationDate { get; set; }
         public string UserEditRecord { get; set; }
         public Nullable<System.DateTime> RecordEditDate { get; set; }
         public string RecordStatus { get; set; }
     
-        public virtual Payment Payment { get; set; }
+        public virtual SaleBox SaleBox { get; set; }
     }
 }

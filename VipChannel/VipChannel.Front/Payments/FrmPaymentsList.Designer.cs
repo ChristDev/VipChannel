@@ -29,194 +29,330 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaymentsList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.generarSolicitudInstalacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaymentsList));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.uspListarClientesActivosResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fGroupBox4 = new Controles_Standar.FGroupBox();
+            this.dtpPayDay = new Controles_Standar.FDateTimePicker();
+            this.fLabelMedium6 = new Controles_Standar.FLabelMedium();
+            this.cboManagerId = new Controles_Standar.FComboBox();
+            this.vGestoreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtPay = new Controles_Standar.FTextBox();
+            this.fLabelMedium5 = new Controles_Standar.FLabelMedium();
+            this.fLabelMedium3 = new Controles_Standar.FLabelMedium();
+            this.fLabelMedium2 = new Controles_Standar.FLabelMedium();
+            this.fGroupBox3 = new Controles_Standar.FGroupBox();
+            this.dgvPendientePago = new Controles_Standar.FDataGridView();
+            this.scheduleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expirationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPendingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vCronogramaPagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fGroupBox1 = new Controles_Standar.FGroupBox();
-            this.btnAgregarCliente = new Controles_Standar.FButtonNuevo();
-            this.fLabelMedium1 = new Controles_Standar.FLabelMedium();
             this.btnBuscar = new Controles_Standar.FButtonBuscar();
-            this.fTextBox1 = new Controles_Standar.FTextBox();
-            this.btnAgregarEmpresa = new Controles_Standar.FButtonNuevo();
+            this.txtBuscarCliente = new Controles_Standar.FTextBox();
+            this.fLabelMedium1 = new Controles_Standar.FLabelMedium();
             this.btnCancelar = new Controles_Standar.FButtonCancelar();
-            this.btnEliminar = new Controles_Standar.FButtonEliminar();
             this.btnEditar = new Controles_Standar.FButtonEditar();
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
             this.dgvDatosRegistrados = new Controles_Standar.FDataGridView();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.businessNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerAddressIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fLabelBig1 = new Controles_Standar.FLabelBig();
-            this.contextMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vClienteBindingSource)).BeginInit();
+            this.fComboBox1 = new Controles_Standar.FComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.uspListarClientesActivosResultBindingSource)).BeginInit();
+            this.fGroupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vGestoreBindingSource)).BeginInit();
+            this.fGroupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPendientePago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vCronogramaPagoBindingSource)).BeginInit();
             this.fGroupBox1.SuspendLayout();
             this.fGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).BeginInit();
             this.SuspendLayout();
             // 
-            // contextMenuStrip
+            // uspListarClientesActivosResultBindingSource
             // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generarSolicitudInstalacionToolStripMenuItem});
-            this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(225, 26);
+            this.uspListarClientesActivosResultBindingSource.DataSource = typeof(VipChannel.Domain.Entity.usp_ListarClientesActivos_Result);
             // 
-            // generarSolicitudInstalacionToolStripMenuItem
+            // fGroupBox4
             // 
-            this.generarSolicitudInstalacionToolStripMenuItem.Name = "generarSolicitudInstalacionToolStripMenuItem";
-            this.generarSolicitudInstalacionToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.generarSolicitudInstalacionToolStripMenuItem.Text = "Generar Solicitud Instalación";
+            this.fGroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fGroupBox4.Controls.Add(this.fComboBox1);
+            this.fGroupBox4.Controls.Add(this.dtpPayDay);
+            this.fGroupBox4.Controls.Add(this.fLabelMedium6);
+            this.fGroupBox4.Controls.Add(this.cboManagerId);
+            this.fGroupBox4.Controls.Add(this.txtPay);
+            this.fGroupBox4.Controls.Add(this.fLabelMedium5);
+            this.fGroupBox4.Controls.Add(this.fLabelMedium3);
+            this.fGroupBox4.Controls.Add(this.fLabelMedium2);
+            this.fGroupBox4.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fGroupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.fGroupBox4.Location = new System.Drawing.Point(980, 141);
+            this.fGroupBox4.Name = "fGroupBox4";
+            this.fGroupBox4.Size = new System.Drawing.Size(402, 237);
+            this.fGroupBox4.TabIndex = 4;
+            this.fGroupBox4.TabStop = false;
+            this.fGroupBox4.Text = "Pagos";
             // 
-            // vClienteBindingSource
+            // dtpPayDay
             // 
-            this.vClienteBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vCliente);
+            this.dtpPayDay.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpPayDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpPayDay.Location = new System.Drawing.Point(10, 45);
+            this.dtpPayDay.Name = "dtpPayDay";
+            this.dtpPayDay.Size = new System.Drawing.Size(300, 23);
+            this.dtpPayDay.TabIndex = 1;
+            // 
+            // fLabelMedium6
+            // 
+            this.fLabelMedium6.AutoSize = true;
+            this.fLabelMedium6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fLabelMedium6.ForeColor = System.Drawing.Color.Black;
+            this.fLabelMedium6.Location = new System.Drawing.Point(6, 71);
+            this.fLabelMedium6.Name = "fLabelMedium6";
+            this.fLabelMedium6.Size = new System.Drawing.Size(54, 21);
+            this.fLabelMedium6.TabIndex = 2;
+            this.fLabelMedium6.Text = "Gestor";
+            // 
+            // cboManagerId
+            // 
+            this.cboManagerId.DataSource = this.vGestoreBindingSource;
+            this.cboManagerId.DisplayMember = "EmployeeName";
+            this.cboManagerId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboManagerId.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboManagerId.FormattingEnabled = true;
+            this.cboManagerId.Location = new System.Drawing.Point(10, 95);
+            this.cboManagerId.Name = "cboManagerId";
+            this.cboManagerId.Size = new System.Drawing.Size(384, 23);
+            this.cboManagerId.TabIndex = 3;
+            this.cboManagerId.ValueMember = "ManagerId";
+            // 
+            // vGestoreBindingSource
+            // 
+            this.vGestoreBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vGestore);
+            // 
+            // txtPay
+            // 
+            this.txtPay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPay.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPay.Location = new System.Drawing.Point(250, 145);
+            this.txtPay.Name = "txtPay";
+            this.txtPay.Size = new System.Drawing.Size(144, 23);
+            this.txtPay.TabIndex = 7;
+            this.txtPay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // fLabelMedium5
+            // 
+            this.fLabelMedium5.AutoSize = true;
+            this.fLabelMedium5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fLabelMedium5.ForeColor = System.Drawing.Color.Black;
+            this.fLabelMedium5.Location = new System.Drawing.Point(246, 121);
+            this.fLabelMedium5.Name = "fLabelMedium5";
+            this.fLabelMedium5.Size = new System.Drawing.Size(55, 21);
+            this.fLabelMedium5.TabIndex = 6;
+            this.fLabelMedium5.Text = "Monto";
+            // 
+            // fLabelMedium3
+            // 
+            this.fLabelMedium3.AutoSize = true;
+            this.fLabelMedium3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fLabelMedium3.ForeColor = System.Drawing.Color.Black;
+            this.fLabelMedium3.Location = new System.Drawing.Point(6, 121);
+            this.fLabelMedium3.Name = "fLabelMedium3";
+            this.fLabelMedium3.Size = new System.Drawing.Size(42, 21);
+            this.fLabelMedium3.TabIndex = 4;
+            this.fLabelMedium3.Text = "Serie";
+            // 
+            // fLabelMedium2
+            // 
+            this.fLabelMedium2.AutoSize = true;
+            this.fLabelMedium2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fLabelMedium2.ForeColor = System.Drawing.Color.Black;
+            this.fLabelMedium2.Location = new System.Drawing.Point(6, 19);
+            this.fLabelMedium2.Name = "fLabelMedium2";
+            this.fLabelMedium2.Size = new System.Drawing.Size(108, 21);
+            this.fLabelMedium2.TabIndex = 0;
+            this.fLabelMedium2.Text = "Fecha de Pago";
+            // 
+            // fGroupBox3
+            // 
+            this.fGroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fGroupBox3.Controls.Add(this.dgvPendientePago);
+            this.fGroupBox3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fGroupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.fGroupBox3.Location = new System.Drawing.Point(600, 141);
+            this.fGroupBox3.Name = "fGroupBox3";
+            this.fGroupBox3.Size = new System.Drawing.Size(374, 432);
+            this.fGroupBox3.TabIndex = 3;
+            this.fGroupBox3.TabStop = false;
+            // 
+            // dgvPendientePago
+            // 
+            this.dgvPendientePago.AllowUserToAddRows = false;
+            this.dgvPendientePago.AllowUserToDeleteRows = false;
+            this.dgvPendientePago.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPendientePago.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPendientePago.AutoGenerateColumns = false;
+            this.dgvPendientePago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvPendientePago.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvPendientePago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            this.dgvPendientePago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPendientePago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPendientePago.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.scheduleIdDataGridViewTextBoxColumn,
+            this.expirationDateDataGridViewTextBoxColumn,
+            this.totalPendingDataGridViewTextBoxColumn});
+            this.dgvPendientePago.DataSource = this.vCronogramaPagoBindingSource;
+            this.dgvPendientePago.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPendientePago.EnableHeadersVisualStyles = false;
+            this.dgvPendientePago.Location = new System.Drawing.Point(3, 19);
+            this.dgvPendientePago.MultiSelect = false;
+            this.dgvPendientePago.Name = "dgvPendientePago";
+            this.dgvPendientePago.ReadOnly = true;
+            this.dgvPendientePago.RowHeadersVisible = false;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvPendientePago.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPendientePago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPendientePago.Size = new System.Drawing.Size(368, 410);
+            this.dgvPendientePago.TabIndex = 0;
+            this.dgvPendientePago.SelectionChanged += new System.EventHandler(this.dgvPendientePago_SelectionChanged);
+            // 
+            // scheduleIdDataGridViewTextBoxColumn
+            // 
+            this.scheduleIdDataGridViewTextBoxColumn.DataPropertyName = "ScheduleId";
+            this.scheduleIdDataGridViewTextBoxColumn.HeaderText = "ScheduleId";
+            this.scheduleIdDataGridViewTextBoxColumn.Name = "scheduleIdDataGridViewTextBoxColumn";
+            this.scheduleIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.scheduleIdDataGridViewTextBoxColumn.Visible = false;
+            this.scheduleIdDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // expirationDateDataGridViewTextBoxColumn
+            // 
+            this.expirationDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.expirationDateDataGridViewTextBoxColumn.DataPropertyName = "ExpirationDate";
+            this.expirationDateDataGridViewTextBoxColumn.HeaderText = "Fecha Vencimiento";
+            this.expirationDateDataGridViewTextBoxColumn.Name = "expirationDateDataGridViewTextBoxColumn";
+            this.expirationDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalPendingDataGridViewTextBoxColumn
+            // 
+            this.totalPendingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalPendingDataGridViewTextBoxColumn.DataPropertyName = "TotalPending";
+            this.totalPendingDataGridViewTextBoxColumn.HeaderText = "Pendiente Pago";
+            this.totalPendingDataGridViewTextBoxColumn.Name = "totalPendingDataGridViewTextBoxColumn";
+            this.totalPendingDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vCronogramaPagoBindingSource
+            // 
+            this.vCronogramaPagoBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vCronogramaPago);
             // 
             // fGroupBox1
             // 
             this.fGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fGroupBox1.Controls.Add(this.btnAgregarCliente);
-            this.fGroupBox1.Controls.Add(this.fLabelMedium1);
             this.fGroupBox1.Controls.Add(this.btnBuscar);
-            this.fGroupBox1.Controls.Add(this.fTextBox1);
-            this.fGroupBox1.Controls.Add(this.btnAgregarEmpresa);
+            this.fGroupBox1.Controls.Add(this.txtBuscarCliente);
+            this.fGroupBox1.Controls.Add(this.fLabelMedium1);
             this.fGroupBox1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fGroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fGroupBox1.Location = new System.Drawing.Point(12, 53);
+            this.fGroupBox1.Location = new System.Drawing.Point(16, 57);
             this.fGroupBox1.Name = "fGroupBox1";
-            this.fGroupBox1.Size = new System.Drawing.Size(1070, 78);
+            this.fGroupBox1.Size = new System.Drawing.Size(958, 78);
             this.fGroupBox1.TabIndex = 1;
             this.fGroupBox1.TabStop = false;
-            // 
-            // btnAgregarCliente
-            // 
-            this.btnAgregarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarCliente.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCliente.Image")));
-            this.btnAgregarCliente.Location = new System.Drawing.Point(877, 36);
-            this.btnAgregarCliente.Name = "btnAgregarCliente";
-            this.btnAgregarCliente.Size = new System.Drawing.Size(90, 34);
-            this.btnAgregarCliente.TabIndex = 4;
-            this.btnAgregarCliente.Text = "Cliente";
-            this.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAgregarCliente.UseVisualStyleBackColor = true;
-            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
-            // 
-            // fLabelMedium1
-            // 
-            this.fLabelMedium1.AutoSize = true;
-            this.fLabelMedium1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fLabelMedium1.ForeColor = System.Drawing.Color.Black;
-            this.fLabelMedium1.Location = new System.Drawing.Point(6, 19);
-            this.fLabelMedium1.Name = "fLabelMedium1";
-            this.fLabelMedium1.Size = new System.Drawing.Size(54, 21);
-            this.fLabelMedium1.TabIndex = 0;
-            this.fLabelMedium1.Text = "Buscar";
             // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(781, 36);
+            this.btnBuscar.Location = new System.Drawing.Point(871, 26);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(90, 34);
+            this.btnBuscar.Size = new System.Drawing.Size(76, 34);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // fTextBox1
+            // txtBuscarCliente
             // 
-            this.fTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fTextBox1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fTextBox1.Location = new System.Drawing.Point(10, 43);
-            this.fTextBox1.Name = "fTextBox1";
-            this.fTextBox1.Size = new System.Drawing.Size(765, 23);
-            this.fTextBox1.TabIndex = 1;
+            this.txtBuscarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarCliente.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarCliente.Location = new System.Drawing.Point(6, 34);
+            this.txtBuscarCliente.Name = "txtBuscarCliente";
+            this.txtBuscarCliente.Size = new System.Drawing.Size(859, 23);
+            this.txtBuscarCliente.TabIndex = 1;
+            this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
             // 
-            // btnAgregarEmpresa
+            // fLabelMedium1
             // 
-            this.btnAgregarEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarEmpresa.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarEmpresa.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarEmpresa.Image")));
-            this.btnAgregarEmpresa.Location = new System.Drawing.Point(973, 36);
-            this.btnAgregarEmpresa.Name = "btnAgregarEmpresa";
-            this.btnAgregarEmpresa.Size = new System.Drawing.Size(90, 34);
-            this.btnAgregarEmpresa.TabIndex = 3;
-            this.btnAgregarEmpresa.Text = "Empresa";
-            this.btnAgregarEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarEmpresa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAgregarEmpresa.UseVisualStyleBackColor = true;
-            this.btnAgregarEmpresa.Click += new System.EventHandler(this.btnAgregarEmpresa_Click);
+            this.fLabelMedium1.AutoSize = true;
+            this.fLabelMedium1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fLabelMedium1.ForeColor = System.Drawing.Color.Black;
+            this.fLabelMedium1.Location = new System.Drawing.Point(6, 12);
+            this.fLabelMedium1.Name = "fLabelMedium1";
+            this.fLabelMedium1.Size = new System.Drawing.Size(54, 21);
+            this.fLabelMedium1.TabIndex = 0;
+            this.fLabelMedium1.Text = "Buscar";
             // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(985, 575);
+            this.btnCancelar.Location = new System.Drawing.Point(1292, 536);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 34);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Salir";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(877, 575);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(102, 34);
-            this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Dar de Baja";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(781, 575);
+            this.btnEditar.Location = new System.Drawing.Point(1196, 536);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(90, 34);
-            this.btnEditar.TabIndex = 3;
-            this.btnEditar.Text = "Editar";
+            this.btnEditar.TabIndex = 5;
+            this.btnEditar.Text = "Pagar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // fGroupBox2
             // 
-            this.fGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.fGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fGroupBox2.Controls.Add(this.dgvDatosRegistrados);
             this.fGroupBox2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fGroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fGroupBox2.Location = new System.Drawing.Point(12, 137);
+            this.fGroupBox2.Location = new System.Drawing.Point(16, 141);
             this.fGroupBox2.Name = "fGroupBox2";
-            this.fGroupBox2.Size = new System.Drawing.Size(1070, 432);
+            this.fGroupBox2.Size = new System.Drawing.Size(578, 432);
             this.fGroupBox2.TabIndex = 2;
             this.fGroupBox2.TabStop = false;
             // 
@@ -225,28 +361,24 @@
             this.dgvDatosRegistrados.AllowUserToAddRows = false;
             this.dgvDatosRegistrados.AllowUserToDeleteRows = false;
             this.dgvDatosRegistrados.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosRegistrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosRegistrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDatosRegistrados.AutoGenerateColumns = false;
             this.dgvDatosRegistrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatosRegistrados.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvDatosRegistrados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            this.dgvDatosRegistrados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            this.dgvDatosRegistrados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDatosRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosRegistrados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customerIdDataGridViewTextBoxColumn,
-            this.personTypeDataGridViewTextBoxColumn,
-            this.documentTypeDataGridViewTextBoxColumn,
-            this.documentNumberDataGridViewTextBoxColumn,
-            this.businessNameDataGridViewTextBoxColumn,
-            this.customerNameDataGridViewTextBoxColumn,
-            this.cellPhoneDataGridViewTextBoxColumn});
-            this.dgvDatosRegistrados.ContextMenuStrip = this.contextMenuStrip;
-            this.dgvDatosRegistrados.DataSource = this.vClienteBindingSource;
+            this.customerAddressIdDataGridViewTextBoxColumn,
+            this.customerDataGridViewTextBoxColumn,
+            this.ExpirationDate});
+            this.dgvDatosRegistrados.DataSource = this.uspListarClientesActivosResultBindingSource;
             this.dgvDatosRegistrados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatosRegistrados.EnableHeadersVisualStyles = false;
             this.dgvDatosRegistrados.Location = new System.Drawing.Point(3, 19);
@@ -254,14 +386,14 @@
             this.dgvDatosRegistrados.Name = "dgvDatosRegistrados";
             this.dgvDatosRegistrados.ReadOnly = true;
             this.dgvDatosRegistrados.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDatosRegistrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosRegistrados.Size = new System.Drawing.Size(1064, 410);
+            this.dgvDatosRegistrados.Size = new System.Drawing.Size(572, 410);
             this.dgvDatosRegistrados.TabIndex = 0;
-            this.dgvDatosRegistrados.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRegistrados_CellContentDoubleClick);
+            this.dgvDatosRegistrados.SelectionChanged += new System.EventHandler(this.dgvDatosRegistrados_SelectionChanged);
             // 
             // customerIdDataGridViewTextBoxColumn
             // 
@@ -272,74 +404,66 @@
             this.customerIdDataGridViewTextBoxColumn.Visible = false;
             this.customerIdDataGridViewTextBoxColumn.Width = 71;
             // 
-            // personTypeDataGridViewTextBoxColumn
+            // customerAddressIdDataGridViewTextBoxColumn
             // 
-            this.personTypeDataGridViewTextBoxColumn.DataPropertyName = "PersonType";
-            this.personTypeDataGridViewTextBoxColumn.HeaderText = "Tipo Persona";
-            this.personTypeDataGridViewTextBoxColumn.Name = "personTypeDataGridViewTextBoxColumn";
-            this.personTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.personTypeDataGridViewTextBoxColumn.Width = 96;
+            this.customerAddressIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddressId";
+            this.customerAddressIdDataGridViewTextBoxColumn.HeaderText = "CustomerAddressId";
+            this.customerAddressIdDataGridViewTextBoxColumn.Name = "customerAddressIdDataGridViewTextBoxColumn";
+            this.customerAddressIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerAddressIdDataGridViewTextBoxColumn.Visible = false;
+            this.customerAddressIdDataGridViewTextBoxColumn.Width = 113;
             // 
-            // documentTypeDataGridViewTextBoxColumn
+            // customerDataGridViewTextBoxColumn
             // 
-            this.documentTypeDataGridViewTextBoxColumn.DataPropertyName = "DocumentType";
-            this.documentTypeDataGridViewTextBoxColumn.HeaderText = "Tipo Documento";
-            this.documentTypeDataGridViewTextBoxColumn.Name = "documentTypeDataGridViewTextBoxColumn";
-            this.documentTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.documentTypeDataGridViewTextBoxColumn.Width = 115;
+            this.customerDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Cliente - Dirección";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // documentNumberDataGridViewTextBoxColumn
+            // ExpirationDate
             // 
-            this.documentNumberDataGridViewTextBoxColumn.DataPropertyName = "DocumentNumber";
-            this.documentNumberDataGridViewTextBoxColumn.HeaderText = "Número Documento";
-            this.documentNumberDataGridViewTextBoxColumn.Name = "documentNumberDataGridViewTextBoxColumn";
-            this.documentNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.documentNumberDataGridViewTextBoxColumn.Width = 135;
-            // 
-            // businessNameDataGridViewTextBoxColumn
-            // 
-            this.businessNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.businessNameDataGridViewTextBoxColumn.DataPropertyName = "BusinessName";
-            this.businessNameDataGridViewTextBoxColumn.HeaderText = "Nombre Empresa";
-            this.businessNameDataGridViewTextBoxColumn.Name = "businessNameDataGridViewTextBoxColumn";
-            this.businessNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerNameDataGridViewTextBoxColumn
-            // 
-            this.customerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Cliente ";
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cellPhoneDataGridViewTextBoxColumn
-            // 
-            this.cellPhoneDataGridViewTextBoxColumn.DataPropertyName = "CellPhone";
-            this.cellPhoneDataGridViewTextBoxColumn.HeaderText = "Celular";
-            this.cellPhoneDataGridViewTextBoxColumn.Name = "cellPhoneDataGridViewTextBoxColumn";
-            this.cellPhoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cellPhoneDataGridViewTextBoxColumn.Width = 64;
+            this.ExpirationDate.DataPropertyName = "ExpirationDate";
+            this.ExpirationDate.HeaderText = "ExpirationDate";
+            this.ExpirationDate.Name = "ExpirationDate";
+            this.ExpirationDate.ReadOnly = true;
+            this.ExpirationDate.Visible = false;
+            this.ExpirationDate.Width = 104;
             // 
             // fLabelBig1
             // 
             this.fLabelBig1.AutoSize = true;
             this.fLabelBig1.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fLabelBig1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fLabelBig1.Location = new System.Drawing.Point(5, 9);
+            this.fLabelBig1.Location = new System.Drawing.Point(9, 13);
             this.fLabelBig1.Name = "fLabelBig1";
             this.fLabelBig1.Size = new System.Drawing.Size(254, 41);
             this.fLabelBig1.TabIndex = 0;
             this.fLabelBig1.Text = "Listado de Clientes";
+            // 
+            // fComboBox1
+            // 
+            this.fComboBox1.DataSource = this.vGestoreBindingSource;
+            this.fComboBox1.DisplayMember = "EmployeeName";
+            this.fComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.fComboBox1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fComboBox1.FormattingEnabled = true;
+            this.fComboBox1.Location = new System.Drawing.Point(10, 145);
+            this.fComboBox1.Name = "fComboBox1";
+            this.fComboBox1.Size = new System.Drawing.Size(213, 23);
+            this.fComboBox1.TabIndex = 5;
+            this.fComboBox1.ValueMember = "ManagerId";
             // 
             // FrmPaymentsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1094, 621);
+            this.ClientSize = new System.Drawing.Size(1392, 590);
+            this.Controls.Add(this.fGroupBox4);
+            this.Controls.Add(this.fGroupBox3);
             this.Controls.Add(this.fGroupBox1);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.fGroupBox2);
             this.Controls.Add(this.fLabelBig1);
@@ -348,8 +472,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmList_Load);
-            this.contextMenuStrip.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.vClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uspListarClientesActivosResultBindingSource)).EndInit();
+            this.fGroupBox4.ResumeLayout(false);
+            this.fGroupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vGestoreBindingSource)).EndInit();
+            this.fGroupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPendientePago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vCronogramaPagoBindingSource)).EndInit();
             this.fGroupBox1.ResumeLayout(false);
             this.fGroupBox1.PerformLayout();
             this.fGroupBox2.ResumeLayout(false);
@@ -360,15 +489,6 @@
         }
 
         #endregion
-
-        private Controles_Standar.FLabelBig fLabelBig1;
-        private Controles_Standar.FGroupBox fGroupBox1;
-        private Controles_Standar.FButtonBuscar btnBuscar;
-        private Controles_Standar.FTextBox fTextBox1;
-        private Controles_Standar.FButtonNuevo btnAgregarEmpresa;
-        private Controles_Standar.FGroupBox fGroupBox2;
-        private Controles_Standar.FDataGridView dgvDatosRegistrados;
-        private Controles_Standar.FLabelMedium fLabelMedium1;
         private System.Windows.Forms.DataGridViewTextBoxColumn planIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn planTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn internalCodeDataGridViewTextBoxColumn;
@@ -385,9 +505,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private Controles_Standar.FButtonEditar btnEditar;
-        private Controles_Standar.FButtonEliminar btnEliminar;
-        private Controles_Standar.FButtonCancelar btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn planTypeDescriptionDataGridViewTextBoxColumn;
@@ -395,16 +512,35 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.BindingSource uspListarClientesActivosResultBindingSource;
+        private Controles_Standar.FGroupBox fGroupBox4;
+        private Controles_Standar.FGroupBox fGroupBox3;
+        private Controles_Standar.FDataGridView dgvPendientePago;
+        private Controles_Standar.FGroupBox fGroupBox1;
+        private Controles_Standar.FTextBox txtBuscarCliente;
+        private Controles_Standar.FLabelMedium fLabelMedium1;
+        private Controles_Standar.FButtonCancelar btnCancelar;
+        private Controles_Standar.FButtonEditar btnEditar;
+        private Controles_Standar.FGroupBox fGroupBox2;
+        private Controles_Standar.FDataGridView dgvDatosRegistrados;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn personTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documentTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documentNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn businessNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource vClienteBindingSource;
-        private Controles_Standar.FButtonNuevo btnAgregarCliente;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem generarSolicitudInstalacionToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpirationDate;
+        private Controles_Standar.FLabelBig fLabelBig1;
+        private Controles_Standar.FDateTimePicker dtpPayDay;
+        private Controles_Standar.FLabelMedium fLabelMedium6;
+        private Controles_Standar.FComboBox cboManagerId;
+        private Controles_Standar.FTextBox txtPay;
+        private Controles_Standar.FLabelMedium fLabelMedium5;
+        private Controles_Standar.FLabelMedium fLabelMedium3;
+        private Controles_Standar.FLabelMedium fLabelMedium2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scheduleIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expirationDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPendingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource vCronogramaPagoBindingSource;
+        private Controles_Standar.FButtonBuscar btnBuscar;
+        private System.Windows.Forms.BindingSource vGestoreBindingSource;
+        private Controles_Standar.FComboBox fComboBox1;
     }
 }

@@ -18,6 +18,7 @@ namespace VipChannel.Domain.Entity
         public SaleBox()
         {
             this.Vouchers = new HashSet<Voucher>();
+            this.DailyBoxes = new HashSet<DailyBox>();
         }
     
         public System.Guid SaleBoxId { get; set; }
@@ -32,5 +33,7 @@ namespace VipChannel.Domain.Entity
         public virtual Sucursal Sucursal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Voucher> Vouchers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DailyBox> DailyBoxes { get; set; }
     }
 }

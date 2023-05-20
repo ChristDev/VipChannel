@@ -20,7 +20,6 @@ namespace VipChannel.Domain.Entity
             this.InstallationRequestAttendeds = new HashSet<InstallationRequestAttended>();
             this.InstallationRequestCosts = new HashSet<InstallationRequestCost>();
             this.InstallationRequestPlans = new HashSet<InstallationRequestPlan>();
-            this.PaymentSchedules = new HashSet<PaymentSchedule>();
         }
     
         public System.Guid InstallationRequestId { get; set; }
@@ -52,7 +51,5 @@ namespace VipChannel.Domain.Entity
         public virtual ICollection<InstallationRequestCost> InstallationRequestCosts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InstallationRequestPlan> InstallationRequestPlans { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PaymentSchedule> PaymentSchedules { get; set; }
     }
 }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTechnicalServe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtAvenueName = new Controles_Standar.FTextBoxRequerido();
@@ -163,7 +163,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1052, 592);
-            this.tabControl1.TabIndex = 25;
+            this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -214,7 +214,7 @@
             this.txtAvenueName.Name = "txtAvenueName";
             this.txtAvenueName.ReadOnly = true;
             this.txtAvenueName.Size = new System.Drawing.Size(480, 23);
-            this.txtAvenueName.TabIndex = 83;
+            this.txtAvenueName.TabIndex = 16;
             this.txtAvenueName.TabStop = false;
             // 
             // txtZoneName
@@ -228,7 +228,7 @@
             this.txtZoneName.Name = "txtZoneName";
             this.txtZoneName.ReadOnly = true;
             this.txtZoneName.Size = new System.Drawing.Size(253, 23);
-            this.txtZoneName.TabIndex = 82;
+            this.txtZoneName.TabIndex = 14;
             this.txtZoneName.TabStop = false;
             // 
             // txtDocumentType
@@ -242,7 +242,7 @@
             this.txtDocumentType.Name = "txtDocumentType";
             this.txtDocumentType.ReadOnly = true;
             this.txtDocumentType.Size = new System.Drawing.Size(318, 23);
-            this.txtDocumentType.TabIndex = 81;
+            this.txtDocumentType.TabIndex = 1;
             this.txtDocumentType.TabStop = false;
             // 
             // txtOptionalCellPhone
@@ -254,7 +254,7 @@
             this.txtOptionalCellPhone.Name = "txtOptionalCellPhone";
             this.txtOptionalCellPhone.ReadOnly = true;
             this.txtOptionalCellPhone.Size = new System.Drawing.Size(456, 23);
-            this.txtOptionalCellPhone.TabIndex = 80;
+            this.txtOptionalCellPhone.TabIndex = 12;
             this.txtOptionalCellPhone.TabStop = false;
             // 
             // txtBusinessName
@@ -267,7 +267,7 @@
             this.txtBusinessName.Name = "txtBusinessName";
             this.txtBusinessName.ReadOnly = true;
             this.txtBusinessName.Size = new System.Drawing.Size(922, 23);
-            this.txtBusinessName.TabIndex = 73;
+            this.txtBusinessName.TabIndex = 9;
             this.txtBusinessName.TabStop = false;
             // 
             // fLabelMedium32
@@ -278,7 +278,7 @@
             this.fLabelMedium32.Location = new System.Drawing.Point(58, 116);
             this.fLabelMedium32.Name = "fLabelMedium32";
             this.fLabelMedium32.Size = new System.Drawing.Size(94, 21);
-            this.fLabelMedium32.TabIndex = 72;
+            this.fLabelMedium32.TabIndex = 8;
             this.fLabelMedium32.Text = "Razón Social";
             // 
             // txtCellPhone
@@ -291,7 +291,7 @@
             this.txtCellPhone.Name = "txtCellPhone";
             this.txtCellPhone.ReadOnly = true;
             this.txtCellPhone.Size = new System.Drawing.Size(456, 23);
-            this.txtCellPhone.TabIndex = 79;
+            this.txtCellPhone.TabIndex = 11;
             this.txtCellPhone.TabStop = false;
             // 
             // fLabelMedium34
@@ -302,7 +302,7 @@
             this.fLabelMedium34.Location = new System.Drawing.Point(60, 166);
             this.fLabelMedium34.Name = "fLabelMedium34";
             this.fLabelMedium34.Size = new System.Drawing.Size(70, 21);
-            this.fLabelMedium34.TabIndex = 78;
+            this.fLabelMedium34.TabIndex = 10;
             this.fLabelMedium34.Text = "Celulares";
             // 
             // txtNames
@@ -315,7 +315,7 @@
             this.txtNames.Name = "txtNames";
             this.txtNames.ReadOnly = true;
             this.txtNames.Size = new System.Drawing.Size(456, 23);
-            this.txtNames.TabIndex = 71;
+            this.txtNames.TabIndex = 7;
             this.txtNames.TabStop = false;
             // 
             // fLabelMedium35
@@ -326,7 +326,7 @@
             this.fLabelMedium35.Location = new System.Drawing.Point(524, 66);
             this.fLabelMedium35.Name = "fLabelMedium35";
             this.fLabelMedium35.Size = new System.Drawing.Size(71, 21);
-            this.fLabelMedium35.TabIndex = 70;
+            this.fLabelMedium35.TabIndex = 6;
             this.fLabelMedium35.Text = "Nombres";
             // 
             // txtLastName
@@ -339,7 +339,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.ReadOnly = true;
             this.txtLastName.Size = new System.Drawing.Size(456, 23);
-            this.txtLastName.TabIndex = 69;
+            this.txtLastName.TabIndex = 5;
             this.txtLastName.TabStop = false;
             // 
             // fLabelMedium36
@@ -350,7 +350,7 @@
             this.fLabelMedium36.Location = new System.Drawing.Point(58, 66);
             this.fLabelMedium36.Name = "fLabelMedium36";
             this.fLabelMedium36.Size = new System.Drawing.Size(70, 21);
-            this.fLabelMedium36.TabIndex = 68;
+            this.fLabelMedium36.TabIndex = 4;
             this.fLabelMedium36.Text = "Apellidos";
             // 
             // txtDocumentNumber
@@ -364,7 +364,7 @@
             this.txtDocumentNumber.Name = "txtDocumentNumber";
             this.txtDocumentNumber.ReadOnly = true;
             this.txtDocumentNumber.Size = new System.Drawing.Size(210, 23);
-            this.txtDocumentNumber.TabIndex = 67;
+            this.txtDocumentNumber.TabIndex = 3;
             this.txtDocumentNumber.TabStop = false;
             // 
             // fLabelMedium37
@@ -375,7 +375,7 @@
             this.fLabelMedium37.Location = new System.Drawing.Point(386, 16);
             this.fLabelMedium37.Name = "fLabelMedium37";
             this.fLabelMedium37.Size = new System.Drawing.Size(149, 21);
-            this.fLabelMedium37.TabIndex = 66;
+            this.fLabelMedium37.TabIndex = 2;
             this.fLabelMedium37.Text = "Número Documento";
             // 
             // fLabelMedium38
@@ -386,7 +386,7 @@
             this.fLabelMedium38.Location = new System.Drawing.Point(60, 16);
             this.fLabelMedium38.Name = "fLabelMedium38";
             this.fLabelMedium38.Size = new System.Drawing.Size(123, 21);
-            this.fLabelMedium38.TabIndex = 64;
+            this.fLabelMedium38.TabIndex = 0;
             this.fLabelMedium38.Text = "Tipo Documento";
             // 
             // btnActualizarCliente
@@ -396,7 +396,7 @@
             this.btnActualizarCliente.Location = new System.Drawing.Point(789, 517);
             this.btnActualizarCliente.Name = "btnActualizarCliente";
             this.btnActualizarCliente.Size = new System.Drawing.Size(197, 34);
-            this.btnActualizarCliente.TabIndex = 63;
+            this.btnActualizarCliente.TabIndex = 27;
             this.btnActualizarCliente.Text = "Actualizar Datos del Cliente";
             this.btnActualizarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -413,7 +413,7 @@
             this.txtNumber.Multiline = true;
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(175, 38);
-            this.txtNumber.TabIndex = 62;
+            this.txtNumber.TabIndex = 20;
             // 
             // txtLongitude
             // 
@@ -422,7 +422,7 @@
             this.txtLongitude.Location = new System.Drawing.Point(532, 473);
             this.txtLongitude.Name = "txtLongitude";
             this.txtLongitude.Size = new System.Drawing.Size(454, 23);
-            this.txtLongitude.TabIndex = 61;
+            this.txtLongitude.TabIndex = 26;
             // 
             // txtLatitude
             // 
@@ -431,7 +431,7 @@
             this.txtLatitude.Location = new System.Drawing.Point(64, 473);
             this.txtLatitude.Name = "txtLatitude";
             this.txtLatitude.Size = new System.Drawing.Size(458, 23);
-            this.txtLatitude.TabIndex = 60;
+            this.txtLatitude.TabIndex = 24;
             // 
             // fLabelMedium13
             // 
@@ -441,7 +441,7 @@
             this.fLabelMedium13.Location = new System.Drawing.Point(805, 266);
             this.fLabelMedium13.Name = "fLabelMedium13";
             this.fLabelMedium13.Size = new System.Drawing.Size(154, 21);
-            this.fLabelMedium13.TabIndex = 59;
+            this.fLabelMedium13.TabIndex = 19;
             this.fLabelMedium13.Text = "Número/Lote/Interior";
             // 
             // txtAdressDetail
@@ -454,7 +454,7 @@
             this.txtAdressDetail.Multiline = true;
             this.txtAdressDetail.Name = "txtAdressDetail";
             this.txtAdressDetail.Size = new System.Drawing.Size(739, 38);
-            this.txtAdressDetail.TabIndex = 58;
+            this.txtAdressDetail.TabIndex = 18;
             // 
             // fLabelMedium8
             // 
@@ -464,7 +464,7 @@
             this.fLabelMedium8.Location = new System.Drawing.Point(62, 266);
             this.fLabelMedium8.Name = "fLabelMedium8";
             this.fLabelMedium8.Size = new System.Drawing.Size(72, 21);
-            this.fLabelMedium8.TabIndex = 57;
+            this.fLabelMedium8.TabIndex = 17;
             this.fLabelMedium8.Text = "Dirección";
             // 
             // fLabelMedium7
@@ -475,7 +475,7 @@
             this.fLabelMedium7.Location = new System.Drawing.Point(319, 216);
             this.fLabelMedium7.Name = "fLabelMedium7";
             this.fLabelMedium7.Size = new System.Drawing.Size(63, 21);
-            this.fLabelMedium7.TabIndex = 55;
+            this.fLabelMedium7.TabIndex = 15;
             this.fLabelMedium7.Text = "Avenida";
             // 
             // fLabelMedium4
@@ -486,7 +486,7 @@
             this.fLabelMedium4.Location = new System.Drawing.Point(528, 449);
             this.fLabelMedium4.Name = "fLabelMedium4";
             this.fLabelMedium4.Size = new System.Drawing.Size(70, 21);
-            this.fLabelMedium4.TabIndex = 54;
+            this.fLabelMedium4.TabIndex = 25;
             this.fLabelMedium4.Text = "Longitud";
             // 
             // fLabelMedium3
@@ -497,7 +497,7 @@
             this.fLabelMedium3.Location = new System.Drawing.Point(62, 449);
             this.fLabelMedium3.Name = "fLabelMedium3";
             this.fLabelMedium3.Size = new System.Drawing.Size(56, 21);
-            this.fLabelMedium3.TabIndex = 53;
+            this.fLabelMedium3.TabIndex = 23;
             this.fLabelMedium3.Text = "Latitud";
             // 
             // txtReference
@@ -512,7 +512,7 @@
             this.txtReference.Multiline = true;
             this.txtReference.Name = "txtReference";
             this.txtReference.Size = new System.Drawing.Size(922, 91);
-            this.txtReference.TabIndex = 52;
+            this.txtReference.TabIndex = 22;
             // 
             // fLabelMedium2
             // 
@@ -522,7 +522,7 @@
             this.fLabelMedium2.Location = new System.Drawing.Point(62, 331);
             this.fLabelMedium2.Name = "fLabelMedium2";
             this.fLabelMedium2.Size = new System.Drawing.Size(79, 21);
-            this.fLabelMedium2.TabIndex = 51;
+            this.fLabelMedium2.TabIndex = 21;
             this.fLabelMedium2.Text = "Referencia";
             // 
             // fLabelMedium5
@@ -533,7 +533,7 @@
             this.fLabelMedium5.Location = new System.Drawing.Point(62, 216);
             this.fLabelMedium5.Name = "fLabelMedium5";
             this.fLabelMedium5.Size = new System.Drawing.Size(45, 21);
-            this.fLabelMedium5.TabIndex = 49;
+            this.fLabelMedium5.TabIndex = 13;
             this.fLabelMedium5.Text = "Zona";
             // 
             // tabPage2
@@ -556,7 +556,7 @@
             this.fGroupBox7.Location = new System.Drawing.Point(62, 53);
             this.fGroupBox7.Name = "fGroupBox7";
             this.fGroupBox7.Size = new System.Drawing.Size(446, 461);
-            this.fGroupBox7.TabIndex = 59;
+            this.fGroupBox7.TabIndex = 0;
             this.fGroupBox7.TabStop = false;
             this.fGroupBox7.Text = "Datos de los Planes Solicitados";
             // 
@@ -565,16 +565,16 @@
             this.dgvDatosPlanPaquete.AllowUserToAddRows = false;
             this.dgvDatosPlanPaquete.AllowUserToDeleteRows = false;
             this.dgvDatosPlanPaquete.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosPlanPaquete.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosPlanPaquete.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDatosPlanPaquete.AutoGenerateColumns = false;
             this.dgvDatosPlanPaquete.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatosPlanPaquete.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvDatosPlanPaquete.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            this.dgvDatosPlanPaquete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            this.dgvDatosPlanPaquete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDatosPlanPaquete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosPlanPaquete.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.planNameDataGridViewTextBoxColumn,
@@ -587,13 +587,13 @@
             this.dgvDatosPlanPaquete.Name = "dgvDatosPlanPaquete";
             this.dgvDatosPlanPaquete.ReadOnly = true;
             this.dgvDatosPlanPaquete.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosPlanPaquete.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosPlanPaquete.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDatosPlanPaquete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosPlanPaquete.Size = new System.Drawing.Size(440, 439);
-            this.dgvDatosPlanPaquete.TabIndex = 1;
+            this.dgvDatosPlanPaquete.TabIndex = 0;
             // 
             // planNameDataGridViewTextBoxColumn
             // 
@@ -631,7 +631,7 @@
             this.fGroupBox6.Location = new System.Drawing.Point(525, 53);
             this.fGroupBox6.Name = "fGroupBox6";
             this.fGroupBox6.Size = new System.Drawing.Size(458, 461);
-            this.fGroupBox6.TabIndex = 4;
+            this.fGroupBox6.TabIndex = 1;
             this.fGroupBox6.TabStop = false;
             this.fGroupBox6.Text = "Facturación";
             // 
@@ -643,7 +643,7 @@
             this.fGroupBox8.Location = new System.Drawing.Point(6, 208);
             this.fGroupBox8.Name = "fGroupBox8";
             this.fGroupBox8.Size = new System.Drawing.Size(446, 247);
-            this.fGroupBox8.TabIndex = 58;
+            this.fGroupBox8.TabIndex = 8;
             this.fGroupBox8.TabStop = false;
             this.fGroupBox8.Text = "Datos de los Servicios Solicitados";
             // 
@@ -652,16 +652,16 @@
             this.dgvDatosServicio.AllowUserToAddRows = false;
             this.dgvDatosServicio.AllowUserToDeleteRows = false;
             this.dgvDatosServicio.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosServicio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosServicio.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDatosServicio.AutoGenerateColumns = false;
             this.dgvDatosServicio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatosServicio.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvDatosServicio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            this.dgvDatosServicio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            this.dgvDatosServicio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDatosServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosServicio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.installationRequestCostIdDataGridViewTextBoxColumn,
@@ -677,13 +677,13 @@
             this.dgvDatosServicio.Name = "dgvDatosServicio";
             this.dgvDatosServicio.ReadOnly = true;
             this.dgvDatosServicio.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosServicio.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosServicio.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDatosServicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosServicio.Size = new System.Drawing.Size(440, 225);
-            this.dgvDatosServicio.TabIndex = 1;
+            this.dgvDatosServicio.TabIndex = 0;
             // 
             // installationRequestCostIdDataGridViewTextBoxColumn
             // 
@@ -739,7 +739,7 @@
             this.btnEliminarServicio.Location = new System.Drawing.Point(362, 168);
             this.btnEliminarServicio.Name = "btnEliminarServicio";
             this.btnEliminarServicio.Size = new System.Drawing.Size(90, 34);
-            this.btnEliminarServicio.TabIndex = 57;
+            this.btnEliminarServicio.TabIndex = 7;
             this.btnEliminarServicio.Text = "Quitar";
             this.btnEliminarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarServicio.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -752,7 +752,7 @@
             this.btnAgregarServicio.Location = new System.Drawing.Point(266, 168);
             this.btnAgregarServicio.Name = "btnAgregarServicio";
             this.btnAgregarServicio.Size = new System.Drawing.Size(90, 34);
-            this.btnAgregarServicio.TabIndex = 56;
+            this.btnAgregarServicio.TabIndex = 6;
             this.btnAgregarServicio.Text = "Agregar";
             this.btnAgregarServicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregarServicio.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -768,7 +768,7 @@
             this.txtServicio.Multiline = true;
             this.txtServicio.Name = "txtServicio";
             this.txtServicio.Size = new System.Drawing.Size(358, 52);
-            this.txtServicio.TabIndex = 54;
+            this.txtServicio.TabIndex = 3;
             // 
             // fLabelMedium16
             // 
@@ -778,7 +778,7 @@
             this.fLabelMedium16.Location = new System.Drawing.Point(6, 69);
             this.fLabelMedium16.Name = "fLabelMedium16";
             this.fLabelMedium16.Size = new System.Drawing.Size(144, 21);
-            this.fLabelMedium16.TabIndex = 53;
+            this.fLabelMedium16.TabIndex = 2;
             this.fLabelMedium16.Text = "Nombre del Servicio";
             // 
             // txtMontoServicio
@@ -790,7 +790,7 @@
             this.txtMontoServicio.Location = new System.Drawing.Point(370, 122);
             this.txtMontoServicio.Name = "txtMontoServicio";
             this.txtMontoServicio.Size = new System.Drawing.Size(82, 23);
-            this.txtMontoServicio.TabIndex = 52;
+            this.txtMontoServicio.TabIndex = 5;
             this.txtMontoServicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // fLabelMedium21
@@ -801,7 +801,7 @@
             this.fLabelMedium21.Location = new System.Drawing.Point(397, 93);
             this.fLabelMedium21.Name = "fLabelMedium21";
             this.fLabelMedium21.Size = new System.Drawing.Size(55, 21);
-            this.fLabelMedium21.TabIndex = 51;
+            this.fLabelMedium21.TabIndex = 4;
             this.fLabelMedium21.Text = "Monto";
             // 
             // cboServicios
@@ -814,7 +814,7 @@
             this.cboServicios.Location = new System.Drawing.Point(6, 43);
             this.cboServicios.Name = "cboServicios";
             this.cboServicios.Size = new System.Drawing.Size(446, 23);
-            this.cboServicios.TabIndex = 36;
+            this.cboServicios.TabIndex = 1;
             this.cboServicios.ValueMember = "ServiceId";
             this.cboServicios.SelectedIndexChanged += new System.EventHandler(this.cboServicios_SelectedIndexChanged);
             // 
@@ -830,7 +830,7 @@
             this.fLabelMedium22.Location = new System.Drawing.Point(6, 19);
             this.fLabelMedium22.Name = "fLabelMedium22";
             this.fLabelMedium22.Size = new System.Drawing.Size(140, 21);
-            this.fLabelMedium22.TabIndex = 35;
+            this.fLabelMedium22.TabIndex = 0;
             this.fLabelMedium22.Text = "Seleccionar Servicio";
             // 
             // tabPage3
@@ -854,7 +854,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(886, 518);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(139, 34);
-            this.btnCancelar.TabIndex = 26;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar Registro";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -868,7 +868,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(730, 518);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(139, 34);
-            this.btnGuardar.TabIndex = 25;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar Registro";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -913,7 +913,7 @@
             this.fGroupBox1.Location = new System.Drawing.Point(497, 14);
             this.fGroupBox1.Name = "fGroupBox1";
             this.fGroupBox1.Size = new System.Drawing.Size(528, 483);
-            this.fGroupBox1.TabIndex = 6;
+            this.fGroupBox1.TabIndex = 1;
             this.fGroupBox1.TabStop = false;
             this.fGroupBox1.Text = "Datos de la Caja NAP";
             // 
@@ -927,7 +927,7 @@
             this.txtTerminalCapacitySecond.Location = new System.Drawing.Point(130, 443);
             this.txtTerminalCapacitySecond.Name = "txtTerminalCapacitySecond";
             this.txtTerminalCapacitySecond.Size = new System.Drawing.Size(114, 23);
-            this.txtTerminalCapacitySecond.TabIndex = 84;
+            this.txtTerminalCapacitySecond.TabIndex = 30;
             // 
             // txtTerminalCapacityFirst
             // 
@@ -939,7 +939,7 @@
             this.txtTerminalCapacityFirst.Location = new System.Drawing.Point(10, 443);
             this.txtTerminalCapacityFirst.Name = "txtTerminalCapacityFirst";
             this.txtTerminalCapacityFirst.Size = new System.Drawing.Size(114, 23);
-            this.txtTerminalCapacityFirst.TabIndex = 83;
+            this.txtTerminalCapacityFirst.TabIndex = 29;
             // 
             // txtLongitudeNAP
             // 
@@ -951,7 +951,7 @@
             this.txtLongitudeNAP.Location = new System.Drawing.Point(276, 393);
             this.txtLongitudeNAP.Name = "txtLongitudeNAP";
             this.txtLongitudeNAP.Size = new System.Drawing.Size(236, 23);
-            this.txtLongitudeNAP.TabIndex = 82;
+            this.txtLongitudeNAP.TabIndex = 27;
             // 
             // txtLatitudeNAP
             // 
@@ -963,7 +963,7 @@
             this.txtLatitudeNAP.Location = new System.Drawing.Point(10, 393);
             this.txtLatitudeNAP.Name = "txtLatitudeNAP";
             this.txtLatitudeNAP.Size = new System.Drawing.Size(236, 23);
-            this.txtLatitudeNAP.TabIndex = 81;
+            this.txtLatitudeNAP.TabIndex = 25;
             // 
             // txtDistrict
             // 
@@ -975,7 +975,7 @@
             this.txtDistrict.Location = new System.Drawing.Point(10, 343);
             this.txtDistrict.Name = "txtDistrict";
             this.txtDistrict.Size = new System.Drawing.Size(502, 23);
-            this.txtDistrict.TabIndex = 80;
+            this.txtDistrict.TabIndex = 23;
             // 
             // txtSector
             // 
@@ -987,7 +987,7 @@
             this.txtSector.Location = new System.Drawing.Point(421, 293);
             this.txtSector.Name = "txtSector";
             this.txtSector.Size = new System.Drawing.Size(94, 23);
-            this.txtSector.TabIndex = 79;
+            this.txtSector.TabIndex = 21;
             // 
             // fLabelMedium31
             // 
@@ -997,7 +997,7 @@
             this.fLabelMedium31.Location = new System.Drawing.Point(420, 269);
             this.fLabelMedium31.Name = "fLabelMedium31";
             this.fLabelMedium31.Size = new System.Drawing.Size(52, 21);
-            this.fLabelMedium31.TabIndex = 78;
+            this.fLabelMedium31.TabIndex = 20;
             this.fLabelMedium31.Text = "Sector";
             // 
             // txtTrunk
@@ -1010,7 +1010,7 @@
             this.txtTrunk.Location = new System.Drawing.Point(319, 293);
             this.txtTrunk.Name = "txtTrunk";
             this.txtTrunk.Size = new System.Drawing.Size(96, 23);
-            this.txtTrunk.TabIndex = 77;
+            this.txtTrunk.TabIndex = 19;
             // 
             // fLabelMedium30
             // 
@@ -1020,7 +1020,7 @@
             this.fLabelMedium30.Location = new System.Drawing.Point(318, 269);
             this.fLabelMedium30.Name = "fLabelMedium30";
             this.fLabelMedium30.Size = new System.Drawing.Size(57, 21);
-            this.fLabelMedium30.TabIndex = 76;
+            this.fLabelMedium30.TabIndex = 18;
             this.fLabelMedium30.Text = "Troncal";
             // 
             // txtRoute
@@ -1033,7 +1033,7 @@
             this.txtRoute.Location = new System.Drawing.Point(217, 293);
             this.txtRoute.Name = "txtRoute";
             this.txtRoute.Size = new System.Drawing.Size(96, 23);
-            this.txtRoute.TabIndex = 75;
+            this.txtRoute.TabIndex = 17;
             // 
             // fLabelMedium29
             // 
@@ -1043,7 +1043,7 @@
             this.fLabelMedium29.Location = new System.Drawing.Point(216, 269);
             this.fLabelMedium29.Name = "fLabelMedium29";
             this.fLabelMedium29.Size = new System.Drawing.Size(41, 21);
-            this.fLabelMedium29.TabIndex = 74;
+            this.fLabelMedium29.TabIndex = 16;
             this.fLabelMedium29.Text = "Ruta";
             // 
             // txtThread
@@ -1056,7 +1056,7 @@
             this.txtThread.Location = new System.Drawing.Point(115, 293);
             this.txtThread.Name = "txtThread";
             this.txtThread.Size = new System.Drawing.Size(96, 23);
-            this.txtThread.TabIndex = 73;
+            this.txtThread.TabIndex = 15;
             // 
             // fLabelMedium28
             // 
@@ -1066,7 +1066,7 @@
             this.fLabelMedium28.Location = new System.Drawing.Point(114, 269);
             this.fLabelMedium28.Name = "fLabelMedium28";
             this.fLabelMedium28.Size = new System.Drawing.Size(36, 21);
-            this.fLabelMedium28.TabIndex = 72;
+            this.fLabelMedium28.TabIndex = 14;
             this.fLabelMedium28.Text = "Hilo";
             // 
             // fLabelMedium26
@@ -1077,7 +1077,7 @@
             this.fLabelMedium26.Location = new System.Drawing.Point(6, 419);
             this.fLabelMedium26.Name = "fLabelMedium26";
             this.fLabelMedium26.Size = new System.Drawing.Size(152, 21);
-            this.fLabelMedium26.TabIndex = 69;
+            this.fLabelMedium26.TabIndex = 28;
             this.fLabelMedium26.Text = "Capacidad de Bornes";
             // 
             // fLabelMedium25
@@ -1088,7 +1088,7 @@
             this.fLabelMedium25.Location = new System.Drawing.Point(275, 369);
             this.fLabelMedium25.Name = "fLabelMedium25";
             this.fLabelMedium25.Size = new System.Drawing.Size(70, 21);
-            this.fLabelMedium25.TabIndex = 67;
+            this.fLabelMedium25.TabIndex = 26;
             this.fLabelMedium25.Text = "Longitud";
             // 
             // fLabelMedium24
@@ -1099,7 +1099,7 @@
             this.fLabelMedium24.Location = new System.Drawing.Point(9, 369);
             this.fLabelMedium24.Name = "fLabelMedium24";
             this.fLabelMedium24.Size = new System.Drawing.Size(56, 21);
-            this.fLabelMedium24.TabIndex = 65;
+            this.fLabelMedium24.TabIndex = 24;
             this.fLabelMedium24.Text = "Latitud";
             // 
             // fLabelMedium23
@@ -1110,7 +1110,7 @@
             this.fLabelMedium23.Location = new System.Drawing.Point(9, 319);
             this.fLabelMedium23.Name = "fLabelMedium23";
             this.fLabelMedium23.Size = new System.Drawing.Size(57, 21);
-            this.fLabelMedium23.TabIndex = 63;
+            this.fLabelMedium23.TabIndex = 22;
             this.fLabelMedium23.Text = "Distrito";
             // 
             // txtNap
@@ -1123,7 +1123,7 @@
             this.txtNap.Location = new System.Drawing.Point(13, 293);
             this.txtNap.Name = "txtNap";
             this.txtNap.Size = new System.Drawing.Size(96, 23);
-            this.txtNap.TabIndex = 62;
+            this.txtNap.TabIndex = 13;
             // 
             // fLabelMedium15
             // 
@@ -1133,7 +1133,7 @@
             this.fLabelMedium15.Location = new System.Drawing.Point(12, 269);
             this.fLabelMedium15.Name = "fLabelMedium15";
             this.fLabelMedium15.Size = new System.Drawing.Size(40, 21);
-            this.fLabelMedium15.TabIndex = 61;
+            this.fLabelMedium15.TabIndex = 12;
             this.fLabelMedium15.Text = "NAP";
             // 
             // txtCatvPower
@@ -1146,7 +1146,7 @@
             this.txtCatvPower.Location = new System.Drawing.Point(281, 243);
             this.txtCatvPower.Name = "txtCatvPower";
             this.txtCatvPower.Size = new System.Drawing.Size(234, 23);
-            this.txtCatvPower.TabIndex = 60;
+            this.txtCatvPower.TabIndex = 11;
             // 
             // fLabelMedium14
             // 
@@ -1156,7 +1156,7 @@
             this.fLabelMedium14.Location = new System.Drawing.Point(280, 219);
             this.fLabelMedium14.Name = "fLabelMedium14";
             this.fLabelMedium14.Size = new System.Drawing.Size(108, 21);
-            this.fLabelMedium14.TabIndex = 59;
+            this.fLabelMedium14.TabIndex = 10;
             this.fLabelMedium14.Text = "Potencia CATV";
             // 
             // txtOltPower
@@ -1169,7 +1169,7 @@
             this.txtOltPower.Location = new System.Drawing.Point(13, 243);
             this.txtOltPower.Name = "txtOltPower";
             this.txtOltPower.Size = new System.Drawing.Size(234, 23);
-            this.txtOltPower.TabIndex = 58;
+            this.txtOltPower.TabIndex = 9;
             // 
             // fLabelMedium11
             // 
@@ -1179,7 +1179,7 @@
             this.fLabelMedium11.Location = new System.Drawing.Point(12, 219);
             this.fLabelMedium11.Name = "fLabelMedium11";
             this.fLabelMedium11.Size = new System.Drawing.Size(97, 21);
-            this.fLabelMedium11.TabIndex = 57;
+            this.fLabelMedium11.TabIndex = 8;
             this.fLabelMedium11.Text = "Potencia OLT";
             // 
             // txtSerie
@@ -1192,7 +1192,7 @@
             this.txtSerie.Location = new System.Drawing.Point(13, 193);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(502, 23);
-            this.txtSerie.TabIndex = 56;
+            this.txtSerie.TabIndex = 7;
             // 
             // fLabelMedium10
             // 
@@ -1202,7 +1202,7 @@
             this.fLabelMedium10.Location = new System.Drawing.Point(12, 169);
             this.fLabelMedium10.Name = "fLabelMedium10";
             this.fLabelMedium10.Size = new System.Drawing.Size(42, 21);
-            this.fLabelMedium10.TabIndex = 55;
+            this.fLabelMedium10.TabIndex = 6;
             this.fLabelMedium10.Text = "Serie";
             // 
             // txtModel
@@ -1215,7 +1215,7 @@
             this.txtModel.Location = new System.Drawing.Point(13, 143);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(502, 23);
-            this.txtModel.TabIndex = 54;
+            this.txtModel.TabIndex = 5;
             // 
             // fLabelMedium9
             // 
@@ -1225,7 +1225,7 @@
             this.fLabelMedium9.Location = new System.Drawing.Point(12, 119);
             this.fLabelMedium9.Name = "fLabelMedium9";
             this.fLabelMedium9.Size = new System.Drawing.Size(61, 21);
-            this.fLabelMedium9.TabIndex = 53;
+            this.fLabelMedium9.TabIndex = 4;
             this.fLabelMedium9.Text = "Modelo";
             // 
             // txtBrand
@@ -1238,7 +1238,7 @@
             this.txtBrand.Location = new System.Drawing.Point(13, 93);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(502, 23);
-            this.txtBrand.TabIndex = 52;
+            this.txtBrand.TabIndex = 3;
             // 
             // fLabelMedium6
             // 
@@ -1248,7 +1248,7 @@
             this.fLabelMedium6.Location = new System.Drawing.Point(12, 69);
             this.fLabelMedium6.Name = "fLabelMedium6";
             this.fLabelMedium6.Size = new System.Drawing.Size(51, 21);
-            this.fLabelMedium6.TabIndex = 40;
+            this.fLabelMedium6.TabIndex = 2;
             this.fLabelMedium6.Text = "Marca";
             // 
             // cboEquipment
@@ -1260,7 +1260,7 @@
             this.cboEquipment.Location = new System.Drawing.Point(13, 43);
             this.cboEquipment.Name = "cboEquipment";
             this.cboEquipment.Size = new System.Drawing.Size(236, 23);
-            this.cboEquipment.TabIndex = 39;
+            this.cboEquipment.TabIndex = 1;
             this.cboEquipment.ValueMember = "TechnicalId";
             // 
             // fLabelMedium12
@@ -1271,7 +1271,7 @@
             this.fLabelMedium12.Location = new System.Drawing.Point(12, 19);
             this.fLabelMedium12.Name = "fLabelMedium12";
             this.fLabelMedium12.Size = new System.Drawing.Size(57, 21);
-            this.fLabelMedium12.TabIndex = 35;
+            this.fLabelMedium12.TabIndex = 0;
             this.fLabelMedium12.Text = "Equipo";
             // 
             // fGroupBox4
@@ -1291,7 +1291,7 @@
             this.fGroupBox4.Location = new System.Drawing.Point(19, 14);
             this.fGroupBox4.Name = "fGroupBox4";
             this.fGroupBox4.Size = new System.Drawing.Size(469, 483);
-            this.fGroupBox4.TabIndex = 5;
+            this.fGroupBox4.TabIndex = 0;
             this.fGroupBox4.TabStop = false;
             this.fGroupBox4.Text = "Datos de la Instalación Real";
             // 
@@ -1304,7 +1304,7 @@
             this.cboRequestStatus.Location = new System.Drawing.Point(12, 154);
             this.cboRequestStatus.Name = "cboRequestStatus";
             this.cboRequestStatus.Size = new System.Drawing.Size(194, 23);
-            this.cboRequestStatus.TabIndex = 53;
+            this.cboRequestStatus.TabIndex = 7;
             this.cboRequestStatus.ValueMember = "TechnicalId";
             // 
             // fLabelMedium1
@@ -1315,7 +1315,7 @@
             this.fLabelMedium1.Location = new System.Drawing.Point(12, 130);
             this.fLabelMedium1.Name = "fLabelMedium1";
             this.fLabelMedium1.Size = new System.Drawing.Size(55, 21);
-            this.fLabelMedium1.TabIndex = 52;
+            this.fLabelMedium1.TabIndex = 6;
             this.fLabelMedium1.Text = "Estado";
             // 
             // txtComment
@@ -1329,7 +1329,7 @@
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(451, 239);
-            this.txtComment.TabIndex = 51;
+            this.txtComment.TabIndex = 9;
             // 
             // tmpHourAttended
             // 
@@ -1339,7 +1339,7 @@
             this.tmpHourAttended.Name = "tmpHourAttended";
             this.tmpHourAttended.ShowUpDown = true;
             this.tmpHourAttended.Size = new System.Drawing.Size(182, 23);
-            this.tmpHourAttended.TabIndex = 50;
+            this.tmpHourAttended.TabIndex = 3;
             // 
             // fLabelMedium20
             // 
@@ -1349,7 +1349,7 @@
             this.fLabelMedium20.Location = new System.Drawing.Point(275, 19);
             this.fLabelMedium20.Name = "fLabelMedium20";
             this.fLabelMedium20.Size = new System.Drawing.Size(128, 21);
-            this.fLabelMedium20.TabIndex = 49;
+            this.fLabelMedium20.TabIndex = 2;
             this.fLabelMedium20.Text = "Hora de Atención";
             // 
             // dtpDateAttended
@@ -1359,7 +1359,7 @@
             this.dtpDateAttended.Location = new System.Drawing.Point(12, 43);
             this.dtpDateAttended.Name = "dtpDateAttended";
             this.dtpDateAttended.Size = new System.Drawing.Size(194, 23);
-            this.dtpDateAttended.TabIndex = 48;
+            this.dtpDateAttended.TabIndex = 1;
             // 
             // fLabelMedium17
             // 
@@ -1369,7 +1369,7 @@
             this.fLabelMedium17.Location = new System.Drawing.Point(6, 199);
             this.fLabelMedium17.Name = "fLabelMedium17";
             this.fLabelMedium17.Size = new System.Drawing.Size(89, 21);
-            this.fLabelMedium17.TabIndex = 39;
+            this.fLabelMedium17.TabIndex = 8;
             this.fLabelMedium17.Text = "Comentario";
             // 
             // cboTechnicalAttendedId
@@ -1382,7 +1382,7 @@
             this.cboTechnicalAttendedId.Location = new System.Drawing.Point(12, 93);
             this.cboTechnicalAttendedId.Name = "cboTechnicalAttendedId";
             this.cboTechnicalAttendedId.Size = new System.Drawing.Size(445, 23);
-            this.cboTechnicalAttendedId.TabIndex = 38;
+            this.cboTechnicalAttendedId.TabIndex = 5;
             this.cboTechnicalAttendedId.ValueMember = "TechnicalId";
             // 
             // vTecnicoBindingSource
@@ -1397,7 +1397,7 @@
             this.fLabelMedium18.Location = new System.Drawing.Point(12, 69);
             this.fLabelMedium18.Name = "fLabelMedium18";
             this.fLabelMedium18.Size = new System.Drawing.Size(137, 21);
-            this.fLabelMedium18.TabIndex = 37;
+            this.fLabelMedium18.TabIndex = 4;
             this.fLabelMedium18.Text = "Seleccionar Tecnico";
             // 
             // fLabelMedium19
@@ -1408,7 +1408,7 @@
             this.fLabelMedium19.Location = new System.Drawing.Point(12, 19);
             this.fLabelMedium19.Name = "fLabelMedium19";
             this.fLabelMedium19.Size = new System.Drawing.Size(134, 21);
-            this.fLabelMedium19.TabIndex = 35;
+            this.fLabelMedium19.TabIndex = 0;
             this.fLabelMedium19.Text = "Fecha de Atención";
             // 
             // FrmTechnicalServe

@@ -45,5 +45,10 @@ namespace VipChannel.Application.Entity
         {
             return _dataContext.usp_ActualizarEstadoClienteDireccionRechazado(customerAddressId, customerAddressStatus);
         }
+
+        public ObjectResult<usp_ListarClientesActivos_Result> ListarClientesActivos()
+        {
+            return _dataContext.usp_ListarClientesActivos();
+        }
     }
 }

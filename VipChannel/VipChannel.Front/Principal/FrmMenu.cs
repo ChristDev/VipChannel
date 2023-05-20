@@ -6,6 +6,7 @@ using VipChannel.Front.Definitions.Sucursal;
 using VipChannel.Front.Definitions.Voucher;
 using VipChannel.Front.Maintenance;
 using VipChannel.Front.Maintenance.Service;
+using VipChannel.Front.Payments;
 using VipChannel.Front.Requests;
 using VipChannel.Front.Sales;
 
@@ -18,11 +19,16 @@ namespace VipChannel.Front.Principal
         internal static string IdUserActive;
         internal static string UserActive;
 
-        public FrmMenu(string idUserActive, string userActive)
+        internal static string SucursalId;
+        internal static string SaleBoxId;
+
+        public FrmMenu(string idUserActive, string userActive, string sucursalId, string salesBoxId)
         {
             InitializeComponent();
             IdUserActive = idUserActive;
             UserActive = userActive;
+            SucursalId = sucursalId;
+            SaleBoxId = salesBoxId;
         }
 
         private void CargarParametros(string usuarioActivo)
@@ -135,7 +141,14 @@ namespace VipChannel.Front.Principal
 
         private void registroPagoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FrmPaymentsList.DefInstance.MdiParent = this;
+            FrmPaymentsList.DefInstance.Show();
+        }
 
+        private void aperturaCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmOpening.DefInstance.MdiParent = this;
+            FrmOpening.DefInstance.Show();
         }
     }
 }

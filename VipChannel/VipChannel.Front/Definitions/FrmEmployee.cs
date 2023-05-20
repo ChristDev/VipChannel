@@ -238,5 +238,17 @@ namespace VipChannel.Front.Definitions
         {
             CambiarPassword();
         }
+
+        private void btnAsignarCaja_Click(object sender, EventArgs e)
+        {
+            var empleadoId = dgvDatosRegistrados.CurrentRow.Cells[0].Value.ToString();
+            var empleado = dgvDatosRegistrados.CurrentRow.Cells[2].Value.ToString();
+            var form = new FrmEmployeeSalesBox(empleadoId, empleado);
+
+            if(form.ShowDialog() == DialogResult.OK) 
+            {
+                LoadData();
+            }
+        }
     }
 }

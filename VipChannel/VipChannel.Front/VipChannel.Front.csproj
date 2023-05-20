@@ -63,6 +63,12 @@
     <Compile Include="Constants\FormCreateNames.cs" />
     <Compile Include="Constants\FormListNames.cs" />
     <Compile Include="Constants\OptionsMenu.cs" />
+    <Compile Include="Definitions\FrmEmployeeSalesBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\FrmEmployeeSalesBox.Designer.cs">
+      <DependentUpon>FrmEmployeeSalesBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Definitions\FrmManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     </Compile>
     <Compile Include="Definitions\Voucher\FrmVoucher.Designer.cs">
       <DependentUpon>FrmVoucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments\FrmOpening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments\FrmOpening.Designer.cs">
+      <DependentUpon>FrmOpening.cs</DependentUpon>
     </Compile>
     <Compile Include="Payments\FrmPaymentsList.cs">
       <SubType>Form</SubType>
@@ -240,6 +252,10 @@
     <Compile Include="Sales\Scheduling\FrmCustomerScheduling.Designer.cs">
       <DependentUpon>FrmCustomerScheduling.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Definitions\FrmEmployeeSalesBox.resx">
+      <DependentUpon>FrmEmployeeSalesBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Definitions\FrmManager.resx">
       <DependentUpon>FrmManager.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -275,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Definitions\Voucher\FrmVoucher.resx">
       <DependentUpon>FrmVoucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments\FrmOpening.resx">
+      <DependentUpon>FrmOpening.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payments\FrmPaymentsList.resx">
       <DependentUpon>FrmPaymentsList.cs</DependentUpon>
@@ -350,9 +369,12 @@
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.SelectResponse.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.Service.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.Sucursal.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.usp_ListarClientesActivos_Result.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.usp_ListarDireccionPorClienteSolicitud_Result.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vCliente.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vCronogramaPago.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vEmpleado.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vGestore.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.Voucher.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanCable.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vPlanesVenta.datasource" />
