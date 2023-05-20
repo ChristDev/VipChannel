@@ -219,6 +219,7 @@ namespace VipChannel.Front.Requests.Serve
                     _customerAddressId,
                     ConstantCustomerAddressStatus.Activo);
 
+                _installationRequestAttendedApplication.GenerarCronogramaClienteDireccion(_customerAddressId, FrmMenu.IdUserActive);
             }
             else
             {

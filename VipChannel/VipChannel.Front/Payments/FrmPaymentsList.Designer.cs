@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaymentsList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uspListarClientesActivosResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fGroupBox4 = new Controles_Standar.FGroupBox();
+            this.cboVoucherId = new Controles_Standar.FComboBox();
+            this.vGestoreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtpPayDay = new Controles_Standar.FDateTimePicker();
             this.fLabelMedium6 = new Controles_Standar.FLabelMedium();
             this.cboManagerId = new Controles_Standar.FComboBox();
-            this.vGestoreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtPay = new Controles_Standar.FTextBox();
             this.fLabelMedium5 = new Controles_Standar.FLabelMedium();
             this.fLabelMedium3 = new Controles_Standar.FLabelMedium();
@@ -57,7 +58,7 @@
             this.txtBuscarCliente = new Controles_Standar.FTextBox();
             this.fLabelMedium1 = new Controles_Standar.FLabelMedium();
             this.btnCancelar = new Controles_Standar.FButtonCancelar();
-            this.btnEditar = new Controles_Standar.FButtonEditar();
+            this.btnPagar = new Controles_Standar.FButtonEditar();
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
             this.dgvDatosRegistrados = new Controles_Standar.FDataGridView();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +66,6 @@
             this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fLabelBig1 = new Controles_Standar.FLabelBig();
-            this.fComboBox1 = new Controles_Standar.FComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.uspListarClientesActivosResultBindingSource)).BeginInit();
             this.fGroupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vGestoreBindingSource)).BeginInit();
@@ -85,7 +85,7 @@
             // 
             this.fGroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fGroupBox4.Controls.Add(this.fComboBox1);
+            this.fGroupBox4.Controls.Add(this.cboVoucherId);
             this.fGroupBox4.Controls.Add(this.dtpPayDay);
             this.fGroupBox4.Controls.Add(this.fLabelMedium6);
             this.fGroupBox4.Controls.Add(this.cboManagerId);
@@ -101,6 +101,23 @@
             this.fGroupBox4.TabIndex = 4;
             this.fGroupBox4.TabStop = false;
             this.fGroupBox4.Text = "Pagos";
+            // 
+            // cboVoucherId
+            // 
+            this.cboVoucherId.DataSource = this.vGestoreBindingSource;
+            this.cboVoucherId.DisplayMember = "EmployeeName";
+            this.cboVoucherId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboVoucherId.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboVoucherId.FormattingEnabled = true;
+            this.cboVoucherId.Location = new System.Drawing.Point(10, 145);
+            this.cboVoucherId.Name = "cboVoucherId";
+            this.cboVoucherId.Size = new System.Drawing.Size(213, 23);
+            this.cboVoucherId.TabIndex = 5;
+            this.cboVoucherId.ValueMember = "ManagerId";
+            // 
+            // vGestoreBindingSource
+            // 
+            this.vGestoreBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vGestore);
             // 
             // dtpPayDay
             // 
@@ -134,10 +151,6 @@
             this.cboManagerId.Size = new System.Drawing.Size(384, 23);
             this.cboManagerId.TabIndex = 3;
             this.cboManagerId.ValueMember = "ManagerId";
-            // 
-            // vGestoreBindingSource
-            // 
-            this.vGestoreBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vGestore);
             // 
             // txtPay
             // 
@@ -200,17 +213,17 @@
             this.dgvPendientePago.AllowUserToAddRows = false;
             this.dgvPendientePago.AllowUserToDeleteRows = false;
             this.dgvPendientePago.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvPendientePago.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPendientePago.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvPendientePago.AutoGenerateColumns = false;
             this.dgvPendientePago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPendientePago.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvPendientePago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            this.dgvPendientePago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            this.dgvPendientePago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPendientePago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPendientePago.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.scheduleIdDataGridViewTextBoxColumn,
@@ -224,10 +237,10 @@
             this.dgvPendientePago.Name = "dgvPendientePago";
             this.dgvPendientePago.ReadOnly = true;
             this.dgvPendientePago.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvPendientePago.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvPendientePago.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvPendientePago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPendientePago.Size = new System.Drawing.Size(368, 410);
             this.dgvPendientePago.TabIndex = 0;
@@ -328,19 +341,20 @@
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // btnEditar
+            // btnPagar
             // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(1196, 536);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(90, 34);
-            this.btnEditar.TabIndex = 5;
-            this.btnEditar.Text = "Pagar";
-            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnPagar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPagar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagar.Image = ((System.Drawing.Image)(resources.GetObject("btnPagar.Image")));
+            this.btnPagar.Location = new System.Drawing.Point(1196, 536);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(90, 34);
+            this.btnPagar.TabIndex = 5;
+            this.btnPagar.Text = "Pagar";
+            this.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPagar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // fGroupBox2
             // 
@@ -361,17 +375,17 @@
             this.dgvDatosRegistrados.AllowUserToAddRows = false;
             this.dgvDatosRegistrados.AllowUserToDeleteRows = false;
             this.dgvDatosRegistrados.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosRegistrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosRegistrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDatosRegistrados.AutoGenerateColumns = false;
             this.dgvDatosRegistrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatosRegistrados.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvDatosRegistrados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            this.dgvDatosRegistrados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            this.dgvDatosRegistrados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDatosRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosRegistrados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customerIdDataGridViewTextBoxColumn,
@@ -386,10 +400,10 @@
             this.dgvDatosRegistrados.Name = "dgvDatosRegistrados";
             this.dgvDatosRegistrados.ReadOnly = true;
             this.dgvDatosRegistrados.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDatosRegistrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosRegistrados.Size = new System.Drawing.Size(572, 410);
             this.dgvDatosRegistrados.TabIndex = 0;
@@ -441,19 +455,6 @@
             this.fLabelBig1.TabIndex = 0;
             this.fLabelBig1.Text = "Listado de Clientes";
             // 
-            // fComboBox1
-            // 
-            this.fComboBox1.DataSource = this.vGestoreBindingSource;
-            this.fComboBox1.DisplayMember = "EmployeeName";
-            this.fComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.fComboBox1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fComboBox1.FormattingEnabled = true;
-            this.fComboBox1.Location = new System.Drawing.Point(10, 145);
-            this.fComboBox1.Name = "fComboBox1";
-            this.fComboBox1.Size = new System.Drawing.Size(213, 23);
-            this.fComboBox1.TabIndex = 5;
-            this.fComboBox1.ValueMember = "ManagerId";
-            // 
             // FrmPaymentsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,7 +465,7 @@
             this.Controls.Add(this.fGroupBox3);
             this.Controls.Add(this.fGroupBox1);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.fGroupBox2);
             this.Controls.Add(this.fLabelBig1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -520,7 +521,7 @@
         private Controles_Standar.FTextBox txtBuscarCliente;
         private Controles_Standar.FLabelMedium fLabelMedium1;
         private Controles_Standar.FButtonCancelar btnCancelar;
-        private Controles_Standar.FButtonEditar btnEditar;
+        private Controles_Standar.FButtonEditar btnPagar;
         private Controles_Standar.FGroupBox fGroupBox2;
         private Controles_Standar.FDataGridView dgvDatosRegistrados;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
@@ -541,6 +542,6 @@
         private System.Windows.Forms.BindingSource vCronogramaPagoBindingSource;
         private Controles_Standar.FButtonBuscar btnBuscar;
         private System.Windows.Forms.BindingSource vGestoreBindingSource;
-        private Controles_Standar.FComboBox fComboBox1;
+        private Controles_Standar.FComboBox cboVoucherId;
     }
 }

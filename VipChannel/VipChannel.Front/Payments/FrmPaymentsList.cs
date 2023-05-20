@@ -8,6 +8,7 @@ using VipChannel.Application.View;
 using VipChannel.Domain.Entity;
 using VipChannel.Enums.MasterTables;
 using VipChannel.Front.Constants;
+using VipChannel.Front.Principal;
 using VipChannel.Front.Sales;
 using static VipChannel.Enums.MasterTables.ConstantOperation;
 
@@ -17,6 +18,8 @@ namespace VipChannel.Front.Payments
     {
         private CronogramaPagosView _cronogramaPagos;
         private CustomerAddressApplication _customerAddressApplication;
+        private VoucherApplication _voucherApplication;
+
         private GestorView _gestorView;
         public FrmPaymentsList()
         {
@@ -54,6 +57,15 @@ namespace VipChannel.Front.Payments
 
             _gestorView = new GestorView();
             vGestoreBindingSource.DataSource = _gestorView.SelectListView().ToList();
+
+            _voucherApplication = new VoucherApplication();
+            var id = Guid.Parse(FrmMenu.SaleBoxId);
+            var dt = _voucherApplication.SelectList(x => x.SaleBoxId == id);
+            cboVoucherId.DataSource = dt;
+            cboVoucherId.DisplayMember = "Serie";
+            cboVoucherId.ValueMember = "VoucherId";
+
+            cboVoucherId.SelectedIndex = -1;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -106,6 +118,11 @@ namespace VipChannel.Front.Payments
             var pendiente = decimal.Parse(dgvPendientePago.CurrentRow.Cells[2].Value.ToString());
 
             txtPay.Text = pendiente.ToString();
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

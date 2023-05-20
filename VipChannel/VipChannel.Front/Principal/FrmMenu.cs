@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using VipChannel.Application;
+using VipChannel.Application.Entity;
+using VipChannel.Domain.Entity;
 using VipChannel.Front.Definitions;
 using VipChannel.Front.Definitions.Sucursal;
 using VipChannel.Front.Definitions.Voucher;
@@ -14,7 +16,7 @@ namespace VipChannel.Front.Principal
 {
     public partial class FrmMenu : Form
     {
-        private QueryServerApplication _serverN;
+        private Application.Entity.QueryServerApplication _serverN;
 
         internal static string IdUserActive;
         internal static string UserActive;
@@ -33,7 +35,7 @@ namespace VipChannel.Front.Principal
 
         private void CargarParametros(string usuarioActivo)
         {
-            _serverN = new QueryServerApplication();
+            _serverN = new Application.Entity.QueryServerApplication();
             lblFecha.Text = _serverN.GetTimeServer().ToLongDateString().ToUpper();
             lblHora.Text = _serverN.GetTimeServer().ToLongTimeString().ToUpper();
             lblUsuario.Text = usuarioActivo.ToUpper();
@@ -147,8 +149,23 @@ namespace VipChannel.Front.Principal
 
         private void aperturaCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmOpening.DefInstance.MdiParent = this;
-            FrmOpening.DefInstance.Show();
+            var date = DateTime.Now.Date;
+            var salesBoxId = Guid.Parse(SaleBoxId);
+            var employeeId = Guid.Parse(IdUserActive);
+
+            var dailyBoxApplication = new DailyBoxApplication();
+            var dailyBox = dailyBoxApplication.SelectSingle(x=>
+            x.SaleBoxId == salesBoxId && x.EmployeeId == employeeId);
+
+            if(dailyBox == null && dailyBox.OpeningDate.Value.Date == date)
+            {
+                FrmOpening.DefInstance.MdiParent = this;
+                FrmOpening.DefInstance.Show();
+            }
+            else
+            {
+                MessageBox.Show("Ya se realizo la apertura de caja", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
