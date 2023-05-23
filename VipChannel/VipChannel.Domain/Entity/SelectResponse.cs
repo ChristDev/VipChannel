@@ -8,7 +8,9 @@ namespace VipChannel.Domain.Entity
 {
     public class SelectResponse
     {
+        //Identificador
         public string Id { get; set; }
+        //Descripcion del campo
         public string Description { get; set; }
     }
 }
