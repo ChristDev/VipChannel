@@ -69,10 +69,16 @@
     <Compile Include="Definitions\FrmEmployeeSalesBox.Designer.cs">
       <DependentUpon>FrmEmployeeSalesBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Definitions\FrmManager.cs">
+    <Compile Include="Definitions\Manager\FrmManagerZone.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Definitions\FrmManager.Designer.cs">
+    <Compile Include="Definitions\Manager\FrmManagerZone.Designer.cs">
+      <DependentUpon>FrmManagerZone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Definitions\Manager\FrmManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Definitions\Manager\FrmManager.Designer.cs">
       <DependentUpon>FrmManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Definitions\FrmPermissions.cs">
@@ -256,7 +262,11 @@
       <DependentUpon>FrmEmployeeSalesBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Definitions\FrmManager.resx">
+    <EmbeddedResource Include="Definitions\Manager\FrmManagerZone.resx">
+      <DependentUpon>FrmManagerZone.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Definitions\Manager\FrmManager.resx">
       <DependentUpon>FrmManager.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -372,6 +382,7 @@
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.usp_ListarClientesActivos_Result.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.usp_ListarDireccionPorClienteSolicitud_Result.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vCliente.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vCobradorPorZona.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vCronogramaPago.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vEmpleado.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vGestore.datasource" />
@@ -385,6 +396,7 @@
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vSucursalPorCaja.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vTecnico.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.vTipoComprobantePorCaja.datasource" />
+    <None Include="Properties\DataSources\VipChannel.Domain.Entity.vZona.datasource" />
     <None Include="Properties\DataSources\VipChannel.Domain.Entity.Zone.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

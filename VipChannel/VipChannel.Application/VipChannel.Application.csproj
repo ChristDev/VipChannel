@@ -63,6 +63,7 @@
     <Compile Include="Entity\InstallationRequestCostApplication.cs" />
     <Compile Include="Entity\InstallationRequestPlanApplication.cs" />
     <Compile Include="Entity\ManagerApplication.cs" />
+    <Compile Include="Entity\ManagerZoneApplication.cs" />
     <Compile Include="Entity\MasterTableApplication.cs" />
     <Compile Include="Entity\PlanApplication.cs" />
     <Compile Include="Entity\QueryServerApplication.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryServerApplication.cs" />
     <Compile Include="View\ClienteView.cs" />
+    <Compile Include="View\CobradorPorZonaView.cs" />
     <Compile Include="View\CronogramaPagosView.cs" />
     <Compile Include="View\EmpleadoView.cs" />
     <Compile Include="View\GestorView.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="View\SucursalPorCajaView.cs" />
     <Compile Include="View\TecnicoView.cs" />
     <Compile Include="View\TipoComprobantePorCajaView.cs" />
+    <Compile Include="View\ZonaView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

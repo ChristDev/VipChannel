@@ -41,6 +41,12 @@
             this.vClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fGroupBox3 = new Controles_Standar.FGroupBox();
             this.dgvDatosDetalle = new Controles_Standar.FDataGridView();
+            this.zoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avenueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adressDetailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.referenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerAddressStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uspListarDireccionPorClienteSolicitudResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fGroupBox1 = new Controles_Standar.FGroupBox();
             this.btnAgregarCliente = new Controles_Standar.FButtonNuevo();
@@ -61,12 +67,6 @@
             this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fLabelBig1 = new Controles_Standar.FLabelBig();
-            this.zoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.avenueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adressDetailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.referenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerAddressStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vClienteBindingSource)).BeginInit();
             this.fGroupBox3.SuspendLayout();
@@ -148,6 +148,54 @@
             this.dgvDatosDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosDetalle.Size = new System.Drawing.Size(1064, 149);
             this.dgvDatosDetalle.TabIndex = 0;
+            // 
+            // zoneDataGridViewTextBoxColumn
+            // 
+            this.zoneDataGridViewTextBoxColumn.DataPropertyName = "Zone";
+            this.zoneDataGridViewTextBoxColumn.HeaderText = "Zona";
+            this.zoneDataGridViewTextBoxColumn.Name = "zoneDataGridViewTextBoxColumn";
+            this.zoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.zoneDataGridViewTextBoxColumn.Width = 57;
+            // 
+            // avenueDataGridViewTextBoxColumn
+            // 
+            this.avenueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.avenueDataGridViewTextBoxColumn.DataPropertyName = "Avenue";
+            this.avenueDataGridViewTextBoxColumn.HeaderText = "Avenida";
+            this.avenueDataGridViewTextBoxColumn.Name = "avenueDataGridViewTextBoxColumn";
+            this.avenueDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Número";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numberDataGridViewTextBoxColumn.Width = 73;
+            // 
+            // adressDetailDataGridViewTextBoxColumn
+            // 
+            this.adressDetailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.adressDetailDataGridViewTextBoxColumn.DataPropertyName = "AdressDetail";
+            this.adressDetailDataGridViewTextBoxColumn.HeaderText = "Detalle Dirección";
+            this.adressDetailDataGridViewTextBoxColumn.Name = "adressDetailDataGridViewTextBoxColumn";
+            this.adressDetailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // referenceDataGridViewTextBoxColumn
+            // 
+            this.referenceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.referenceDataGridViewTextBoxColumn.DataPropertyName = "Reference";
+            this.referenceDataGridViewTextBoxColumn.HeaderText = "Referencia";
+            this.referenceDataGridViewTextBoxColumn.Name = "referenceDataGridViewTextBoxColumn";
+            this.referenceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // CustomerAddressStatus
+            // 
+            this.CustomerAddressStatus.DataPropertyName = "CustomerAddressStatus";
+            this.CustomerAddressStatus.HeaderText = "Estado";
+            this.CustomerAddressStatus.Name = "CustomerAddressStatus";
+            this.CustomerAddressStatus.ReadOnly = true;
+            this.CustomerAddressStatus.Width = 66;
             // 
             // uspListarDireccionPorClienteSolicitudResultBindingSource
             // 
@@ -406,54 +454,6 @@
             this.fLabelBig1.TabIndex = 0;
             this.fLabelBig1.Text = "Listado de Clientes";
             // 
-            // zoneDataGridViewTextBoxColumn
-            // 
-            this.zoneDataGridViewTextBoxColumn.DataPropertyName = "Zone";
-            this.zoneDataGridViewTextBoxColumn.HeaderText = "Zona";
-            this.zoneDataGridViewTextBoxColumn.Name = "zoneDataGridViewTextBoxColumn";
-            this.zoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.zoneDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // avenueDataGridViewTextBoxColumn
-            // 
-            this.avenueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.avenueDataGridViewTextBoxColumn.DataPropertyName = "Avenue";
-            this.avenueDataGridViewTextBoxColumn.HeaderText = "Avenida";
-            this.avenueDataGridViewTextBoxColumn.Name = "avenueDataGridViewTextBoxColumn";
-            this.avenueDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Número";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numberDataGridViewTextBoxColumn.Width = 73;
-            // 
-            // adressDetailDataGridViewTextBoxColumn
-            // 
-            this.adressDetailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.adressDetailDataGridViewTextBoxColumn.DataPropertyName = "AdressDetail";
-            this.adressDetailDataGridViewTextBoxColumn.HeaderText = "Detalle Dirección";
-            this.adressDetailDataGridViewTextBoxColumn.Name = "adressDetailDataGridViewTextBoxColumn";
-            this.adressDetailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // referenceDataGridViewTextBoxColumn
-            // 
-            this.referenceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.referenceDataGridViewTextBoxColumn.DataPropertyName = "Reference";
-            this.referenceDataGridViewTextBoxColumn.HeaderText = "Referencia";
-            this.referenceDataGridViewTextBoxColumn.Name = "referenceDataGridViewTextBoxColumn";
-            this.referenceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // CustomerAddressStatus
-            // 
-            this.CustomerAddressStatus.DataPropertyName = "CustomerAddressStatus";
-            this.CustomerAddressStatus.HeaderText = "Estado";
-            this.CustomerAddressStatus.Name = "CustomerAddressStatus";
-            this.CustomerAddressStatus.ReadOnly = true;
-            this.CustomerAddressStatus.Width = 66;
-            // 
             // FrmCustomerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,6 +468,7 @@
             this.Controls.Add(this.fGroupBox2);
             this.Controls.Add(this.fLabelBig1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmCustomerList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

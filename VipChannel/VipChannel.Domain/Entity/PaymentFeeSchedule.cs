@@ -25,6 +25,7 @@ namespace VipChannel.Domain.Entity
         public string UserRecordCreation { get; set; }
         public Nullable<System.DateTime> RecordCreationDate { get; set; }
         public string RecordStatus { get; set; }
+        public Nullable<System.Guid> VoucherId { get; set; }
     
         public virtual Schedule Schedule { get; set; }
     }

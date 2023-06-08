@@ -67,6 +67,11 @@
         <EntityTypeShape EntityType="VipChannel_CollectionModel.Assignment" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="VipChannel_CollectionModel.DailyBox" Width="1.5" PointX="16.5" PointY="24.375" />
         <AssociationConnector Association="VipChannel_CollectionModel.FK_DailyBox_SaleBox" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.ManagerZone" Width="1.5" PointX="21" PointY="8.875" />
+        <AssociationConnector Association="VipChannel_CollectionModel.FK_ManagerZone_Manager" />
+        <AssociationConnector Association="VipChannel_CollectionModel.FK_ManagerZone_Zone" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vCobradorPorZona" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VipChannel_CollectionModel.vZona" Width="1.5" PointX="11.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

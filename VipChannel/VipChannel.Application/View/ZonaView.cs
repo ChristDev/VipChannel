@@ -1,14 +1,19 @@
-﻿using VipChannel.Application.Helper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using VipChannel.Application.Helper;
 using VipChannel.Data.Model;
 using VipChannel.Domain.Entity;
 
 namespace VipChannel.Application.View
 {
-    public class ClienteView : ViewGeneric<VipChannel_CollectionEntities, vCliente>
+    public class ZonaView : ViewGeneric<VipChannel_CollectionEntities, vZona>
     {
         private VipChannel_CollectionEntities _dataContext;
 
-        public ClienteView()
+        public ZonaView()
         {
             _dataContext = new VipChannel_CollectionEntities();
         }

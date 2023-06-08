@@ -266,6 +266,19 @@
           <Property Name="RecordEditDate" Type="datetime" />
           <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
+        <EntityType Name="ManagerZone">
+          <Key>
+            <PropertyRef Name="ManagerZoneId" />
+          </Key>
+          <Property Name="ManagerZoneId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ManagerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ZoneId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserRecordCreation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RecordCreationDate" Type="datetime" Nullable="false" />
+          <Property Name="UserEditRecord" Type="varchar" MaxLength="50" />
+          <Property Name="RecordEditDate" Type="datetime" />
+          <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
         <EntityType Name="MasterTable">
           <Key>
             <PropertyRef Name="IdMasterTable" />
@@ -318,6 +331,7 @@
           <Property Name="PayDay" Type="datetime" />
           <Property Name="ManagerId" Type="uniqueidentifier" />
           <Property Name="SaleBoxId" Type="uniqueidentifier" />
+          <Property Name="VoucherId" Type="uniqueidentifier" />
           <Property Name="Serie" Type="char" MaxLength="5" />
           <Property Name="Number" Type="int" />
           <Property Name="Pay" Type="decimal" Precision="10" Scale="2" />
@@ -526,6 +540,24 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vClientes' does not have
           <Property Name="CustomerStatus" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'VipChannel_Collection.dbo.vCobradorPorZona' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vCobradorPorZona">
+          <Key>
+            <PropertyRef Name="ManagerZoneId" />
+            <PropertyRef Name="ManagerId" />
+            <PropertyRef Name="Manager" />
+            <PropertyRef Name="ZoneId" />
+            <PropertyRef Name="Zone" />
+            <PropertyRef Name="RecordStatus" />
+          </Key>
+          <Property Name="ManagerZoneId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ManagerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Manager" Type="varchar" MaxLength="401" Nullable="false" />
+          <Property Name="ZoneId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Zone" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RecordStatus" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'VipChannel_Collection.dbo.vCronogramaPagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vCronogramaPagos">
           <Key>
@@ -730,6 +762,16 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="Serie" Type="char" MaxLength="5" Nullable="false" />
           <Property Name="Number" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VipChannel_Collection.dbo.vZonas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZonas">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="ZoneId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <Association Name="FK_CustomerAddress_Avenue">
           <End Role="Avenue" Type="Self.Avenue" Multiplicity="1" />
           <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
@@ -871,6 +913,30 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Principal>
             <Dependent Role="InstallationRequestPlan">
               <PropertyRef Name="PlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ManagerZone_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
+          <End Role="ManagerZone" Type="Self.ManagerZone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="ManagerId" />
+            </Principal>
+            <Dependent Role="ManagerZone">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ManagerZone_Zone">
+          <End Role="Zone" Type="Self.Zone" Multiplicity="1" />
+          <End Role="ManagerZone" Type="Self.ManagerZone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="ZoneId" />
+            </Principal>
+            <Dependent Role="ManagerZone">
+              <PropertyRef Name="ZoneId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1018,6 +1084,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySet Name="InstallationRequestCost" EntityType="Self.InstallationRequestCost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InstallationRequestPlan" EntityType="Self.InstallationRequestPlan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ManagerZone" EntityType="Self.ManagerZone" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterTable" EntityType="Self.MasterTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentFeeSchedule" EntityType="Self.PaymentFeeSchedule" Schema="dbo" store:Type="Tables" />
@@ -1046,6 +1113,16 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
     [vClientes].[CellPhone] AS [CellPhone], 
     [vClientes].[CustomerStatus] AS [CustomerStatus]
     FROM [dbo].[vClientes] AS [vClientes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vCobradorPorZona" EntityType="Self.vCobradorPorZona" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vCobradorPorZona].[ManagerZoneId] AS [ManagerZoneId], 
+    [vCobradorPorZona].[ManagerId] AS [ManagerId], 
+    [vCobradorPorZona].[Manager] AS [Manager], 
+    [vCobradorPorZona].[ZoneId] AS [ZoneId], 
+    [vCobradorPorZona].[Zone] AS [Zone], 
+    [vCobradorPorZona].[RecordStatus] AS [RecordStatus]
+    FROM [dbo].[vCobradorPorZona] AS [vCobradorPorZona]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vCronogramaPagos" EntityType="Self.vCronogramaPagos" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1175,6 +1252,12 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
     [vTipoComprobantePorCaja].[Number] AS [Number]
     FROM [dbo].[vTipoComprobantePorCaja] AS [vTipoComprobantePorCaja]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vZonas" EntityType="Self.vZonas" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZonas].[ZoneId] AS [ZoneId], 
+    [vZonas].[Description] AS [Description]
+    FROM [dbo].[vZonas] AS [vZonas]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_CustomerAddress_Avenue" Association="Self.FK_CustomerAddress_Avenue">
             <End Role="Avenue" EntitySet="Avenue" />
             <End Role="CustomerAddress" EntitySet="CustomerAddress" />
@@ -1222,6 +1305,14 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <AssociationSet Name="FK_InstallationRequestPlan_Plan" Association="Self.FK_InstallationRequestPlan_Plan">
             <End Role="Plan" EntitySet="Plan" />
             <End Role="InstallationRequestPlan" EntitySet="InstallationRequestPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManagerZone_Manager" Association="Self.FK_ManagerZone_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="ManagerZone" EntitySet="ManagerZone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManagerZone_Zone" Association="Self.FK_ManagerZone_Zone">
+            <End Role="Zone" EntitySet="Zone" />
+            <End Role="ManagerZone" EntitySet="ManagerZone" />
           </AssociationSet>
           <AssociationSet Name="FK_Material_Brand" Association="Self.FK_Material_Brand">
             <End Role="Brand" EntitySet="Brand" />
@@ -1411,6 +1502,17 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             <End Role="SaleBox" EntitySet="SaleBoxes" />
             <End Role="DailyBox" EntitySet="DailyBoxes" />
           </AssociationSet>
+          <EntitySet Name="ManagerZones" EntityType="VipChannel_CollectionModel.ManagerZone" />
+          <AssociationSet Name="FK_ManagerZone_Manager" Association="VipChannel_CollectionModel.FK_ManagerZone_Manager">
+            <End Role="Manager" EntitySet="Managers" />
+            <End Role="ManagerZone" EntitySet="ManagerZones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManagerZone_Zone" Association="VipChannel_CollectionModel.FK_ManagerZone_Zone">
+            <End Role="Zone" EntitySet="Zones" />
+            <End Role="ManagerZone" EntitySet="ManagerZones" />
+          </AssociationSet>
+          <EntitySet Name="vCobradorPorZonas" EntityType="VipChannel_CollectionModel.vCobradorPorZona" />
+          <EntitySet Name="vZonas" EntityType="VipChannel_CollectionModel.vZona" />
           </EntityContainer>
         <ComplexType Name="usp_ListarDireccionPorClienteSolicitud_Result">
           <Property Type="Guid" Name="CustomerAddressId" Nullable="false" />
@@ -1675,6 +1777,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
           <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="ManagerZones" Relationship="VipChannel_CollectionModel.FK_ManagerZone_Manager" FromRole="Manager" ToRole="ManagerZone" />
         </EntityType>
         <EntityType Name="MasterTable">
           <Key>
@@ -1737,6 +1840,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="RecordCreationDate" Type="DateTime" Precision="3" />
           <Property Name="RecordStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Schedule" Relationship="VipChannel_CollectionModel.FK_PaymentFeeSchedule_Schedule" FromRole="PaymentFeeSchedule" ToRole="Schedule" />
+          <Property Name="VoucherId" Type="Guid" />
         </EntityType>
         <EntityType Name="Plan">
           <Key>
@@ -1930,6 +2034,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
           <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="CustomerAddresses" Relationship="VipChannel_CollectionModel.FK_CustomerAddress_Zone" FromRole="Zone" ToRole="CustomerAddress" />
+          <NavigationProperty Name="ManagerZones" Relationship="VipChannel_CollectionModel.FK_ManagerZone_Zone" FromRole="Zone" ToRole="ManagerZone" />
         </EntityType>
         <EntityType Name="vCliente">
           <Key>
@@ -2422,6 +2527,69 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ManagerZone">
+          <Key>
+            <PropertyRef Name="ManagerZoneId" />
+          </Key>
+          <Property Name="ManagerZoneId" Type="Guid" Nullable="false" />
+          <Property Name="ManagerId" Type="Guid" Nullable="false" />
+          <Property Name="ZoneId" Type="Guid" Nullable="false" />
+          <Property Name="UserRecordCreation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordCreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserEditRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordEditDate" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Manager" Relationship="VipChannel_CollectionModel.FK_ManagerZone_Manager" FromRole="ManagerZone" ToRole="Manager" />
+          <NavigationProperty Name="Zone" Relationship="VipChannel_CollectionModel.FK_ManagerZone_Zone" FromRole="ManagerZone" ToRole="Zone" />
+        </EntityType>
+        <Association Name="FK_ManagerZone_Manager">
+          <End Type="VipChannel_CollectionModel.Manager" Role="Manager" Multiplicity="1" />
+          <End Type="VipChannel_CollectionModel.ManagerZone" Role="ManagerZone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="ManagerId" />
+            </Principal>
+            <Dependent Role="ManagerZone">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ManagerZone_Zone">
+          <End Type="VipChannel_CollectionModel.Zone" Role="Zone" Multiplicity="1" />
+          <End Type="VipChannel_CollectionModel.ManagerZone" Role="ManagerZone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="ZoneId" />
+            </Principal>
+            <Dependent Role="ManagerZone">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vCobradorPorZona">
+          <Key>
+            <PropertyRef Name="ManagerZoneId" />
+            <PropertyRef Name="ManagerId" />
+            <PropertyRef Name="Manager" />
+            <PropertyRef Name="ZoneId" />
+            <PropertyRef Name="Zone" />
+            <PropertyRef Name="RecordStatus" />
+          </Key>
+          <Property Name="ManagerZoneId" Type="Guid" Nullable="false" />
+          <Property Name="ManagerId" Type="Guid" Nullable="false" />
+          <Property Name="Manager" Type="String" Nullable="false" MaxLength="401" FixedLength="false" Unicode="false" />
+          <Property Name="ZoneId" Type="Guid" Nullable="false" />
+          <Property Name="Zone" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vZona">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="ZoneId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2738,6 +2906,7 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
           <EntitySetMapping Name="PaymentFeeSchedules">
             <EntityTypeMapping TypeName="VipChannel_CollectionModel.PaymentFeeSchedule">
               <MappingFragment StoreEntitySet="PaymentFeeSchedule">
+                <ScalarProperty Name="VoucherId" ColumnName="VoucherId" />
                 <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
                 <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
                 <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
@@ -3148,6 +3317,40 @@ warning 6002: The table/view 'VipChannel_Collection.dbo.vTipoComprobantePorCaja'
                 <ScalarProperty Name="SaleBoxId" ColumnName="SaleBoxId" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="DailyBoxId" ColumnName="DailyBoxId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManagerZones">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.ManagerZone">
+              <MappingFragment StoreEntitySet="ManagerZone">
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordEditDate" ColumnName="RecordEditDate" />
+                <ScalarProperty Name="UserEditRecord" ColumnName="UserEditRecord" />
+                <ScalarProperty Name="RecordCreationDate" ColumnName="RecordCreationDate" />
+                <ScalarProperty Name="UserRecordCreation" ColumnName="UserRecordCreation" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="ManagerZoneId" ColumnName="ManagerZoneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vCobradorPorZonas">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vCobradorPorZona">
+              <MappingFragment StoreEntitySet="vCobradorPorZona">
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="ManagerZoneId" ColumnName="ManagerZoneId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZonas">
+            <EntityTypeMapping TypeName="VipChannel_CollectionModel.vZona">
+              <MappingFragment StoreEntitySet="vZonas">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

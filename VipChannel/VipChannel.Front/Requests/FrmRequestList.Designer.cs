@@ -39,10 +39,6 @@
             this.fTextBox1 = new Controles_Standar.FTextBox();
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
             this.dgvDatosRegistrados = new Controles_Standar.FDataGridView();
-            this.vSolicitudesInstalacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fLabelBig1 = new Controles_Standar.FLabelBig();
-            this.btnCancelarSolicitud = new Controles_Standar.FButtonEliminar();
-            this.btnAtenderSolicitud = new Controles_Standar.FButtonEditar();
             this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerAddressIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.installationRequestIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +50,10 @@
             this.adressDetailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateAttentionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerAddressStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vSolicitudesInstalacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fLabelBig1 = new Controles_Standar.FLabelBig();
+            this.btnCancelarSolicitud = new Controles_Standar.FButtonEliminar();
+            this.btnAtenderSolicitud = new Controles_Standar.FButtonEditar();
             this.fGroupBox1.SuspendLayout();
             this.fGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).BeginInit();
@@ -171,50 +171,6 @@
             this.dgvDatosRegistrados.TabIndex = 0;
             this.dgvDatosRegistrados.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosRegistrados_CellContentDoubleClick);
             // 
-            // vSolicitudesInstalacionBindingSource
-            // 
-            this.vSolicitudesInstalacionBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vSolicitudesInstalacion);
-            // 
-            // fLabelBig1
-            // 
-            this.fLabelBig1.AutoSize = true;
-            this.fLabelBig1.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fLabelBig1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fLabelBig1.Location = new System.Drawing.Point(5, 9);
-            this.fLabelBig1.Name = "fLabelBig1";
-            this.fLabelBig1.Size = new System.Drawing.Size(288, 41);
-            this.fLabelBig1.TabIndex = 0;
-            this.fLabelBig1.Text = "Listado de Solicitudes";
-            // 
-            // btnCancelarSolicitud
-            // 
-            this.btnCancelarSolicitud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarSolicitud.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarSolicitud.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarSolicitud.Image")));
-            this.btnCancelarSolicitud.Location = new System.Drawing.Point(880, 575);
-            this.btnCancelarSolicitud.Name = "btnCancelarSolicitud";
-            this.btnCancelarSolicitud.Size = new System.Drawing.Size(202, 34);
-            this.btnCancelarSolicitud.TabIndex = 4;
-            this.btnCancelarSolicitud.Text = "Cancelar Solicitud";
-            this.btnCancelarSolicitud.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelarSolicitud.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCancelarSolicitud.UseVisualStyleBackColor = true;
-            // 
-            // btnAtenderSolicitud
-            // 
-            this.btnAtenderSolicitud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAtenderSolicitud.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtenderSolicitud.Image = ((System.Drawing.Image)(resources.GetObject("btnAtenderSolicitud.Image")));
-            this.btnAtenderSolicitud.Location = new System.Drawing.Point(672, 575);
-            this.btnAtenderSolicitud.Name = "btnAtenderSolicitud";
-            this.btnAtenderSolicitud.Size = new System.Drawing.Size(202, 34);
-            this.btnAtenderSolicitud.TabIndex = 3;
-            this.btnAtenderSolicitud.Text = "Atender Solicitud";
-            this.btnAtenderSolicitud.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAtenderSolicitud.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAtenderSolicitud.UseVisualStyleBackColor = true;
-            this.btnAtenderSolicitud.Click += new System.EventHandler(this.btnAtenderSolicitud_Click);
-            // 
             // customerIdDataGridViewTextBoxColumn
             // 
             this.customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
@@ -306,6 +262,50 @@
             this.customerAddressStatusDataGridViewTextBoxColumn.ReadOnly = true;
             this.customerAddressStatusDataGridViewTextBoxColumn.Width = 113;
             // 
+            // vSolicitudesInstalacionBindingSource
+            // 
+            this.vSolicitudesInstalacionBindingSource.DataSource = typeof(VipChannel.Domain.Entity.vSolicitudesInstalacion);
+            // 
+            // fLabelBig1
+            // 
+            this.fLabelBig1.AutoSize = true;
+            this.fLabelBig1.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fLabelBig1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.fLabelBig1.Location = new System.Drawing.Point(5, 9);
+            this.fLabelBig1.Name = "fLabelBig1";
+            this.fLabelBig1.Size = new System.Drawing.Size(288, 41);
+            this.fLabelBig1.TabIndex = 0;
+            this.fLabelBig1.Text = "Listado de Solicitudes";
+            // 
+            // btnCancelarSolicitud
+            // 
+            this.btnCancelarSolicitud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarSolicitud.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarSolicitud.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarSolicitud.Image")));
+            this.btnCancelarSolicitud.Location = new System.Drawing.Point(880, 575);
+            this.btnCancelarSolicitud.Name = "btnCancelarSolicitud";
+            this.btnCancelarSolicitud.Size = new System.Drawing.Size(202, 34);
+            this.btnCancelarSolicitud.TabIndex = 4;
+            this.btnCancelarSolicitud.Text = "Cancelar Solicitud";
+            this.btnCancelarSolicitud.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelarSolicitud.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCancelarSolicitud.UseVisualStyleBackColor = true;
+            // 
+            // btnAtenderSolicitud
+            // 
+            this.btnAtenderSolicitud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAtenderSolicitud.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtenderSolicitud.Image = ((System.Drawing.Image)(resources.GetObject("btnAtenderSolicitud.Image")));
+            this.btnAtenderSolicitud.Location = new System.Drawing.Point(672, 575);
+            this.btnAtenderSolicitud.Name = "btnAtenderSolicitud";
+            this.btnAtenderSolicitud.Size = new System.Drawing.Size(202, 34);
+            this.btnAtenderSolicitud.TabIndex = 3;
+            this.btnAtenderSolicitud.Text = "Atender Solicitud";
+            this.btnAtenderSolicitud.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAtenderSolicitud.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAtenderSolicitud.UseVisualStyleBackColor = true;
+            this.btnAtenderSolicitud.Click += new System.EventHandler(this.btnAtenderSolicitud_Click);
+            // 
             // FrmRequestList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +318,7 @@
             this.Controls.Add(this.fGroupBox2);
             this.Controls.Add(this.fLabelBig1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmRequestList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

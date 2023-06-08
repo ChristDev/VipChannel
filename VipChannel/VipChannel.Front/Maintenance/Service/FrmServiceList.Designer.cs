@@ -35,6 +35,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServiceList));
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
             this.dgvDatosRegistrados = new Controles_Standar.FDataGridView();
+            this.serviceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fGroupBox1 = new Controles_Standar.FGroupBox();
             this.fLabelMedium1 = new Controles_Standar.FLabelMedium();
             this.btnBuscar = new Controles_Standar.FButtonBuscar();
@@ -44,14 +48,10 @@
             this.btnEditar = new Controles_Standar.FButtonEditar();
             this.btnEliminar = new Controles_Standar.FButtonEliminar();
             this.btnCancelar = new Controles_Standar.FButtonCancelar();
-            this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.serviceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).BeginInit();
-            this.fGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).BeginInit();
+            this.fGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fGroupBox2
@@ -104,6 +104,35 @@
             this.dgvDatosRegistrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosRegistrados.Size = new System.Drawing.Size(713, 348);
             this.dgvDatosRegistrados.TabIndex = 0;
+            // 
+            // serviceIdDataGridViewTextBoxColumn
+            // 
+            this.serviceIdDataGridViewTextBoxColumn.DataPropertyName = "ServiceId";
+            this.serviceIdDataGridViewTextBoxColumn.HeaderText = "ServiceId";
+            this.serviceIdDataGridViewTextBoxColumn.Name = "serviceIdDataGridViewTextBoxColumn";
+            this.serviceIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.serviceIdDataGridViewTextBoxColumn.Visible = false;
+            this.serviceIdDataGridViewTextBoxColumn.Width = 57;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Descripción Servicio";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Cost";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Precio S/.";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 78;
+            // 
+            // serviceBindingSource
+            // 
+            this.serviceBindingSource.DataSource = typeof(VipChannel.Domain.Entity.Service);
             // 
             // fGroupBox1
             // 
@@ -228,35 +257,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // serviceBindingSource
-            // 
-            this.serviceBindingSource.DataSource = typeof(VipChannel.Domain.Entity.Service);
-            // 
-            // serviceIdDataGridViewTextBoxColumn
-            // 
-            this.serviceIdDataGridViewTextBoxColumn.DataPropertyName = "ServiceId";
-            this.serviceIdDataGridViewTextBoxColumn.HeaderText = "ServiceId";
-            this.serviceIdDataGridViewTextBoxColumn.Name = "serviceIdDataGridViewTextBoxColumn";
-            this.serviceIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.serviceIdDataGridViewTextBoxColumn.Visible = false;
-            this.serviceIdDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Descripción Servicio";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Cost";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Precio S/.";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 78;
-            // 
             // FrmServiceList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,14 +270,15 @@
             this.Controls.Add(this.fGroupBox2);
             this.Controls.Add(this.fLabelBig1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmServiceList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmList_Load);
             this.fGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).EndInit();
             this.fGroupBox1.ResumeLayout(false);
             this.fGroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

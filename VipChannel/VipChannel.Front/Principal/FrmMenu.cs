@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using VipChannel.Application;
 using VipChannel.Application.Entity;
-using VipChannel.Domain.Entity;
 using VipChannel.Front.Definitions;
+using VipChannel.Front.Definitions.Manager;
 using VipChannel.Front.Definitions.Sucursal;
 using VipChannel.Front.Definitions.Voucher;
 using VipChannel.Front.Maintenance;

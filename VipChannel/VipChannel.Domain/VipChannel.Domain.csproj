@@ -84,6 +84,9 @@
     <Compile Include="Entity\Manager.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\ManagerZone.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\MasterTable.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
@@ -130,6 +133,9 @@
     <Compile Include="Entity\vCliente.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\vCobradorPorZona.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\vCronogramaPago.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
@@ -172,6 +178,9 @@
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\vTipoComprobantePorCaja.cs">
+      <DependentUpon>VipChannelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\vZona.cs">
       <DependentUpon>VipChannelModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Zone.cs">

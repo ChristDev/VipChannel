@@ -4,11 +4,11 @@ using VipChannel.Domain.Entity;
 
 namespace VipChannel.Application.View
 {
-    public class ClienteView : ViewGeneric<VipChannel_CollectionEntities, vCliente>
+    public class CobradorPorZonaView : ViewGeneric<VipChannel_CollectionEntities, vCobradorPorZona>
     {
         private VipChannel_CollectionEntities _dataContext;
 
-        public ClienteView()
+        public CobradorPorZonaView()
         {
             _dataContext = new VipChannel_CollectionEntities();
         }

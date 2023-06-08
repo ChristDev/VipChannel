@@ -12,26 +12,18 @@ namespace VipChannel.Domain.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Manager
+    public partial class ManagerZone
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Manager()
-        {
-            this.ManagerZones = new HashSet<ManagerZone>();
-        }
-    
+        public System.Guid ManagerZoneId { get; set; }
         public System.Guid ManagerId { get; set; }
-        public string TypeDocument { get; set; }
-        public string DocumentNumber { get; set; }
-        public string LastName { get; set; }
-        public string Names { get; set; }
+        public System.Guid ZoneId { get; set; }
         public string UserRecordCreation { get; set; }
         public System.DateTime RecordCreationDate { get; set; }
         public string UserEditRecord { get; set; }
         public Nullable<System.DateTime> RecordEditDate { get; set; }
         public string RecordStatus { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ManagerZone> ManagerZones { get; set; }
+        public virtual Manager Manager { get; set; }
+        public virtual Zone Zone { get; set; }
     }
 }

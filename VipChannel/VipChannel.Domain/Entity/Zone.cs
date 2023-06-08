@@ -18,6 +18,7 @@ namespace VipChannel.Domain.Entity
         public Zone()
         {
             this.CustomerAddresses = new HashSet<CustomerAddress>();
+            this.ManagerZones = new HashSet<ManagerZone>();
         }
     
         public System.Guid ZoneId { get; set; }
@@ -31,5 +32,7 @@ namespace VipChannel.Domain.Entity
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerAddress> CustomerAddresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ManagerZone> ManagerZones { get; set; }
     }
 }

@@ -69,6 +69,9 @@ namespace VipChannel.Data.Model
         public virtual DbSet<vGestore> vGestores { get; set; }
         public virtual DbSet<Assignment> Assignments { get; set; }
         public virtual DbSet<DailyBox> DailyBoxes { get; set; }
+        public virtual DbSet<ManagerZone> ManagerZones { get; set; }
+        public virtual DbSet<vCobradorPorZona> vCobradorPorZonas { get; set; }
+        public virtual DbSet<vZona> vZonas { get; set; }
     
         public virtual int usp_ActualizarCoordenadasCliente(Nullable<System.Guid> customerAddressId, string latitude, string longitude)
         {

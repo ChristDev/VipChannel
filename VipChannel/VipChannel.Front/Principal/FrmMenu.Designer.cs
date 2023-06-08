@@ -46,6 +46,7 @@
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprobantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tecnicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -197,6 +198,7 @@
             this.generalToolStripMenuItem,
             this.sucursalToolStripMenuItem,
             this.comprobantesToolStripMenuItem,
+            this.toolStripSeparator2,
             this.rolesToolStripMenuItem,
             this.empleadosToolStripMenuItem,
             this.tecnicosToolStripMenuItem,
@@ -227,6 +229,11 @@
             this.comprobantesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.comprobantesToolStripMenuItem.Text = "COMPROBANTES";
             this.comprobantesToolStripMenuItem.Click += new System.EventHandler(this.comprobantesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(164, 6);
             // 
             // rolesToolStripMenuItem
             // 
@@ -365,27 +372,27 @@
             // aperturaCajaToolStripMenuItem
             // 
             this.aperturaCajaToolStripMenuItem.Name = "aperturaCajaToolStripMenuItem";
-            this.aperturaCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aperturaCajaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.aperturaCajaToolStripMenuItem.Text = "APERTURA CAJA";
             this.aperturaCajaToolStripMenuItem.Click += new System.EventHandler(this.aperturaCajaToolStripMenuItem_Click);
             // 
             // registroPagoToolStripMenuItem
             // 
             this.registroPagoToolStripMenuItem.Name = "registroPagoToolStripMenuItem";
-            this.registroPagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registroPagoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.registroPagoToolStripMenuItem.Text = "REGISTRAR PAGO";
             this.registroPagoToolStripMenuItem.Click += new System.EventHandler(this.registroPagoToolStripMenuItem_Click);
             // 
             // listaPagosToolStripMenuItem
             // 
             this.listaPagosToolStripMenuItem.Name = "listaPagosToolStripMenuItem";
-            this.listaPagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listaPagosToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.listaPagosToolStripMenuItem.Text = "LISTA DE PAGOS";
             // 
             // cierreCajaToolStripMenuItem
             // 
             this.cierreCajaToolStripMenuItem.Name = "cierreCajaToolStripMenuItem";
-            this.cierreCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cierreCajaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.cierreCajaToolStripMenuItem.Text = "CIERRE CAJA";
             // 
             // cONSULTASToolStripMenuItem
@@ -431,6 +438,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.IsMdiContainer = true;
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -493,5 +501,6 @@
         private System.Windows.Forms.ToolStripMenuItem aperturaCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaPagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cierreCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace VipChannel.Front.Definitions
+﻿namespace VipChannel.Front.Definitions.Manager
 {
     partial class FrmManager
     {
@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManager));
             this.fGroupBox2 = new Controles_Standar.FGroupBox();
             this.dgvDatosRegistrados = new Controles_Standar.FDataGridView();
+            this.managerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fGroupBox3 = new Controles_Standar.FGroupBox();
+            this.btnAsignarZona = new Controles_Standar.FButtonActualizar();
             this.btnEliminar = new Controles_Standar.FButtonEliminar();
             this.btnCancelar = new Controles_Standar.FButtonCancelar();
             this.btnGuardar = new Controles_Standar.FButtonGuardar();
@@ -52,17 +58,12 @@
             this.fLabelMedium2 = new Controles_Standar.FLabelMedium();
             this.fLabelMedium1 = new Controles_Standar.FLabelMedium();
             this.fLabelBig1 = new Controles_Standar.FLabelBig();
-            this.managerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.managerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).BeginInit();
             this.fGroupBox3.SuspendLayout();
             this.fGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectResponseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // fGroupBox2
@@ -70,9 +71,9 @@
             this.fGroupBox2.Controls.Add(this.dgvDatosRegistrados);
             this.fGroupBox2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fGroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fGroupBox2.Location = new System.Drawing.Point(510, 63);
+            this.fGroupBox2.Location = new System.Drawing.Point(391, 63);
             this.fGroupBox2.Name = "fGroupBox2";
-            this.fGroupBox2.Size = new System.Drawing.Size(491, 312);
+            this.fGroupBox2.Size = new System.Drawing.Size(652, 312);
             this.fGroupBox2.TabIndex = 4;
             this.fGroupBox2.TabStop = false;
             this.fGroupBox2.Text = "Repositorio de Datos";
@@ -82,16 +83,16 @@
             this.dgvDatosRegistrados.AllowUserToAddRows = false;
             this.dgvDatosRegistrados.AllowUserToDeleteRows = false;
             this.dgvDatosRegistrados.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDatosRegistrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDatosRegistrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatosRegistrados.AutoGenerateColumns = false;
             this.dgvDatosRegistrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDatosRegistrados.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvDatosRegistrados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            this.dgvDatosRegistrados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            this.dgvDatosRegistrados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDatosRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatosRegistrados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.managerIdDataGridViewTextBoxColumn,
@@ -106,16 +107,54 @@
             this.dgvDatosRegistrados.Name = "dgvDatosRegistrados";
             this.dgvDatosRegistrados.ReadOnly = true;
             this.dgvDatosRegistrados.RowHeadersVisible = false;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(100)))), ((int)(((byte)(137)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatosRegistrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosRegistrados.Size = new System.Drawing.Size(485, 290);
+            this.dgvDatosRegistrados.Size = new System.Drawing.Size(646, 290);
             this.dgvDatosRegistrados.TabIndex = 0;
+            // 
+            // managerIdDataGridViewTextBoxColumn
+            // 
+            this.managerIdDataGridViewTextBoxColumn.DataPropertyName = "ManagerId";
+            this.managerIdDataGridViewTextBoxColumn.HeaderText = "ManagerId";
+            this.managerIdDataGridViewTextBoxColumn.Name = "managerIdDataGridViewTextBoxColumn";
+            this.managerIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.managerIdDataGridViewTextBoxColumn.Visible = false;
+            this.managerIdDataGridViewTextBoxColumn.Width = 67;
+            // 
+            // documentNumberDataGridViewTextBoxColumn
+            // 
+            this.documentNumberDataGridViewTextBoxColumn.DataPropertyName = "DocumentNumber";
+            this.documentNumberDataGridViewTextBoxColumn.HeaderText = "Número Documento";
+            this.documentNumberDataGridViewTextBoxColumn.Name = "documentNumberDataGridViewTextBoxColumn";
+            this.documentNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.documentNumberDataGridViewTextBoxColumn.Width = 135;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Apellidos";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // namesDataGridViewTextBoxColumn
+            // 
+            this.namesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.namesDataGridViewTextBoxColumn.DataPropertyName = "Names";
+            this.namesDataGridViewTextBoxColumn.HeaderText = "Nombres";
+            this.namesDataGridViewTextBoxColumn.Name = "namesDataGridViewTextBoxColumn";
+            this.namesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // managerBindingSource
+            // 
+            this.managerBindingSource.DataSource = typeof(VipChannel.Domain.Entity.Manager);
             // 
             // fGroupBox3
             // 
+            this.fGroupBox3.Controls.Add(this.btnAsignarZona);
             this.fGroupBox3.Controls.Add(this.btnEliminar);
             this.fGroupBox3.Controls.Add(this.btnCancelar);
             this.fGroupBox3.Controls.Add(this.btnGuardar);
@@ -123,18 +162,32 @@
             this.fGroupBox3.Controls.Add(this.btnNuevo);
             this.fGroupBox3.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fGroupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.fGroupBox3.Location = new System.Drawing.Point(513, 381);
+            this.fGroupBox3.Location = new System.Drawing.Point(391, 384);
             this.fGroupBox3.Name = "fGroupBox3";
-            this.fGroupBox3.Size = new System.Drawing.Size(492, 64);
+            this.fGroupBox3.Size = new System.Drawing.Size(652, 64);
             this.fGroupBox3.TabIndex = 3;
             this.fGroupBox3.TabStop = false;
             this.fGroupBox3.Text = "Acciones del Formulario";
+            // 
+            // btnAsignarZona
+            // 
+            this.btnAsignarZona.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarZona.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarZona.Image")));
+            this.btnAsignarZona.Location = new System.Drawing.Point(408, 22);
+            this.btnAsignarZona.Name = "btnAsignarZona";
+            this.btnAsignarZona.Size = new System.Drawing.Size(135, 34);
+            this.btnAsignarZona.TabIndex = 5;
+            this.btnAsignarZona.Text = "Asignar por Zona";
+            this.btnAsignarZona.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAsignarZona.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAsignarZona.UseVisualStyleBackColor = true;
+            this.btnAsignarZona.Click += new System.EventHandler(this.btnAsignarZona_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(204, 22);
+            this.btnEliminar.Location = new System.Drawing.Point(216, 22);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 34);
             this.btnEliminar.TabIndex = 2;
@@ -148,7 +201,7 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(396, 22);
+            this.btnCancelar.Location = new System.Drawing.Point(549, 22);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 34);
             this.btnCancelar.TabIndex = 4;
@@ -162,7 +215,7 @@
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(300, 22);
+            this.btnGuardar.Location = new System.Drawing.Point(312, 22);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 34);
             this.btnGuardar.TabIndex = 3;
@@ -176,7 +229,7 @@
             // 
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(108, 22);
+            this.btnEditar.Location = new System.Drawing.Point(120, 22);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(90, 34);
             this.btnEditar.TabIndex = 1;
@@ -190,7 +243,7 @@
             // 
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.Location = new System.Drawing.Point(12, 22);
+            this.btnNuevo.Location = new System.Drawing.Point(24, 22);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(90, 34);
             this.btnNuevo.TabIndex = 0;
@@ -214,7 +267,7 @@
             this.fGroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.fGroupBox1.Location = new System.Drawing.Point(13, 63);
             this.fGroupBox1.Name = "fGroupBox1";
-            this.fGroupBox1.Size = new System.Drawing.Size(491, 382);
+            this.fGroupBox1.Size = new System.Drawing.Size(372, 312);
             this.fGroupBox1.TabIndex = 2;
             this.fGroupBox1.TabStop = false;
             this.fGroupBox1.Text = "Datos del Empleado";
@@ -229,7 +282,7 @@
             this.cboTypeDocument.FormattingEnabled = true;
             this.cboTypeDocument.Location = new System.Drawing.Point(8, 43);
             this.cboTypeDocument.Name = "cboTypeDocument";
-            this.cboTypeDocument.Size = new System.Drawing.Size(251, 23);
+            this.cboTypeDocument.Size = new System.Drawing.Size(271, 23);
             this.cboTypeDocument.TabIndex = 9;
             this.cboTypeDocument.ValueMember = "Id";
             // 
@@ -245,7 +298,7 @@
             this.txtNames.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNames.Location = new System.Drawing.Point(8, 193);
             this.txtNames.Name = "txtNames";
-            this.txtNames.Size = new System.Drawing.Size(456, 23);
+            this.txtNames.Size = new System.Drawing.Size(348, 23);
             this.txtNames.TabIndex = 8;
             // 
             // fLabelMedium4
@@ -267,7 +320,7 @@
             this.txtLastName.Font = new System.Drawing.Font("Segoe UI Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.Location = new System.Drawing.Point(8, 143);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(456, 23);
+            this.txtLastName.Size = new System.Drawing.Size(348, 23);
             this.txtLastName.TabIndex = 6;
             // 
             // fLabelMedium3
@@ -290,7 +343,7 @@
             this.txtDocumentNumber.Location = new System.Drawing.Point(8, 93);
             this.txtDocumentNumber.MaxLength = 15;
             this.txtDocumentNumber.Name = "txtDocumentNumber";
-            this.txtDocumentNumber.Size = new System.Drawing.Size(251, 23);
+            this.txtDocumentNumber.Size = new System.Drawing.Size(271, 23);
             this.txtDocumentNumber.TabIndex = 4;
             // 
             // fLabelMedium2
@@ -326,49 +379,12 @@
             this.fLabelBig1.TabIndex = 1;
             this.fLabelBig1.Text = "Gestión Cobradores";
             // 
-            // managerBindingSource
-            // 
-            this.managerBindingSource.DataSource = typeof(VipChannel.Domain.Entity.Manager);
-            // 
-            // managerIdDataGridViewTextBoxColumn
-            // 
-            this.managerIdDataGridViewTextBoxColumn.DataPropertyName = "ManagerId";
-            this.managerIdDataGridViewTextBoxColumn.HeaderText = "ManagerId";
-            this.managerIdDataGridViewTextBoxColumn.Name = "managerIdDataGridViewTextBoxColumn";
-            this.managerIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.managerIdDataGridViewTextBoxColumn.Visible = false;
-            this.managerIdDataGridViewTextBoxColumn.Width = 67;
-            // 
-            // documentNumberDataGridViewTextBoxColumn
-            // 
-            this.documentNumberDataGridViewTextBoxColumn.DataPropertyName = "DocumentNumber";
-            this.documentNumberDataGridViewTextBoxColumn.HeaderText = "Número Documento";
-            this.documentNumberDataGridViewTextBoxColumn.Name = "documentNumberDataGridViewTextBoxColumn";
-            this.documentNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.documentNumberDataGridViewTextBoxColumn.Width = 135;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Apellidos";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // namesDataGridViewTextBoxColumn
-            // 
-            this.namesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.namesDataGridViewTextBoxColumn.DataPropertyName = "Names";
-            this.namesDataGridViewTextBoxColumn.HeaderText = "Nombres";
-            this.namesDataGridViewTextBoxColumn.Name = "namesDataGridViewTextBoxColumn";
-            this.namesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // FrmManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1011, 454);
+            this.ClientSize = new System.Drawing.Size(1051, 460);
             this.Controls.Add(this.fGroupBox2);
             this.Controls.Add(this.fGroupBox3);
             this.Controls.Add(this.fGroupBox1);
@@ -379,11 +395,11 @@
             this.Load += new System.EventHandler(this.FrmCajas_Load);
             this.fGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosRegistrados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).EndInit();
             this.fGroupBox3.ResumeLayout(false);
             this.fGroupBox1.ResumeLayout(false);
             this.fGroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectResponseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,5 +434,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn documentNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namesDataGridViewTextBoxColumn;
+        private Controles_Standar.FButtonActualizar btnAsignarZona;
     }
 }
